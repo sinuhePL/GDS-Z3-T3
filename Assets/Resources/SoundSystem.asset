@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9bda4f0baa26b48ae98bfc6a59d4fb, type: 3}
+  m_Name: SoundSystem
+  m_EditorClassIdentifier: 
+  _poolSize:
+    _useConstant: 1
+    _constantValue: 5
+    _variable: {fileID: 0}
+  _isOn:
+    _useConstant: 1
+    _constantValue: 1
+    _variable: {fileID: 0}
+  _soundVolume:
+    _useConstant: 1
+    _constantValue: 1
+    _variable: {fileID: 0}
+  _soundObjects:
+  - {fileID: 11400000, guid: ea0adfd3fef67144a9f4f3c29574ab2f, type: 2}
+  _events:
+  - {fileID: 11400000, guid: f88d1e453b4b00e4b9f0ed5a11a7d2a5, type: 2}

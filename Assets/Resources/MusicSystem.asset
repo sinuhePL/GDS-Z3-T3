@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f2b0142900c024788aca6cca7e4e49, type: 3}
+  m_Name: MusicSystem
+  m_EditorClassIdentifier: 
+  _isOn:
+    _useConstant: 1
+    _constantValue: 1
+    _variable: {fileID: 0}
+  _musicVolume:
+    _useConstant: 1
+    _constantValue: 0.5
+    _variable: {fileID: 0}
+  _transitionTime: 1
+  _musicObjects:
+  - {fileID: 11400000, guid: 846996eb580a1a341910bb82f6dc7ed5, type: 2}
+  - {fileID: 11400000, guid: 0c7c1737ab8f83142a4a8651a3585543, type: 2}
+  _events:
+  - {fileID: 11400000, guid: c901258602fa3d140902a866b17d1cc7, type: 2}
+  - {fileID: 11400000, guid: f88d1e453b4b00e4b9f0ed5a11a7d2a5, type: 2}
