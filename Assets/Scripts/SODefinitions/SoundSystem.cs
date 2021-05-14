@@ -69,7 +69,7 @@ public class SoundSystem : ScriptableObject, IListenable
         {
             if (!_instance)
             {
-                _instance = Resources.FindObjectsOfTypeAll<SoundSystem>()[0] as SoundSystem;
+                _instance = Resources.Load<SoundSystem>("SoundSystem");
                 _instance.Initialize();
             }
             if (!_instance)

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MusicSystem
   m_EditorClassIdentifier: 
   _isOn:
-    _useConstant: 1
+    _useConstant: 0
     _constantValue: 1
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: 33cbfcc8996350645ba581d19fe812e2, type: 2}
   _musicVolume:
     _useConstant: 1
     _constantValue: 0.5
@@ -26,4 +26,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0c7c1737ab8f83142a4a8651a3585543, type: 2}
   _events:
   - {fileID: 11400000, guid: c901258602fa3d140902a866b17d1cc7, type: 2}
-  - {fileID: 11400000, guid: f88d1e453b4b00e4b9f0ed5a11a7d2a5, type: 2}
