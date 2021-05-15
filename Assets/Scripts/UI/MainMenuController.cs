@@ -12,4 +12,9 @@ public class MainMenuController : MonoBehaviour
         GameObject settingsPanel = Instantiate(_settingsPrefab, transform);
         settingsPanel.transform.localPosition = new Vector3(0, 0, 0);
     }
+
+    public void QuitPressed()
+    {
+        Application.Quit();
+    }
 }

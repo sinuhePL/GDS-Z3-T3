@@ -21,9 +21,9 @@ MonoBehaviour:
     _constantValue: 1
     _variable: {fileID: 11400000, guid: c05fd6b68f9809f49845b4d74585bf47, type: 2}
   _soundVolume:
-    _useConstant: 1
+    _useConstant: 0
     _constantValue: 1
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: 2aaf8d5aec9c6f049b50e875d3ba510a, type: 2}
   _soundObjects:
   - {fileID: 11400000, guid: ea0adfd3fef67144a9f4f3c29574ab2f, type: 2}
   _events:

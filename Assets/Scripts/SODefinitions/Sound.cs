@@ -7,15 +7,15 @@ public class Sound : AudioEvent
 {
     [SerializeField]
     private AudioClip[] _clips;
-    [Range(0.0f, 1.0f)]
+    [Range(-0.25f, 0.25f)]
     [SerializeField]
     private float _volume;
 
-    public override float Play(AudioSource source)
+    public override float Play(AudioSource source, float volume)
     {
         if (_clips.Length == 0) return 0.0f;
         source.clip = _clips[Random.Range(0, _clips.Length)];
-        source.volume = _volume;
+        source.volume = volume + _volume;
         source.Play();
         return source.clip.length;
     }

@@ -17,12 +17,15 @@ MonoBehaviour:
     _constantValue: 1
     _variable: {fileID: 11400000, guid: 33cbfcc8996350645ba581d19fe812e2, type: 2}
   _musicVolume:
-    _useConstant: 1
+    _useConstant: 0
     _constantValue: 0.5
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: b720e5a48cdf6514fad14d71921908df, type: 2}
   _transitionTime: 1
   _musicObjects:
-  - {fileID: 11400000, guid: 846996eb580a1a341910bb82f6dc7ed5, type: 2}
-  - {fileID: 11400000, guid: 0c7c1737ab8f83142a4a8651a3585543, type: 2}
+  - {fileID: 11400000, guid: 00bdd8360155b3f45a28f0dea2be6718, type: 2}
   _events:
   - {fileID: 11400000, guid: c901258602fa3d140902a866b17d1cc7, type: 2}
+  _musicStateChangedEvent: {fileID: 11400000, guid: 7a86cc83172c9564e83ea979b5565441,
+    type: 2}
+  _musicVolumeChangedEvent: {fileID: 11400000, guid: dceb0ca1bacef474783aa914f06284ae,
+    type: 2}

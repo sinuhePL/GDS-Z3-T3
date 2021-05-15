@@ -98,7 +98,8 @@ public class SoundSystem : ScriptableObject, IListenable
                 if (sound._relatedEvent == gameEvent)
                 {
                     MyAudioSource freeAudioSource = GetMyAudioSource();
-                    float seconds = sound.Play(freeAudioSource._soundSource);
+                    freeAudioSource._soundSource.volume = _soundVolume.Value;
+                    float seconds = sound.Play(freeAudioSource._soundSource, _soundVolume.Value);
                     GameAssets._instance.StartCoroutine(ReleaseAudioSource(freeAudioSource, seconds));
                 }
             }

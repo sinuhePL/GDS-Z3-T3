@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class AudioEvent : ScriptableObject
 {
     public GameEvent _relatedEvent;
-    public abstract float Play(AudioSource source);
+    public abstract float Play(AudioSource source, float volume);
 }

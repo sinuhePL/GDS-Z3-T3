@@ -9,12 +9,16 @@ public class MusicSystem : ScriptableObject, IListenable
     private AudioSource _musicAudioSource1;
     private AudioSource _musicAudioSource2;
     private AudioSource _currentAudioSource;
+    private AudioEvent _lastPlayedMusic;
+    private int _turnOnCounter;
 
     public BoolReference _isOn;
     public FloatReference _musicVolume;
     public float _transitionTime = 1.0f;
     public AudioEvent[] _musicObjects;
     public GameEvent[] _events;
+    public GameEvent _musicStateChangedEvent;
+    public GameEvent _musicVolumeChangedEvent;
 
     private void Initialize()
     {
@@ -22,6 +26,9 @@ public class MusicSystem : ScriptableObject, IListenable
         {
             _event.RegisterListener(this);
         }
+        _musicStateChangedEvent.RegisterListener(this);
+        _musicVolumeChangedEvent.RegisterListener(this);
+        _turnOnCounter = 1;
     }
 
     private void OnDisable()
@@ -33,6 +40,8 @@ public class MusicSystem : ScriptableObject, IListenable
                 _event.UnregisterListener(this);
             }
         }
+        _musicStateChangedEvent.UnregisterListener(this);
+        _musicVolumeChangedEvent.UnregisterListener(this);
     }
 
     private IEnumerator UpdateMusicWithCrossFade(AudioSource original, AudioSource newSource, float transitionTime)
@@ -47,13 +56,13 @@ public class MusicSystem : ScriptableObject, IListenable
         original.Stop();
     }
 
-    private IEnumerator ResumeMusic(AudioEvent musicType, float seconds, AudioSource musicSource)
+    private IEnumerator ResumeMusic(AudioEvent musicType, float seconds, AudioSource musicSource, int invokeTurnOnCounter)
     {
         yield return new WaitForSeconds(seconds);
-        while (_currentAudioSource == musicSource)
+        while (_currentAudioSource == musicSource && _isOn.Value == true && invokeTurnOnCounter == _turnOnCounter)
         {
             float seconds2;
-            seconds2 = musicType.Play(musicSource);
+            seconds2 = musicType.Play(musicSource, _musicVolume.Value);
             yield return new WaitForSeconds(seconds2);
         }
     }
@@ -78,14 +87,35 @@ public class MusicSystem : ScriptableObject, IListenable
 
     public void OnEventRaised(GameEvent gameEvent)
     {
-        if (_isOn.Value)
+        float seconds;
+        if (_musicStateChangedEvent == gameEvent)
+        {
+            if (_currentAudioSource != null)
+            {
+                if (_isOn.Value == true)
+                {
+                    _turnOnCounter++;
+                    _currentAudioSource.volume = _musicVolume.Value;
+                    seconds = _lastPlayedMusic.Play(_currentAudioSource, _musicVolume.Value);
+                    GameAssets._instance.StartCoroutine(ResumeMusic(_lastPlayedMusic, seconds, _currentAudioSource, _turnOnCounter));
+                }
+                else if (_isOn.Value == false)
+                {
+                    _currentAudioSource.Stop();
+                }
+            }
+        }
+        else if(_musicVolumeChangedEvent == gameEvent)
+        {
+            _currentAudioSource.volume = _musicVolume.Value;
+        }
+        else if (_isOn.Value)
         {
             foreach (AudioEvent music in _musicObjects)
             {
                 if (music._relatedEvent == gameEvent)
                 {
-                    float seconds;
-                    if (_musicAudioSource1 == null)
+                    if (_currentAudioSource == null)
                     {
                         GameObject musicObject1 = new GameObject("Music Source 1");
                         _musicAudioSource1 = musicObject1.AddComponent<AudioSource>();
@@ -94,16 +124,19 @@ public class MusicSystem : ScriptableObject, IListenable
                         _musicAudioSource1.loop = false;
                         _musicAudioSource2.loop = false;
                         _currentAudioSource = _musicAudioSource1;
-                        seconds = music.Play(_currentAudioSource);
+                        _currentAudioSource.volume = _musicVolume.Value;
+                        seconds = music.Play(_currentAudioSource, _musicVolume.Value);
                     }
                     else
                     {
                         AudioSource newAudioSource = (_musicAudioSource1 == _currentAudioSource) ? _musicAudioSource2 : _musicAudioSource1;
-                        seconds = music.Play(newAudioSource);
+                        newAudioSource.volume = _musicVolume.Value;
+                        seconds = music.Play(newAudioSource, _musicVolume.Value);
                         GameAssets._instance.StartCoroutine(UpdateMusicWithCrossFade(_currentAudioSource, newAudioSource, _transitionTime));
                         _currentAudioSource = newAudioSource;
                     }
-                    GameAssets._instance.StartCoroutine(ResumeMusic(music, seconds, _currentAudioSource));
+                    GameAssets._instance.StartCoroutine(ResumeMusic(music, seconds, _currentAudioSource, _turnOnCounter));
+                    _lastPlayedMusic = music;
                 }
             }
         }
