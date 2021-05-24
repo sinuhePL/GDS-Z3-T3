@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "myFloat", menuName = "Scriptable Objects/Float Variable")]
-public class FloatVariable : ScriptableObject
+namespace GDS3
 {
-    public float Value;
+    [CreateAssetMenu(fileName = "myFloat", menuName = "Scriptable Objects/Float Variable")]
+    public class FloatVariable : ScriptableObject
+    {
+        public float Value;
+    }
 }

@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "mySound", menuName = "Scriptable Objects/Sound")]
-public class Sound : AudioEvent
+namespace GDS3
 {
-    [SerializeField]
-    private AudioClip[] _clips;
-    [Range(-0.25f, 0.25f)]
-    [SerializeField]
-    private float _volume;
-
-    public override float Play(AudioSource source, float volume)
+    [CreateAssetMenu(fileName = "mySound", menuName = "Scriptable Objects/Sound")]
+    public class Sound : AudioEvent
     {
-        if (_clips.Length == 0) return 0.0f;
-        source.clip = _clips[Random.Range(0, _clips.Length)];
-        source.volume = volume + _volume;
-        source.Play();
-        return source.clip.length;
+        [SerializeField]
+        private AudioClip[] _clips;
+        [Range(-0.25f, 0.25f)]
+        [SerializeField]
+        private float _volume;
+
+        public override float Play(AudioSource source, float volume)
+        {
+            if (_clips.Length == 0) return 0.0f;
+            source.clip = _clips[Random.Range(0, _clips.Length)];
+            source.volume = volume + _volume;
+            source.Play();
+            return source.clip.length;
+        }
     }
 }

@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "myEvent", menuName = "Scriptable Objects/Game Event")]
-public class GameEvent : ScriptableObject
+namespace GDS3
 {
-    private List<IListenable> _listeners = new List<IListenable>();
-    
-    public void Raise()
+    [CreateAssetMenu(fileName = "myEvent", menuName = "Scriptable Objects/Game Event")]
+    public class GameEvent : ScriptableObject
     {
-        for(int i = _listeners.Count -1; i>=0; i--)
+        private List<IListenable> _listeners = new List<IListenable>();
+
+        public void Raise()
         {
-            _listeners[i].OnEventRaised(this);
+            for (int i = _listeners.Count - 1; i >= 0; i--)
+            {
+                _listeners[i].OnEventRaised(this);
+            }
         }
-    }
 
-    public void RegisterListener(IListenable listener)
-    {
-        _listeners.Add(listener);
-    }
+        public void RegisterListener(IListenable listener)
+        {
+            _listeners.Add(listener);
+        }
 
-    public void UnregisterListener(IListenable listener)
-    {
-        _listeners.Remove(listener);
+        public void UnregisterListener(IListenable listener)
+        {
+            _listeners.Remove(listener);
+        }
     }
 }

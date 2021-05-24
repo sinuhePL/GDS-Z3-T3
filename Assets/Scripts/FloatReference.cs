@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
-public class FloatReference
+namespace GDS3
 {
-    public bool _useConstant = true;
-    public float _constantValue;
-    public FloatVariable _variable;
-
-    public float Value
+    [Serializable]
+    public class FloatReference
     {
-        get
-        {
-            return _useConstant ? _constantValue : _variable.Value;
-        }
+        public bool _useConstant = true;
+        public float _constantValue;
+        public FloatVariable _variable;
 
-        set
+        public float Value
         {
-            if (_useConstant)
+            get
             {
-                _constantValue = value;
+                return _useConstant ? _constantValue : _variable.Value;
             }
-            else
+
+            set
             {
-                _variable.Value = value;
+                if (_useConstant)
+                {
+                    _constantValue = value;
+                }
+                else
+                {
+                    _variable.Value = value;
+                }
             }
         }
     }

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IListenable 
+namespace GDS3
 {
-    void OnEventRaised(GameEvent _event);
+    public interface IListenable
+    {
+        void OnEventRaised(GameEvent _event);
+    }
 }

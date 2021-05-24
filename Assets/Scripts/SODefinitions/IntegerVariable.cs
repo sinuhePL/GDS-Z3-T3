@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "myInteger", menuName = "Scriptable Objects/Integer Variable")]
-public class IntegerVariable : ScriptableObject
+namespace GDS3
 {
-    public int Value;
+    [CreateAssetMenu(fileName = "myInteger", menuName = "Scriptable Objects/Integer Variable")]
+    public class IntegerVariable : ScriptableObject
+    {
+        public int Value;
+    }
 }

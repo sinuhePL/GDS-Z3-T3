@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
-public class IntegerReference 
+namespace GDS3
 {
-    public bool _useConstant = true;
-    public int _constantValue;
-    public IntegerVariable _variable;
-
-    public int Value
+    [Serializable]
+    public class IntegerReference
     {
-        get
-        {
-            return _useConstant ? _constantValue : _variable.Value;
-        }
+        public bool _useConstant = true;
+        public int _constantValue;
+        public IntegerVariable _variable;
 
-        set
+        public int Value
         {
-            if (_useConstant)
+            get
             {
-                _constantValue = value;
+                return _useConstant ? _constantValue : _variable.Value;
             }
-            else
+
+            set
             {
-                _variable.Value = value;
+                if (_useConstant)
+                {
+                    _constantValue = value;
+                }
+                else
+                {
+                    _variable.Value = value;
+                }
             }
         }
     }

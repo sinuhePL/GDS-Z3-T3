@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class BackButtonController : MonoBehaviour
+namespace GDS3
 {
-    [SerializeField]
-
-    public void BackButtonPressed()
+    public class BackButtonController : MonoBehaviour
     {
-        Destroy(gameObject);
+        [SerializeField]
+
+        public void BackButtonPressed()
+        {
+            Destroy(gameObject);
+        }
     }
 }

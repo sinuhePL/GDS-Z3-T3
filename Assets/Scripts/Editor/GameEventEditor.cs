@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(GameEvent), true)]
-public class GameEventEditor : Editor
+namespace GDS3
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(GameEvent), true)]
+    public class GameEventEditor : Editor
     {
-        DrawDefaultInspector();
-
-        EditorGUI.BeginDisabledGroup(serializedObject.isEditingMultipleObjects);
-        if (GUILayout.Button("Raise"))
+        public override void OnInspectorGUI()
         {
-            ((GameEvent)target).Raise();
+            DrawDefaultInspector();
+
+            EditorGUI.BeginDisabledGroup(serializedObject.isEditingMultipleObjects);
+            if (GUILayout.Button("Raise"))
+            {
+                ((GameEvent)target).Raise();
+            }
+            EditorGUI.EndDisabledGroup();
         }
-        EditorGUI.EndDisabledGroup();
     }
 }

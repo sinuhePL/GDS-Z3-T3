@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour
+namespace GDS3
 {
-    [SerializeField]
-    private GameObject _settingsPrefab;
-
-    public void SettingsPressed()
+    public class MainMenuController : MonoBehaviour
     {
-        GameObject settingsPanel = Instantiate(_settingsPrefab, transform);
-        settingsPanel.transform.localPosition = new Vector3(0, 0, 0);
-    }
+        [SerializeField]
+        private GameObject _settingsPrefab;
 
-    public void QuitPressed()
-    {
-        Application.Quit();
+        public void SettingsPressed()
+        {
+            GameObject settingsPanel = Instantiate(_settingsPrefab, transform);
+            settingsPanel.transform.localPosition = new Vector3(0, 0, 0);
+        }
+
+        public void QuitPressed()
+        {
+            Application.Quit();
+        }
     }
 }

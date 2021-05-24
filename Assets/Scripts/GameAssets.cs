@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameAssets : MonoBehaviour
+namespace GDS3
 {
-    public static GameAssets _instance;
-
-    private void Awake()
+    public class GameAssets : MonoBehaviour
     {
-        if (_instance == null)
-            _instance = this;
-        else
+        public static GameAssets _instance;
+
+        private void Awake()
         {
-            Destroy(this);
+            if (_instance == null)
+                _instance = this;
+            else
+            {
+                Destroy(this);
+            }
         }
     }
 }

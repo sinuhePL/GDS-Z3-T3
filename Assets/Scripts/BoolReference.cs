@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
-public class BoolReference
+namespace GDS3
 {
-    public bool _useConstant = true;
-    public bool _constantValue;
-    public BoolVariable _variable;
-
-    public bool Value
+    [Serializable]
+    public class BoolReference
     {
-        get
-        {
-            return _useConstant ? _constantValue : _variable.Value;
-        }
+        public bool _useConstant = true;
+        public bool _constantValue;
+        public BoolVariable _variable;
 
-        set
+        public bool Value
         {
-            if (_useConstant)
+            get
             {
-                _constantValue = value;
+                return _useConstant ? _constantValue : _variable.Value;
             }
-            else
+
+            set
             {
-                _variable.Value = value;
+                if (_useConstant)
+                {
+                    _constantValue = value;
+                }
+                else
+                {
+                    _variable.Value = value;
+                }
             }
         }
     }

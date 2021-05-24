@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameManager : MonoBehaviour
+namespace GDS3
 {
-    public GameEvent _event;
-    public GameEvent _event2;
-    public UnityEvent _startScene;
-
-    private void OnEnable()
+    public class GameManager : MonoBehaviour
     {
-        Debug.Log(SoundSystem.Instance._isOn.Value);
-        Debug.Log(MusicSystem.Instance._isOn.Value);
-    }
+        public GameEvent _event;
+        public GameEvent _event2;
+        public UnityEvent _startScene;
 
-    private void Start()
-    {
-        _startScene.Invoke();
+        private void OnEnable()
+        {
+            Debug.Log(SoundSystem.Instance._isOn.Value);
+            Debug.Log(MusicSystem.Instance._isOn.Value);
+        }
+
+        private void Start()
+        {
+            _startScene.Invoke();
+        }
     }
 }
