@@ -6,8 +6,7 @@ namespace GDS3
 {
     public class MainMenuController : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject _settingsPrefab;
+        [SerializeField] private GameObject _settingsPrefab;
 
         public void SettingsPressed()
         {

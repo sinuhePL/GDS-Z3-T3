@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 namespace GDS3
 {
     public class GameEventListener : MonoBehaviour, IListenable
     {
+        [Serializable] public class UnityGameEvent : UnityEvent<GameEvent> { }
         public GameEvent[] _events;
-        public UnityEvent<GameEvent> _response;
+        public UnityGameEvent _response = new UnityGameEvent();
 
         private void OnEnable()
         {

@@ -9,6 +9,8 @@ namespace GDS3
     {
         public FloatReference _maxMovementVelocity;
         public FloatReference _jumpForce;
+        public BoolReference _isSmallSize;
+        public FloatReference _sizeChangeFactor;
         private GameCharacterController _controlledCharacter;
         private float _horizontalMove;
         private bool _jumpPressed = false;
@@ -29,10 +31,15 @@ namespace GDS3
 
         public override void ThinkAboutPhysics()
         {
-            _controlledCharacter.MoveMe(_horizontalMove * _maxMovementVelocity.Value);
+            float sizeModifier = 1.0f;
+            if(_isSmallSize.Value)
+            {
+                sizeModifier = 1 / _sizeChangeFactor.Value;
+            }
+            _controlledCharacter.MoveMe(_horizontalMove * _maxMovementVelocity.Value * sizeModifier);
             if(_jumpPressed)
             {
-                _controlledCharacter.JumpMe(_jumpForce.Value);
+                _controlledCharacter.JumpMe(_jumpForce.Value * sizeModifier);
                 _jumpPressed = false;
             }
         }

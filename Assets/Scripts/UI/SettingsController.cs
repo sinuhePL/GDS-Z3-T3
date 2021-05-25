@@ -7,22 +7,14 @@ namespace GDS3
 {
     public class SettingsController : MonoBehaviour
     {
-        [SerializeField]
-        private BoolReference _isSoundOn;
-        [SerializeField]
-        private BoolReference _isMusicOn;
-        [SerializeField]
-        private FloatReference _soundVolume;
-        [SerializeField]
-        private FloatReference _musicVolume;
-        [SerializeField]
-        private Toggle _soundToggle;
-        [SerializeField]
-        private Toggle _musicToggle;
-        [SerializeField]
-        private Slider _soundVolumeSlider;
-        [SerializeField]
-        private Slider _musicVolumeSlider;
+        [SerializeField] private BoolReference _isSoundOn;
+        [SerializeField] private BoolReference _isMusicOn;
+        [SerializeField] private FloatReference _soundVolume;
+        [SerializeField] private FloatReference _musicVolume;
+        [SerializeField] private Toggle _soundToggle;
+        [SerializeField] private Toggle _musicToggle;
+        [SerializeField] private Slider _soundVolumeSlider;
+        [SerializeField] private Slider _musicVolumeSlider;
 
         private void Start()
         {

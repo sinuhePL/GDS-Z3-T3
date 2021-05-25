@@ -7,11 +7,8 @@ namespace GDS3
     [CreateAssetMenu(fileName = "mySound", menuName = "Scriptable Objects/Sound")]
     public class Sound : AudioEvent
     {
-        [SerializeField]
-        private AudioClip[] _clips;
-        [Range(-0.25f, 0.25f)]
-        [SerializeField]
-        private float _volume;
+        [SerializeField] private AudioClip[] _clips;
+        [Range(-0.25f, 0.25f)] [SerializeField] private float _volume;
 
         public override float Play(AudioSource source, float volume)
         {
