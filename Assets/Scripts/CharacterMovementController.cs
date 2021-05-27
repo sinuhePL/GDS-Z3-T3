@@ -18,10 +18,10 @@ public class CharacterMovementController
         _controlledTransform.localScale = theScale;
     }
 
-    public CharacterMovementController(Rigidbody2D parentBody, Transform parentTransform, bool isStartingFacingRight, float smoothing)
+    public CharacterMovementController(Rigidbody2D parentBody, bool isStartingFacingRight, float smoothing)
     {
         _controlledBody = parentBody;
-        _controlledTransform = parentTransform;
+        _controlledTransform = parentBody.gameObject.transform;;
         _movementSmoothing = smoothing;
         if(!isStartingFacingRight)
         {
