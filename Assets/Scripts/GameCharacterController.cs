@@ -5,12 +5,9 @@ using UnityEngine.Events;
 
 namespace GDS3
 {
-    public class GameCharacterController : MonoBehaviour
+    public class GameCharacterController : MonoBehaviour, IResizable
     {
         [SerializeField] private BoolReference _isSmallSize;
-        [SerializeField] private FloatReference _sizeChangeTime;
-        [SerializeField] private FloatReference _sizeChangeFactor;
-        [SerializeField] private Vector3Reference _sizeChangePosition;
         [SerializeField] private CharacterBrain _myBrain;
         [SerializeField] private CharacterJumpController _myJump;
         [SerializeField] private Collider2D _myCollider;
@@ -40,11 +37,13 @@ namespace GDS3
             _myBrain.ThinkAboutPhysics();
         }
 
-        private IEnumerator ChangeSize(float factor)
+        public IEnumerator Resize(float resizeFactor, float resizeTime)
         {
             bool isFacingRight;
             float currentScaleX, currentScaleY;
 
+            _isSmallSize.Value = !_isSmallSize.Value;
+            _changeSizeEvent.Invoke();
             if (transform.localScale.x > 0.0)
             {
                 isFacingRight = true;
@@ -53,38 +52,25 @@ namespace GDS3
             {
                 isFacingRight = false;
             }
-            float targetScaleX = transform.localScale.x * factor;
-            float targetScaleY = transform.localScale.y * factor;
-            for (float t = 0; t < _sizeChangeTime.Value; t += Time.deltaTime)
+            float targetScaleX = transform.localScale.x * resizeFactor;
+            float targetScaleY = transform.localScale.y * resizeFactor;
+            for (float t = 0; t < resizeTime; t += Time.deltaTime)
             {
-                if(isFacingRight && transform.localScale.x < 0.0 || !isFacingRight && transform.localScale.x > 0.0) // used when character orientation fliped during shrinking
+                if (isFacingRight && transform.localScale.x < 0.0 || !isFacingRight && transform.localScale.x > 0.0) // used when character orientation fliped during shrinking
                 {
                     isFacingRight = !isFacingRight;
                     targetScaleX = -targetScaleX;
                 }
-                currentScaleX = Mathf.Lerp(transform.localScale.x, targetScaleX, t / _sizeChangeTime.Value);
-                currentScaleY = Mathf.Lerp(transform.localScale.y, targetScaleY, t / _sizeChangeTime.Value);
+                currentScaleX = Mathf.Lerp(transform.localScale.x, targetScaleX, t / resizeTime);
+                currentScaleY = Mathf.Lerp(transform.localScale.y, targetScaleY, t / resizeTime);
                 transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
                 yield return 0;
             }
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        public bool CheckIfSmall()
         {
-            if (collision.gameObject.tag == "Shrinker" && !_isSmallSize.Value)
-            {
-                StartCoroutine(ChangeSize(1 / _sizeChangeFactor.Value));
-                _isSmallSize.Value = true;
-                _sizeChangePosition.Value = transform.position;
-                _changeSizeEvent.Invoke();
-            }
-            else if (collision.gameObject.tag == "Enlarger" && _isSmallSize.Value)
-            { 
-                StartCoroutine(ChangeSize(_sizeChangeFactor.Value));
-                _isSmallSize.Value = false;
-                _sizeChangePosition.Value = transform.position;
-                _changeSizeEvent.Invoke();
-            }
+            return _isSmallSize.Value;
         }
 
         public void MoveMe(float moveSpeed)
