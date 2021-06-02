@@ -34,9 +34,9 @@ namespace GDS3
             float sizeModifier = 1.0f;
             if(_isSmallSize.Value)
             {
-                sizeModifier = 1 / _sizeChangeFactor.Value;
+                sizeModifier = 2 / _sizeChangeFactor.Value;
             }
-            _controlledCharacter.MoveMe(_horizontalMove * _maxMovementVelocity.Value);
+            _controlledCharacter.MoveMe(_horizontalMove * _maxMovementVelocity.Value * sizeModifier);
             if(_jumpPressed)
             {
                 _controlledCharacter.JumpMe(_jumpForce.Value * sizeModifier);
