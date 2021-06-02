@@ -247,7 +247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 116091717}
-  _virtualCamera: {fileID: 0}
   _isSmallSize:
     _useConstant: 0
     _constantValue: 0
@@ -260,6 +259,11 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: db5aae758dfdd4248a2e07f04a685902, type: 2}
+  _followTarget: {fileID: 800850224}
+  _xTargetOffset: 2
+  _yTargetOffset: 4.2
+  _xTargetDeadZone: 1
+  _yTargetDeadZone: 0
 --- !u!1 &424783599
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +472,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!4 &800850224 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2364307010229973598, guid: dde2588f5e0bc7b4ab407c1ae99bd5c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1411633342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &800850225
 MonoBehaviour:
   m_ObjectHideFlags: 0
