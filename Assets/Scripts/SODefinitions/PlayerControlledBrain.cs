@@ -36,7 +36,7 @@ namespace GDS3
             {
                 sizeModifier = 2 / _sizeChangeFactor.Value;
             }
-            _controlledCharacter.MoveMe(_horizontalMove * _maxMovementVelocity.Value * sizeModifier);
+            _controlledCharacter.MoveMe(_horizontalMove * _maxMovementVelocity.Value);
             if(_jumpPressed)
             {
                 _controlledCharacter.JumpMe(_jumpForce.Value * sizeModifier);

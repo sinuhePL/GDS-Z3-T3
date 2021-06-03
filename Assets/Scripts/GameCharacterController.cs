@@ -9,8 +9,7 @@ namespace GDS3
     {
         [SerializeField] private BoolReference _isSmallSize;
         [SerializeField] private CharacterBrain _myBrain;
-        [SerializeField] private CharacterJumpController _myJump;
-        [SerializeField] private Collider2D _myCollider;
+        [SerializeField] private FloatReference _myMaxVelocity;
         /*[SerializeField] private CharacterAttackController _myAttack;*/
         [SerializeField] private Animator _myAnimator;
         [SerializeField] private Rigidbody2D _myBody;
@@ -18,6 +17,7 @@ namespace GDS3
         [Range(0, .3f)] [SerializeField] private float _movementSmoothing = 0.05f;
         public UnityEvent _changeSizeEvent;
         private CharacterMovementController _myMovement;
+        private CharacterJumpController _myJump;
 
         private void Awake()
         {
@@ -52,20 +52,30 @@ namespace GDS3
             {
                 isFacingRight = false;
             }
+            float startingScaleX = transform.localScale.x;
             float targetScaleX = transform.localScale.x * resizeFactor;
+            float startingScaleY = transform.localScale.y;
             float targetScaleY = transform.localScale.y * resizeFactor;
+            float startingMaxVelocity = _myMaxVelocity.Value;
+            float targetMaxVelocity = _myMaxVelocity.Value * resizeFactor;
             for (float t = 0; t < resizeTime; t += Time.deltaTime)
             {
-                if (isFacingRight && transform.localScale.x < 0.0 || !isFacingRight && transform.localScale.x > 0.0) // used when character orientation fliped during shrinking
+                float interpolationPoint = t / resizeTime;
+                interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);
+                if (isFacingRight && transform.localScale.x < 0.0 || !isFacingRight && transform.localScale.x > 0.0) // used when character orientation flipped during shrinking
                 {
                     isFacingRight = !isFacingRight;
                     targetScaleX = -targetScaleX;
+                    startingScaleX = -startingScaleX;
                 }
-                currentScaleX = Mathf.Lerp(transform.localScale.x, targetScaleX, t / resizeTime);
-                currentScaleY = Mathf.Lerp(transform.localScale.y, targetScaleY, t / resizeTime);
+                currentScaleX = Mathf.Lerp(startingScaleX, targetScaleX, interpolationPoint);
+                currentScaleY = Mathf.Lerp(startingScaleY, targetScaleY, interpolationPoint);
                 transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
+                _myMaxVelocity.Value = Mathf.Lerp(startingMaxVelocity, targetMaxVelocity, interpolationPoint);
                 yield return 0;
             }
+            transform.localScale = new Vector3(targetScaleX, targetScaleY, 0.0f);
+            _myMaxVelocity.Value = targetMaxVelocity;
         }
 
         public bool CheckIfSmall()

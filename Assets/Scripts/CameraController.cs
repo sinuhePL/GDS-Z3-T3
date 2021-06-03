@@ -19,20 +19,32 @@ namespace GDS3
 
         private IEnumerator Zoom(float factor)
         {
+            float startingSize = _camera.orthographicSize;
             float newSize = _camera.orthographicSize * factor;
+            float startingXTargetOffset = _xTargetOffset;
             float newXTargetOffset = _xTargetOffset * factor;
+            float startingYTargetOffset = _yTargetOffset;
             float newYTargetOffset = _yTargetOffset * factor;
+            float startingXTargetDeadZone = _xTargetDeadZone;
             float newXTargetDeadZone = _xTargetDeadZone * factor;
+            float startingYTargetDeadZone = _yTargetDeadZone;
             float newYTargetDeadZone = _yTargetDeadZone * factor;
             for (float t = 0; t < _sizeChangeTime.Value; t += Time.deltaTime)
             {
-                _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, newSize, t / _sizeChangeTime.Value);
-                _xTargetOffset = Mathf.Lerp(_xTargetOffset, newXTargetOffset, t / _sizeChangeTime.Value);
-                _yTargetOffset = Mathf.Lerp(_yTargetOffset, newYTargetOffset, t / _sizeChangeTime.Value);
-                _xTargetDeadZone = Mathf.Lerp(_xTargetDeadZone, newXTargetDeadZone, t / _sizeChangeTime.Value);
-                _yTargetDeadZone = Mathf.Lerp(_yTargetDeadZone, newYTargetDeadZone, t / _sizeChangeTime.Value);
+                float interpolationPoint = t / _sizeChangeTime.Value;
+                interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);
+                _camera.orthographicSize = Mathf.Lerp(startingSize, newSize, interpolationPoint);
+                _xTargetOffset = Mathf.Lerp(startingXTargetOffset, newXTargetOffset, interpolationPoint);
+                _yTargetOffset = Mathf.Lerp(startingYTargetOffset, newYTargetOffset, interpolationPoint);
+                _xTargetDeadZone = Mathf.Lerp(startingXTargetDeadZone, newXTargetDeadZone, interpolationPoint);
+                _yTargetDeadZone = Mathf.Lerp(startingYTargetDeadZone, newYTargetDeadZone, interpolationPoint);
                 yield return 0;
             }
+            _camera.orthographicSize = newSize;
+            _xTargetOffset = newXTargetOffset;
+            _yTargetOffset = newYTargetOffset;
+            _xTargetDeadZone = newXTargetDeadZone;
+            _yTargetDeadZone = newYTargetDeadZone;
         }
 
         private void Update()
