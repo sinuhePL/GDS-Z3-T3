@@ -23,7 +23,7 @@ namespace GDS3
         {
             _myMovement = new CharacterMovementController(_myBody, _isFacingRight, _movementSmoothing);
             _myJump = new CharacterJumpController(_myBody);
-            _myBrain.Initialize(this);
+            _myBrain.Initialize(this, _myBody);
             _isSmallSize.Value = false;
         }
 
@@ -40,7 +40,7 @@ namespace GDS3
         public IEnumerator Resize(float resizeFactor, float resizeTime)
         {
             bool isFacingRight;
-            float currentScaleX, currentScaleY;
+            float currentScaleX, currentScaleY, interpolationPoint;
 
             _isSmallSize.Value = !_isSmallSize.Value;
             _changeSizeEvent.Invoke();
@@ -60,7 +60,7 @@ namespace GDS3
             float targetMaxVelocity = _myMaxVelocity.Value * resizeFactor;
             for (float t = 0; t < resizeTime; t += Time.deltaTime)
             {
-                float interpolationPoint = t / resizeTime;
+                interpolationPoint = t / resizeTime;
                 interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);
                 if (isFacingRight && transform.localScale.x < 0.0 || !isFacingRight && transform.localScale.x > 0.0) // used when character orientation flipped during shrinking
                 {
@@ -89,9 +89,9 @@ namespace GDS3
             _myAnimator.SetFloat("walk_speed", Mathf.Abs(moveSpeed));
         }
 
-        public void JumpMe(float jumpForce)
+        public void JumpMe(float jumpYVelocity)
         {
-            _myJump.Jump(jumpForce);
+            _myJump.Jump(jumpYVelocity);
         }
     }
 }

@@ -12,16 +12,20 @@ namespace GDS3
 
         private IEnumerator ChangeSize()
         {
-            float currentScaleX, currentScaleY;
+            float currentScaleX, currentScaleY, interpolationPoint;
+            Vector3 startingScale = _startScale;
             Vector3 targetScale = new Vector3(0.0f, 0.0f, 0.0f);
             if(_isSmallSize.Value)
             {
                 targetScale = _startScale;
+                startingScale = new Vector3(0.0f, 0.0f, 0.0f);
             }
             for (float t = 0; t < _sizeChangeTime.Value; t += Time.deltaTime)
             {
-                currentScaleX = Mathf.Lerp(transform.localScale.x, targetScale.x, t / _sizeChangeTime.Value);
-                currentScaleY = Mathf.Lerp(transform.localScale.y, targetScale.y, t / _sizeChangeTime.Value);
+                interpolationPoint = t / _sizeChangeTime.Value;
+                interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);
+                currentScaleX = Mathf.Lerp(startingScale.x, targetScale.x, interpolationPoint);
+                currentScaleY = Mathf.Lerp(startingScale.y, targetScale.y, interpolationPoint);
                 transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
                 yield return 0;
             }

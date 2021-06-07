@@ -16,9 +16,13 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 5
     _variable: {fileID: 11400000, guid: a8cc2d9db4db8b941a38e55e01247a5e, type: 2}
-  _jumpForce:
+  _jumpTime:
     _useConstant: 1
-    _constantValue: 700
+    _constantValue: 1
+    _variable: {fileID: 0}
+  _jumpHeight:
+    _useConstant: 1
+    _constantValue: 2.5
     _variable: {fileID: 0}
   _isSmallSize:
     _useConstant: 0

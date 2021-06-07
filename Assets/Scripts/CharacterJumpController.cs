@@ -11,8 +11,8 @@ public class CharacterJumpController
         _controlledBody = parentBody;
     }
 
-    public void Jump(float jumpForce)
+    public void Jump(float jumpYVelocity)
     {
-        _controlledBody.AddForce(new Vector2(0f, jumpForce));
+        _controlledBody.velocity = new Vector2(_controlledBody.velocity.x, jumpYVelocity);
     }
 }
