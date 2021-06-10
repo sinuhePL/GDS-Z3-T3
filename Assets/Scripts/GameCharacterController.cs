@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace GDS3
 {
-    public class GameCharacterController : MonoBehaviour, IResizable
+    public class GameCharacterController : MonoBehaviour, IResizable, IControllable
     {
         [SerializeField] private BoolReference _isSmallSize;
         [SerializeField] private CharacterBrain _myBrain;
@@ -14,16 +14,15 @@ namespace GDS3
         [SerializeField] private Animator _myAnimator;
         [SerializeField] private Rigidbody2D _myBody;
         [SerializeField] private bool _isFacingRight;
-        [Range(0, .3f)] [SerializeField] private float _movementSmoothing = 0.05f;
         public UnityEvent _changeSizeEvent;
         private CharacterMovementController _myMovement;
         private CharacterJumpController _myJump;
 
         private void Awake()
         {
-            _myMovement = new CharacterMovementController(_myBody, _isFacingRight, _movementSmoothing);
+            _myMovement = new CharacterMovementController(_myBody, _isFacingRight);
             _myJump = new CharacterJumpController(_myBody);
-            _myBrain.Initialize(this, _myBody);
+            _myBrain.Initialize(this);
             _isSmallSize.Value = false;
         }
 
@@ -83,15 +82,31 @@ namespace GDS3
             return _isSmallSize.Value;
         }
 
+        public Rigidbody2D GetRigidbody2D()
+        {
+            return _myBody;
+        }
+
+        public Transform GetTransform()
+        {
+            return transform;
+        }
+
         public void MoveMe(float moveSpeed)
         {
             _myMovement.Move(moveSpeed);
             _myAnimator.SetFloat("walk_speed", Mathf.Abs(moveSpeed));
         }
 
-        public void JumpMe(float jumpYVelocity)
+        public void Jump(float jumpYVelocity)
         {
             _myJump.Jump(jumpYVelocity);
         }
+
+        public void ApplyForce(Vector2 force)
+        {
+            _myMovement.ApplyForce(force);
+        }
+
     }
 }

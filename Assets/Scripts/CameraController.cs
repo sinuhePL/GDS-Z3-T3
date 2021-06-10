@@ -27,8 +27,8 @@ namespace GDS3
             float newYTargetOffset = _yTargetOffset * factor;
             float startingXTargetDeadZone = _xTargetDeadZone;
             float newXTargetDeadZone = _xTargetDeadZone * factor;
-            float startingYTargetDeadZone = _yTargetDeadZone;
             float newYTargetDeadZone = _yTargetDeadZone * factor;
+            _yTargetDeadZone = 0.0f;
             for (float t = 0; t < _sizeChangeTime.Value; t += Time.deltaTime)
             {
                 float interpolationPoint = t / _sizeChangeTime.Value;
@@ -37,7 +37,6 @@ namespace GDS3
                 _xTargetOffset = Mathf.Lerp(startingXTargetOffset, newXTargetOffset, interpolationPoint);
                 _yTargetOffset = Mathf.Lerp(startingYTargetOffset, newYTargetOffset, interpolationPoint);
                 _xTargetDeadZone = Mathf.Lerp(startingXTargetDeadZone, newXTargetDeadZone, interpolationPoint);
-                _yTargetDeadZone = Mathf.Lerp(startingYTargetDeadZone, newYTargetDeadZone, interpolationPoint);
                 yield return 0;
             }
             _camera.orthographicSize = newSize;
@@ -49,11 +48,9 @@ namespace GDS3
 
         private void Update()
         {
-            Vector3 targetScreenPosition = _camera.WorldToScreenPoint(_followTarget.position);
-            Vector3 newCameraWorldPosition = _camera.ScreenToWorldPoint(targetScreenPosition);
-            float newXCameraPosition = newCameraWorldPosition.x + _xTargetOffset;
-            float newYCameraPosition = newCameraWorldPosition.y + _yTargetOffset;
-            if(Mathf.Abs(newXCameraPosition - transform.position.x) < _xTargetDeadZone)
+            float newXCameraPosition = _followTarget.position.x + _xTargetOffset;
+            float newYCameraPosition = _followTarget.position.y + _yTargetOffset;
+            if (Mathf.Abs(newXCameraPosition - transform.position.x) < _xTargetDeadZone)
             {
                 newXCameraPosition = transform.position.x;
             }
@@ -68,7 +65,7 @@ namespace GDS3
                     newXCameraPosition += _xTargetDeadZone;
                 }
             }
-            if (Mathf.Abs(newYCameraPosition - transform.position.y) < _yTargetDeadZone)
+            if (Mathf.Abs(newYCameraPosition - transform.position.y) < _yTargetDeadZone && newYCameraPosition > transform.position.y)
             {
                 newYCameraPosition = transform.position.y;
             }
@@ -78,12 +75,13 @@ namespace GDS3
                 {
                     newYCameraPosition -= _yTargetDeadZone;
                 }
-                else
-                {
-                    newYCameraPosition += _yTargetDeadZone;
-                }
             }
-            transform.position = new Vector3(newXCameraPosition, newYCameraPosition, -10.0f); ;
+            transform.position = new Vector3(newXCameraPosition, newYCameraPosition, -10.0f);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawWireCube(new Vector3(transform.position.x - _xTargetOffset, transform.position.y - _yTargetOffset + _yTargetDeadZone/2, 0.0f), new Vector3(_xTargetDeadZone, _yTargetDeadZone, 0.0f));
         }
 
         public void ChangeZoom()
