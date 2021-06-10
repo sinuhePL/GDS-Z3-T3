@@ -49,5 +49,10 @@ namespace GDS3
                 _jumpPressed = false;
             }
         }
+
+        public override void DrawGizmo()
+        {
+
+        }
     }
 }

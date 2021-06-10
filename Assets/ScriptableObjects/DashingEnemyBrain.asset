@@ -12,22 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b443b0cfc46b4a644b2e6204ed313caa, type: 3}
   m_Name: DashingEnemyBrain
   m_EditorClassIdentifier: 
-  _patrolRange:
-    _useConstant: 1
-    _constantValue: 5
-    _variable: {fileID: 0}
+  _patrolRange: 5
   _movementVelocity:
     _useConstant: 1
     _constantValue: 1
     _variable: {fileID: 0}
-  _dashVelocity:
+  _dashForce:
     _useConstant: 1
-    _constantValue: 7
+    _constantValue: 10
     _variable: {fileID: 0}
-  _attackRange:
-    _useConstant: 1
-    _constantValue: 9
-    _variable: {fileID: 0}
+  _playerDetectionZoneWidth: 12
+  _playerDetectionZoneHeight: 3
   _playerMask:
     serializedVersion: 2
     m_Bits: 256

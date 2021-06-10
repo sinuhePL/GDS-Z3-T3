@@ -9,5 +9,6 @@ namespace GDS3
         public virtual void Initialize(IControllable character) { }
         public abstract void ThinkAboutAnimation(float deltaTime);
         public abstract void ThinkAboutPhysics();
+        public abstract void DrawGizmo();
     }
 }

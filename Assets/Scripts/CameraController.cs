@@ -25,10 +25,11 @@ namespace GDS3
             float newXTargetOffset = _xTargetOffset * factor;
             float startingYTargetOffset = _yTargetOffset;
             float newYTargetOffset = _yTargetOffset * factor;
-            float startingXTargetDeadZone = _xTargetDeadZone;
+            /*float startingXTargetDeadZone = _xTargetDeadZone;*/
             float newXTargetDeadZone = _xTargetDeadZone * factor;
             float newYTargetDeadZone = _yTargetDeadZone * factor;
             _yTargetDeadZone = 0.0f;
+            _xTargetDeadZone = 0.0f;
             for (float t = 0; t < _sizeChangeTime.Value; t += Time.deltaTime)
             {
                 float interpolationPoint = t / _sizeChangeTime.Value;
@@ -36,7 +37,7 @@ namespace GDS3
                 _camera.orthographicSize = Mathf.Lerp(startingSize, newSize, interpolationPoint);
                 _xTargetOffset = Mathf.Lerp(startingXTargetOffset, newXTargetOffset, interpolationPoint);
                 _yTargetOffset = Mathf.Lerp(startingYTargetOffset, newYTargetOffset, interpolationPoint);
-                _xTargetDeadZone = Mathf.Lerp(startingXTargetDeadZone, newXTargetDeadZone, interpolationPoint);
+                /*_xTargetDeadZone = Mathf.Lerp(startingXTargetDeadZone, newXTargetDeadZone, interpolationPoint);*/
                 yield return 0;
             }
             _camera.orthographicSize = newSize;
