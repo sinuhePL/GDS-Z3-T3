@@ -12,6 +12,8 @@ namespace GDS3
         [SerializeField] private Animator _myAnimator;
         [SerializeField] private Rigidbody2D _myBody;
         [SerializeField] private bool _isFacingRight;
+        [SerializeField] private LayerMask _whatIsGround;
+        [SerializeField] private Transform _groundCheck;
         private CharacterMovementController _myMovement;
         private CharacterJumpController _myJump;
 
@@ -19,22 +21,34 @@ namespace GDS3
         {
             _myMovement = new CharacterMovementController(_myBody, _isFacingRight);
             _myJump = new CharacterJumpController(_myBody);
-            _myBrain.Initialize(this);
+            if (_myBrain != null)
+            {
+                _myBrain.Initialize(this);
+            }
         }
 
         private void Update()
         {
-            _myBrain.ThinkAboutAnimation(Time.deltaTime);
+            if (_myBrain != null)
+            {
+                _myBrain.ThinkAboutAnimation(Time.deltaTime);
+            }
         }
 
         private void FixedUpdate()
         {
-            _myBrain.ThinkAboutPhysics();
+            if (_myBrain != null)
+            {
+                _myBrain.ThinkAboutPhysics();
+            }
         }
 
         private void OnDrawGizmos()
         {
-            _myBrain.DrawGizmo();
+            if (_myBrain != null)
+            {
+                _myBrain.DrawGizmo(transform.position);
+            }
         }
 
         public Rigidbody2D GetRigidbody2D()
@@ -61,6 +75,16 @@ namespace GDS3
         public void ApplyForce(Vector2 force)
         {
             _myMovement.ApplyForce(force);
+        }
+
+        public LayerMask GetGroundMask()
+        {
+            return _whatIsGround;
+        }
+
+        public Transform GetGroundCheck()
+        {
+            return _groundCheck;
         }
 
     }

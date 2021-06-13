@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa969118dcafd4f439fbbf0155a7701b, type: 3}
+  m_Name: PlayerOnGroundState
+  m_EditorClassIdentifier: 
+  _enterAction: {fileID: 0}
+  _actions:
+  - {fileID: 11400000, guid: 00471479e20b4f14d835f949176f9cbb, type: 2}
+  _transitions:
+  - _decision: {fileID: 11400000, guid: 3198f24b5b92f794fb9a25f05ae1cc42, type: 2}
+    _targetState: {fileID: 11400000, guid: 72f963fe1af41a442840033258de8ebd, type: 2}
+    _changeStateWhenResult: 0
+  _stateGizmoColor: {r: 0, g: 0.9716981, b: 0.11923104, a: 1}

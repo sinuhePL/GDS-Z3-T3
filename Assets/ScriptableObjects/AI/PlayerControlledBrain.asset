@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275cbf7df66c8534a81073cdbfbc8aa0, type: 3}
+  m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
   m_Name: PlayerControlledBrain
   m_EditorClassIdentifier: 
-  _maxMovementVelocity:
+  _currentState: {fileID: 11400000, guid: 12789eea5e380884084dcad8b8d2ac7f, type: 2}
+  _movementSpeed:
     _useConstant: 0
-    _constantValue: 5
+    _constantValue: 0
     _variable: {fileID: 11400000, guid: a8cc2d9db4db8b941a38e55e01247a5e, type: 2}
   _jumpTime:
     _useConstant: 1
@@ -24,11 +25,33 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 3
     _variable: {fileID: 0}
-  _isSmallSize:
+  _isPlayerSmall:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
-  _sizeChangeFactor:
+  _playerSizeChangeFactor:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: db5aae758dfdd4248a2e07f04a685902, type: 2}
+  _targetMask:
+    serializedVersion: 2
+    m_Bits: 512
+  _dashForce:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
+  _patrolRange:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
+  _playerDetectionZoneWidth:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
+  _playerDetectionZoneHeight:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
+  _startingPosition: {x: -6.16, y: -3.96, z: 0}
+  _targetTransform: {fileID: 0}
+  _jumpYVelocity: 12

@@ -1,0 +1,35 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace GDS3
+{
+    [CreateAssetMenu(fileName = "DetectDecision", menuName = "Scriptable Objects/AI/Detect Decision")]
+    public class DetectDecision : Decision
+    {
+        private bool CheckIfTargetNearby(CharacterBrain brain)
+        {
+            Transform checkTransform = brain._controlledCharacter.GetTransform();
+            float detectZoneHeight = brain._playerDetectionZoneHeight.Value;
+            float detectZoneWidth = brain._playerDetectionZoneWidth.Value;
+            LayerMask targetMask = brain._targetMask;
+            Collider2D[] hitPlayers = Physics2D.OverlapBoxAll(checkTransform.position + new Vector3(0.0f, detectZoneHeight / 2, 0.0f), new Vector2(detectZoneWidth, detectZoneHeight), 0.0f, targetMask);
+            if(hitPlayers.Length > 0)
+            {
+                brain._targetTransform = hitPlayers[0].gameObject.transform;
+                return true;
+            }
+            else
+            {
+                brain._targetTransform = null;
+                return false;
+            }
+        }
+
+        public override bool Decide(CharacterBrain brain)
+        {
+            bool isDetected = CheckIfTargetNearby(brain);
+            return isDetected;
+        }
+    }
+}

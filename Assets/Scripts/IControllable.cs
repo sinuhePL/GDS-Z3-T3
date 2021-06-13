@@ -8,6 +8,8 @@ namespace GDS3
     {
         Rigidbody2D GetRigidbody2D();
         Transform GetTransform();
+        LayerMask GetGroundMask();
+        Transform GetGroundCheck();
         void MoveMe(float moveSpeed);
         void Jump(float jumpYVelocity);
         void ApplyForce(Vector2 force);
