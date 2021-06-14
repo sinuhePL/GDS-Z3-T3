@@ -97,6 +97,11 @@ namespace GDS3
             Gizmos.DrawWireCube(new Vector3(transform.position.x - _xTargetOffset, transform.position.y - _yTargetOffset + _yTargetDeadZone/2, 0.0f), new Vector3(_xTargetDeadZone, _yTargetDeadZone, 0.0f));
         }
 
+        private void Test()
+        {
+            _isFollowing = true;
+        }
+
         public void ChangeZoom()
         {
             if(_isSmallSize.Value)
@@ -113,7 +118,7 @@ namespace GDS3
         {
             _isFollowing = false;
             Vector3 newPosition = new Vector3(_lastSpawnPoint.Value.x + _xTargetOffset, _lastSpawnPoint.Value.y + _yTargetOffset, _camera.transform.position.z);
-            _isFollowing = true;
+            Tweener t = _camera.transform.DOMove(newPosition, _moveToSpawnPointTime.Value).SetEase(Ease.OutSine).OnComplete(()=> _isFollowing = true);
         }
     }
 }
