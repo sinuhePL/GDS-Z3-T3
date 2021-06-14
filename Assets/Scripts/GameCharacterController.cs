@@ -14,6 +14,7 @@ namespace GDS3
         [SerializeField] private bool _isFacingRight;
         [SerializeField] private LayerMask _whatIsGround;
         [SerializeField] private Transform _groundCheck;
+        [SerializeField] private Transform _hitCheck;
         private CharacterMovementController _myMovement;
         private CharacterJumpController _myJump;
 
@@ -31,7 +32,7 @@ namespace GDS3
         {
             if (_myBrain != null)
             {
-                _myBrain.ThinkAboutAnimation(Time.deltaTime);
+                _myBrain.ThinkAboutAnimation();
             }
         }
 
@@ -87,5 +88,9 @@ namespace GDS3
             return _groundCheck;
         }
 
+        public Transform GetHitCheck()
+        {
+            return _hitCheck;
+        }
     }
 }

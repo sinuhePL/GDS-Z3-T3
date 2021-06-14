@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
   m_Name: DashingEnemyBrain
   m_EditorClassIdentifier: 
-  _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
+  _currentState: {fileID: 11400000, guid: da5acdc4105a5cd4d94be3a02481b89b, type: 2}
   _movementSpeed:
     _useConstant: 1
     _constantValue: 1
@@ -40,6 +40,10 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 7
     _variable: {fileID: 0}
+  _dashDistance:
+    _useConstant: 1
+    _constantValue: 6
+    _variable: {fileID: 0}
   _patrolRange:
     _useConstant: 1
     _constantValue: 5
@@ -52,6 +56,34 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 3
     _variable: {fileID: 0}
+  _hitRange:
+    _useConstant: 1
+    _constantValue: 0.5
+    _variable: {fileID: 0}
+  _cooldownTime:
+    _useConstant: 1
+    _constantValue: 3
+    _variable: {fileID: 0}
+  _playerKilledEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 035519501731536418f077df2d769f7d, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _lastSpawPoint:
+    _useConstant: 1
+    _constantValue: {x: 0, y: 0, z: 0}
+    _variable: {fileID: 0}
   _startingPosition: {x: 32.45, y: -1.67, z: 0}
   _targetTransform: {fileID: 0}
+  _attackEndPosition: {x: 26.45, y: -1.67, z: 0}
   _jumpYVelocity: NaN
+  _stateTimeElapsted: 1.9116433

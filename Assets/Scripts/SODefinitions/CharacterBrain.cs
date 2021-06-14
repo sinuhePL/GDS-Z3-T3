@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GDS3
 {
@@ -15,13 +16,20 @@ namespace GDS3
         public FloatReference _playerSizeChangeFactor;
         public LayerMask _targetMask;
         public FloatReference _dashForce;
+        public FloatReference _dashDistance;
         public FloatReference _patrolRange;
         public FloatReference _playerDetectionZoneWidth;
         public FloatReference _playerDetectionZoneHeight;
+        public FloatReference _hitRange;
+        public FloatReference _cooldownTime;
+        public UnityEvent _playerKilledEvent;
+        public Vector3Reference _lastSpawPoint;
         [HideInInspector] public IControllable _controlledCharacter;
         [HideInInspector] public Vector3 _startingPosition;
         [HideInInspector] public Transform _targetTransform;
+        [HideInInspector] public Vector3 _attackEndPosition;
         [HideInInspector] public float _jumpYVelocity;
+        [HideInInspector] public float _stateTimeElapsted;
 
         public void Initialize(IControllable character)
         {
@@ -38,9 +46,10 @@ namespace GDS3
             _currentState.OnEnterState(this);
         }
 
-        public void ThinkAboutAnimation(float deltaTime)
+        public void ThinkAboutAnimation()
         {
             _currentState.UpdateState(this);
+            _stateTimeElapsted += Time.deltaTime;
         }
 
         public void ThinkAboutPhysics()
@@ -73,6 +82,7 @@ namespace GDS3
         public void TransitionToState(State newState)
         {
             _currentState = newState;
+            _stateTimeElapsted = 0.0f;
             _currentState.OnEnterState(this);
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using DG.Tweening;
 
 namespace GDS3
 {
@@ -12,10 +12,19 @@ namespace GDS3
         [SerializeField] private FloatReference _sizeChangeTime;
         [SerializeField] private FloatReference _sizeChangeFactor;
         [SerializeField] private Transform _followTarget;
+        [SerializeField] private Vector3Reference _lastSpawnPoint;
+        [SerializeField] private FloatReference _moveToSpawnPointTime;
         [Range(-10.0f, 10.0f)] [SerializeField] private float _xTargetOffset;
         [Range(-10.0f, 10.0f)] [SerializeField] private float _yTargetOffset;
         [Range(0.0f, 5.0f)] [SerializeField] private float _xTargetDeadZone;
         [Range(0.0f, 2.0f)] [SerializeField] private float _yTargetDeadZone;
+        private bool _isFollowing;
+
+        private void Awake()
+        {
+            _isFollowing = true;
+            DOTween.Init();
+        }
 
         private IEnumerator Zoom(float factor)
         {
@@ -49,35 +58,38 @@ namespace GDS3
 
         private void Update()
         {
-            float newXCameraPosition = _followTarget.position.x + _xTargetOffset;
-            float newYCameraPosition = _followTarget.position.y + _yTargetOffset;
-            if (Mathf.Abs(newXCameraPosition - transform.position.x) < _xTargetDeadZone)
+            if (_isFollowing)
             {
-                newXCameraPosition = transform.position.x;
-            }
-            else
-            {
-                if (newXCameraPosition > transform.position.x)
+                float newXCameraPosition = _followTarget.position.x + _xTargetOffset;
+                float newYCameraPosition = _followTarget.position.y + _yTargetOffset;
+                if (Mathf.Abs(newXCameraPosition - transform.position.x) < _xTargetDeadZone)
                 {
-                    newXCameraPosition -= _xTargetDeadZone;
+                    newXCameraPosition = transform.position.x;
                 }
                 else
                 {
-                    newXCameraPosition += _xTargetDeadZone;
+                    if (newXCameraPosition > transform.position.x)
+                    {
+                        newXCameraPosition -= _xTargetDeadZone;
+                    }
+                    else
+                    {
+                        newXCameraPosition += _xTargetDeadZone;
+                    }
                 }
-            }
-            if (Mathf.Abs(newYCameraPosition - transform.position.y) < _yTargetDeadZone && newYCameraPosition > transform.position.y)
-            {
-                newYCameraPosition = transform.position.y;
-            }
-            else
-            {
-                if (newYCameraPosition > transform.position.y)
+                if (Mathf.Abs(newYCameraPosition - transform.position.y) < _yTargetDeadZone && newYCameraPosition > transform.position.y)
                 {
-                    newYCameraPosition -= _yTargetDeadZone;
+                    newYCameraPosition = transform.position.y;
                 }
+                else
+                {
+                    if (newYCameraPosition > transform.position.y)
+                    {
+                        newYCameraPosition -= _yTargetDeadZone;
+                    }
+                }
+                transform.position = new Vector3(newXCameraPosition, newYCameraPosition, -10.0f);
             }
-            transform.position = new Vector3(newXCameraPosition, newYCameraPosition, -10.0f);
         }
 
         private void OnDrawGizmosSelected()
@@ -95,6 +107,13 @@ namespace GDS3
             {
                 StartCoroutine(Zoom(_sizeChangeFactor.Value));
             }
+        }
+
+        public void MoveToNewPosition()
+        {
+            _isFollowing = false;
+            Vector3 newPosition = new Vector3(_lastSpawnPoint.Value.x + _xTargetOffset, _lastSpawnPoint.Value.y + _yTargetOffset, _camera.transform.position.z);
+            _isFollowing = true;
         }
     }
 }
