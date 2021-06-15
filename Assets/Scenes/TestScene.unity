@@ -727,6 +727,7 @@ MonoBehaviour:
     m_Bits: 55
   _groundCheck: {fileID: 417046562}
   _hitCheck: {fileID: 1885721182}
+  _startingState: {fileID: 11400000, guid: 12789eea5e380884084dcad8b8d2ac7f, type: 2}
 --- !u!95 &800850226
 Animator:
   serializedVersion: 3
@@ -1714,6 +1715,7 @@ MonoBehaviour:
     m_Bits: 311
   _groundCheck: {fileID: 623561035}
   _hitCheck: {fileID: 944644292}
+  _startingState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
 --- !u!95 &1186444457
 Animator:
   serializedVersion: 3

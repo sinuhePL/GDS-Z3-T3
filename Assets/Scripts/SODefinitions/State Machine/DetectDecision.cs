@@ -16,8 +16,17 @@ namespace GDS3
             Collider2D[] hitPlayers = Physics2D.OverlapBoxAll(checkTransform.position + new Vector3(0.0f, detectZoneHeight / 2, 0.0f), new Vector2(detectZoneWidth, detectZoneHeight), 0.0f, targetMask);
             if(hitPlayers.Length > 0)
             {
-                brain._targetTransform = hitPlayers[0].gameObject.transform;
-                return true;
+                Transform hitTransform = hitPlayers[0].gameObject.transform;
+                if (hitTransform.position.x < checkTransform.position.x && hitTransform.position.x < brain._startingPosition.x - brain._leftMaxMoveDistance.Value ||
+                    hitTransform.position.x > checkTransform.position.x && hitTransform.position.x > brain._startingPosition.x + brain._rightMaxMoveDistance.Value)
+                {
+                    return false;
+                }
+                else
+                {
+                    brain._targetTransform = hitTransform;
+                    return true;
+                }
             }
             else
             {

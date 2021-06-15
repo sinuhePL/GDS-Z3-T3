@@ -15,6 +15,7 @@ namespace GDS3
         [SerializeField] private LayerMask _whatIsGround;
         [SerializeField] private Transform _groundCheck;
         [SerializeField] private Transform _hitCheck;
+        [SerializeField] private State _startingState;
         private CharacterMovementController _myMovement;
         private CharacterJumpController _myJump;
 
@@ -91,6 +92,11 @@ namespace GDS3
         public Transform GetHitCheck()
         {
             return _hitCheck;
+        }
+
+        public State GetStartingState()
+        {
+            return _startingState;
         }
     }
 }

@@ -97,11 +97,6 @@ namespace GDS3
             Gizmos.DrawWireCube(new Vector3(transform.position.x - _xTargetOffset, transform.position.y - _yTargetOffset + _yTargetDeadZone/2, 0.0f), new Vector3(_xTargetDeadZone, _yTargetDeadZone, 0.0f));
         }
 
-        private void Test()
-        {
-            _isFollowing = true;
-        }
-
         public void ChangeZoom()
         {
             if(_isSmallSize.Value)

@@ -9,7 +9,7 @@ namespace GDS3
     {
         public override bool Decide(CharacterBrain brain)
         {
-            if(brain._stateTimeElapsted > brain._cooldownTime.Value)
+            if(brain._stateTimeElapsted > brain._currentCooldownTime)
             {
                 return false;
             }

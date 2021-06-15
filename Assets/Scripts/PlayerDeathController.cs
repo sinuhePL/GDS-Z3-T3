@@ -11,7 +11,7 @@ namespace GDS3
 
         public void HandleDeath()
         {
-            _myRigidbody.MovePosition(_lastSpawnPoint.Value);
+            _myRigidbody.transform.position = _lastSpawnPoint.Value;
         }
     }
 }

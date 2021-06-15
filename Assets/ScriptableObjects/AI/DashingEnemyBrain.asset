@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
   m_Name: DashingEnemyBrain
   m_EditorClassIdentifier: 
-  _currentState: {fileID: 11400000, guid: da5acdc4105a5cd4d94be3a02481b89b, type: 2}
   _movementSpeed:
     _useConstant: 1
     _constantValue: 1
+    _variable: {fileID: 0}
+  _leftMaxMoveDistance:
+    _useConstant: 1
+    _constantValue: 16
+    _variable: {fileID: 0}
+  _rightMaxMoveDistance:
+    _useConstant: 1
+    _constantValue: 15
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
@@ -25,45 +32,13 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
-  _isPlayerSmall:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
-  _playerSizeChangeFactor:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: db5aae758dfdd4248a2e07f04a685902, type: 2}
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 256
-  _dashForce:
-    _useConstant: 1
-    _constantValue: 7
-    _variable: {fileID: 0}
-  _dashDistance:
-    _useConstant: 1
-    _constantValue: 6
-    _variable: {fileID: 0}
-  _patrolRange:
-    _useConstant: 1
-    _constantValue: 5
-    _variable: {fileID: 0}
-  _playerDetectionZoneWidth:
-    _useConstant: 1
-    _constantValue: 12
-    _variable: {fileID: 0}
-  _playerDetectionZoneHeight:
-    _useConstant: 1
-    _constantValue: 3
-    _variable: {fileID: 0}
   _hitRange:
     _useConstant: 1
     _constantValue: 0.5
     _variable: {fileID: 0}
-  _cooldownTime:
-    _useConstant: 1
-    _constantValue: 3
-    _variable: {fileID: 0}
+  _targetMask:
+    serializedVersion: 2
+    m_Bits: 256
   _playerKilledEvent:
     m_PersistentCalls:
       m_Calls:
@@ -78,12 +53,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _dashForce:
+    _useConstant: 1
+    _constantValue: 7
+    _variable: {fileID: 0}
+  _dashDistance:
+    _useConstant: 1
+    _constantValue: 6
+    _variable: {fileID: 0}
+  _dashCooldownTime:
+    _useConstant: 1
+    _constantValue: 2
+    _variable: {fileID: 0}
+  _patrolRange:
+    _useConstant: 1
+    _constantValue: 5
+    _variable: {fileID: 0}
+  _playerDetectionZoneWidth:
+    _useConstant: 1
+    _constantValue: 12
+    _variable: {fileID: 0}
+  _playerDetectionZoneHeight:
+    _useConstant: 1
+    _constantValue: 3
+    _variable: {fileID: 0}
+  _teleportDistance:
+    _useConstant: 1
+    _constantValue: 3
+    _variable: {fileID: 0}
+  _teleportCooldownTime:
+    _useConstant: 1
+    _constantValue: 0.5
+    _variable: {fileID: 0}
+  _isPlayerSmall:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 0}
+  _playerSizeChangeFactor:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 0}
   _lastSpawPoint:
     _useConstant: 1
     _constantValue: {x: 0, y: 0, z: 0}
     _variable: {fileID: 0}
+  _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
   _startingPosition: {x: 32.45, y: -1.67, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 26.45, y: -1.67, z: 0}
+  _attackEndPosition: {x: 20.113209, y: -1.7244495, z: 0}
   _jumpYVelocity: NaN
-  _stateTimeElapsted: 1.9116433
+  _stateTimeElapsted: 5.9208546
+  _currentCooldownTime: 0
