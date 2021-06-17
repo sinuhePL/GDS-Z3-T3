@@ -8,7 +8,7 @@ namespace GDS3
     public class CameraController : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
-        [SerializeField] private BoolReference _isSmallSize;
+        [SerializeField] private BoolReference _isPlayerSmall;
         [SerializeField] private FloatReference _sizeChangeTime;
         [SerializeField] private FloatReference _sizeChangeFactor;
         [SerializeField] private Transform _followTarget;
@@ -19,41 +19,89 @@ namespace GDS3
         [Range(0.0f, 5.0f)] [SerializeField] private float _xTargetDeadZone;
         [Range(0.0f, 2.0f)] [SerializeField] private float _yTargetDeadZone;
         private bool _isFollowing;
+        private int _resizeCoroutineId;
+        private float _bigOrthographicSize;
+        private float _smallOrthographicSize;
+        private Vector2 _bigTargetOffset;
+        private Vector2 _smallTargetOffset;
+        private Vector2 _bigTargetDeadZone;
+        private Vector2 _smallTargetDeadZone;
+
 
         private void Awake()
         {
             _isFollowing = true;
             DOTween.Init();
+            _resizeCoroutineId = 0;
+            if (_isPlayerSmall.Value)
+            {
+                _smallOrthographicSize = _camera.orthographicSize;
+                _bigOrthographicSize = _camera.orthographicSize * _sizeChangeFactor.Value;
+                _bigTargetOffset = new Vector2(_xTargetOffset, _yTargetOffset) * _sizeChangeFactor.Value;
+                _smallTargetOffset = new Vector2(_xTargetOffset, _yTargetOffset);
+                _bigTargetDeadZone = new Vector2(_xTargetDeadZone, _yTargetDeadZone) * _sizeChangeFactor.Value;
+                _smallTargetDeadZone = new Vector2(_xTargetDeadZone, _yTargetDeadZone);
+
+            }
+            else
+            {
+                _smallOrthographicSize = _camera.orthographicSize/_sizeChangeFactor.Value;
+                _bigOrthographicSize = _camera.orthographicSize;
+                _bigTargetOffset = new Vector2(_xTargetOffset, _yTargetOffset);
+                _smallTargetOffset = new Vector2(_xTargetOffset, _yTargetOffset) / _sizeChangeFactor.Value;
+                _bigTargetDeadZone = new Vector2(_xTargetDeadZone, _yTargetDeadZone);
+                _smallTargetDeadZone = new Vector2(_xTargetDeadZone, _yTargetDeadZone) / _sizeChangeFactor.Value;
+            }
         }
 
         private IEnumerator Zoom(float factor)
         {
+            float newSize, newXTargetOffset, newYTargetOffset, newXTargetDeadZone, newYTargetDeadZone;
+
+            float proportion = _sizeChangeTime.Value / (_bigOrthographicSize - _smallOrthographicSize);
             float startingSize = _camera.orthographicSize;
-            float newSize = _camera.orthographicSize * factor;
             float startingXTargetOffset = _xTargetOffset;
-            float newXTargetOffset = _xTargetOffset * factor;
             float startingYTargetOffset = _yTargetOffset;
-            float newYTargetOffset = _yTargetOffset * factor;
             /*float startingXTargetDeadZone = _xTargetDeadZone;*/
-            float newXTargetDeadZone = _xTargetDeadZone * factor;
-            float newYTargetDeadZone = _yTargetDeadZone * factor;
+            int myId = Random.Range(1, 999999999);
+            if (_isPlayerSmall.Value)
+            {
+                newSize = _smallOrthographicSize;
+                newXTargetOffset = _smallTargetOffset.x;
+                newYTargetOffset = _smallTargetOffset.y;
+                newXTargetDeadZone = _smallTargetDeadZone.x;
+                newYTargetDeadZone = _smallTargetDeadZone.y;
+            }
+            else
+            {
+                newSize = _bigOrthographicSize;
+                newXTargetOffset = _bigTargetOffset.x;
+                newYTargetOffset = _bigTargetOffset.y;
+                newXTargetDeadZone = _bigTargetDeadZone.x;
+                newYTargetDeadZone = _bigTargetDeadZone.y;
+            }
+            _resizeCoroutineId = myId;
             _yTargetDeadZone = 0.0f;
             _xTargetDeadZone = 0.0f;
-            for (float t = 0; t < _sizeChangeTime.Value; t += Time.deltaTime)
+            float resizeTime = proportion * Mathf.Abs(newSize - startingSize);
+            for (float t = 0; t < resizeTime && myId == _resizeCoroutineId; t += Time.deltaTime)
             {
-                float interpolationPoint = t / _sizeChangeTime.Value;
-                interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);
+                float interpolationPoint = t / resizeTime;
+                /*interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);*/
                 _camera.orthographicSize = Mathf.Lerp(startingSize, newSize, interpolationPoint);
                 _xTargetOffset = Mathf.Lerp(startingXTargetOffset, newXTargetOffset, interpolationPoint);
                 _yTargetOffset = Mathf.Lerp(startingYTargetOffset, newYTargetOffset, interpolationPoint);
                 /*_xTargetDeadZone = Mathf.Lerp(startingXTargetDeadZone, newXTargetDeadZone, interpolationPoint);*/
                 yield return 0;
             }
-            _camera.orthographicSize = newSize;
-            _xTargetOffset = newXTargetOffset;
-            _yTargetOffset = newYTargetOffset;
-            _xTargetDeadZone = newXTargetDeadZone;
-            _yTargetDeadZone = newYTargetDeadZone;
+            if (myId == _resizeCoroutineId)
+            {
+                _camera.orthographicSize = newSize;
+                _xTargetOffset = newXTargetOffset;
+                _yTargetOffset = newYTargetOffset;
+                _xTargetDeadZone = newXTargetDeadZone;
+                _yTargetDeadZone = newYTargetDeadZone;
+            }
         }
 
         private void Update()
@@ -99,13 +147,13 @@ namespace GDS3
 
         public void ChangeZoom()
         {
-            if(_isSmallSize.Value)
+            if(!_isPlayerSmall.Value)
             {
-                StartCoroutine(Zoom(1/_sizeChangeFactor.Value));
+                StartCoroutine(Zoom(_sizeChangeFactor.Value));
             }
             else
             {
-                StartCoroutine(Zoom(_sizeChangeFactor.Value));
+                StartCoroutine(Zoom(1/_sizeChangeFactor.Value));
             }
         }
 

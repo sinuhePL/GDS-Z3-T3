@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
   m_Name: DashingEnemyBrain
   m_EditorClassIdentifier: 
-  _movementSpeed:
+  _bigMovementSpeed:
     _useConstant: 1
     _constantValue: 1
+    _variable: {fileID: 0}
+  _smallMovementSpeed:
+    _useConstant: 1
+    _constantValue: 0
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
@@ -86,11 +90,11 @@ MonoBehaviour:
     _constantValue: 0.5
     _variable: {fileID: 0}
   _isPlayerSmall:
-    _useConstant: 0
+    _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
   _playerSizeChangeFactor:
-    _useConstant: 0
+    _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
   _lastSpawPoint:
@@ -100,7 +104,8 @@ MonoBehaviour:
   _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
   _startingPosition: {x: 32.45, y: -1.67, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 20.113209, y: -1.7244495, z: 0}
+  _attackEndPosition: {x: 29.612911, y: -1.7244495, z: 0}
   _jumpYVelocity: NaN
-  _stateTimeElapsted: 5.9208546
-  _currentCooldownTime: 0
+  _stateTimeElapsted: 90.636284
+  _currentCooldownTime: 2
+  _currentMovementSpeed: 0

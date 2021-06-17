@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
   m_Name: PlayerControlledBrain
   m_EditorClassIdentifier: 
-  _movementSpeed:
-    _useConstant: 0
+  _bigMovementSpeed:
+    _useConstant: 1
+    _constantValue: 3
+    _variable: {fileID: 0}
+  _smallMovementSpeed:
+    _useConstant: 1
+    _constantValue: 0.75
+    _variable: {fileID: 0}
+  _leftMaxMoveDistance:
+    _useConstant: 1
     _constantValue: 0
-    _variable: {fileID: 11400000, guid: a8cc2d9db4db8b941a38e55e01247a5e, type: 2}
+    _variable: {fileID: 0}
+  _rightMaxMoveDistance:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
     _constantValue: 0.5
@@ -25,10 +37,6 @@ MonoBehaviour:
     _constantValue: 3
     _variable: {fileID: 0}
   _hitRange:
-    _useConstant: 1
-    _constantValue: 0
-    _variable: {fileID: 0}
-  _attackCooldownTime:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
@@ -43,6 +51,10 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 0}
   _dashDistance:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
+  _dashCooldownTime:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
@@ -66,14 +78,32 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
-  _isPlayerSmall:
+  _isCharacterSmall:
     _useConstant: 0
-    _constantValue: 0
+    _constantValue: 1
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
-  _playerSizeChangeFactor:
+  _sizeChangeFactor:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: db5aae758dfdd4248a2e07f04a685902, type: 2}
+  _sizeChangeTime:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+  _sizeChangeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9ee68107d626be6489f95c538f46ab0f, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _lastSpawPoint:
     _useConstant: 0
     _constantValue: {x: 0, y: 0, z: 0}
@@ -83,4 +113,6 @@ MonoBehaviour:
   _targetTransform: {fileID: 0}
   _attackEndPosition: {x: 0, y: 0, z: 0}
   _jumpYVelocity: 12
-  _stateTimeElapsted: 1528.6669
+  _stateTimeElapsted: 42.087807
+  _currentCooldownTime: 0
+  _currentMovementSpeed: 0.75

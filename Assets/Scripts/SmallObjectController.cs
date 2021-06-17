@@ -8,33 +8,49 @@ namespace GDS3
     {
         [SerializeField] private BoolReference _isSmallSize;
         [SerializeField] private FloatReference _sizeChangeTime;
-        private Vector3 _startScale;
+        private Vector3 _initialScale;
+        private int _resizeCoroutineId;
+
+        private void Awake()
+        {
+            _initialScale = transform.localScale;
+            transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            _resizeCoroutineId = 0;
+        }
 
         private IEnumerator ChangeSize()
         {
             float currentScaleX, currentScaleY, interpolationPoint;
-            Vector3 startingScale = _startScale;
-            Vector3 targetScale = new Vector3(0.0f, 0.0f, 0.0f);
-            if(_isSmallSize.Value)
+            Vector3 startingScale;
+            Vector3 targetScale;
+            float proportion = _sizeChangeTime.Value/ _initialScale.y;
+            int myId = Random.Range(1, 999999999);
+            _resizeCoroutineId = myId;
+            if (_isSmallSize.Value)
             {
-                targetScale = _startScale;
-                startingScale = new Vector3(0.0f, 0.0f, 0.0f);
+                startingScale = transform.localScale;
+                targetScale = _initialScale;
             }
-            for (float t = 0; t < _sizeChangeTime.Value; t += Time.deltaTime)
+            else
             {
-                interpolationPoint = t / _sizeChangeTime.Value;
-                interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);
+                startingScale = transform.localScale;
+                targetScale = new Vector3(0.0f, 0.0f, 0.0f);
+            }
+            float resizeTime = proportion * Mathf.Abs(startingScale.y - targetScale.y);
+            for (float t = 0; t < resizeTime && myId == _resizeCoroutineId; t += Time.deltaTime)
+            {
+                interpolationPoint = t / resizeTime;
+                /*interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);*/
                 currentScaleX = Mathf.Lerp(startingScale.x, targetScale.x, interpolationPoint);
                 currentScaleY = Mathf.Lerp(startingScale.y, targetScale.y, interpolationPoint);
                 transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
+                Debug.Log(transform.localScale);
                 yield return 0;
             }
-        }
-
-        private void Start()
-        {
-            _startScale = transform.localScale;
-            transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            if(myId == _resizeCoroutineId)
+            {
+                transform.localScale = targetScale;
+            }
         }
 
         public void Resize()

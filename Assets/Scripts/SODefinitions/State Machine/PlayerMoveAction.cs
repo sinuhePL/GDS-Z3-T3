@@ -12,11 +12,16 @@ namespace GDS3
         public override void Act(CharacterBrain brain)
         {
             _horizontalMove = Input.GetAxisRaw("Horizontal");
+            if(Input.GetButtonDown("Fire3"))
+            {
+                brain._isCharacterSmall.Value = !brain._isCharacterSmall.Value;
+                brain._sizeChangeEvent.Invoke();
+            }
         }
 
         public override void ActFixed(CharacterBrain brain)
         {
-            brain._controlledCharacter.MoveMe(_horizontalMove * brain._movementSpeed.Value);
+            brain._controlledCharacter.MoveMe(_horizontalMove * brain._currentMovementSpeed);
         }
     }
 }

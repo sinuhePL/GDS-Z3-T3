@@ -15,9 +15,9 @@ namespace GDS3
         public override void ActFixed(CharacterBrain brain)
         {
             float sizeModifier = 1.0f;
-            if (brain._isPlayerSmall.Value)
+            if (brain._isCharacterSmall.Value)
             {
-                sizeModifier = 2 / brain._playerSizeChangeFactor.Value;
+                sizeModifier = 2 / brain._sizeChangeFactor.Value;
             }
             brain._controlledCharacter.Jump(brain._jumpYVelocity * sizeModifier);
         }

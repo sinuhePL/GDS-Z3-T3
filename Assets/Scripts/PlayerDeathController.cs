@@ -11,7 +11,9 @@ namespace GDS3
 
         public void HandleDeath()
         {
+            _myRigidbody.isKinematic = true;
             _myRigidbody.transform.position = _lastSpawnPoint.Value;
+            _myRigidbody.isKinematic = false;
         }
     }
 }

@@ -18,11 +18,11 @@ namespace GDS3
             Transform controlledTransform = controlledCharacter.GetTransform();
             if (controlledTransform.localScale.x > 0)
             {
-                controlledCharacter.MoveMe(brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(brain._currentMovementSpeed);
             }
             else
             {
-                controlledCharacter.MoveMe(-brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(-brain._currentMovementSpeed);
             }
         }
     }

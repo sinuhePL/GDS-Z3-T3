@@ -9,7 +9,8 @@ namespace GDS3
     public class CharacterBrain : ScriptableObject
     {
         [Header("Movement Ability")]
-        public FloatReference _movementSpeed;
+        public FloatReference _bigMovementSpeed;
+        public FloatReference _smallMovementSpeed;
         public FloatReference _leftMaxMoveDistance;
         public FloatReference _rightMaxMoveDistance;
         [Header("Jump Ability")]
@@ -31,8 +32,11 @@ namespace GDS3
         public FloatReference _teleportDistance;
         public FloatReference _teleportCooldownTime;
         [Header("Resize Ability")]
-        public BoolReference _isPlayerSmall;
-        public FloatReference _playerSizeChangeFactor;
+        public BoolReference _isCharacterSmall;
+        public FloatReference _sizeChangeFactor;
+        public FloatReference _sizeChangeTime;
+        public UnityEvent _sizeChangeEvent;
+        [Header("Respawn")]
         public Vector3Reference _lastSpawPoint;
         [HideInInspector] public State _currentState;
         [HideInInspector] public IControllable _controlledCharacter;
@@ -42,6 +46,7 @@ namespace GDS3
         [HideInInspector] public float _jumpYVelocity;
         [HideInInspector] public float _stateTimeElapsted;
         [HideInInspector] public float _currentCooldownTime;
+        [HideInInspector] public float _currentMovementSpeed;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
@@ -60,6 +65,14 @@ namespace GDS3
             }
             _currentState = _controlledCharacter.GetStartingState();
             _currentState.OnEnterState(this);
+            if (_isCharacterSmall.Value)
+            {
+                _currentMovementSpeed = _smallMovementSpeed.Value;
+            }
+            else
+            {
+                _currentMovementSpeed = _bigMovementSpeed.Value;
+            }
         }
 
         public void ThinkAboutAnimation()
@@ -96,6 +109,11 @@ namespace GDS3
                 {
                     Gizmos.color = Color.red;
                     Gizmos.DrawWireCube(new Vector3(drawerPosition.x, drawerPosition.y + _playerDetectionZoneHeight.Value / 2, 0.0f), new Vector3(_playerDetectionZoneWidth.Value, _playerDetectionZoneHeight.Value, 0.0f));
+                }
+                if(_jumpHeight.Value > 0.0f)
+                {
+                    Gizmos.color = Color.yellow;
+                    Gizmos.DrawWireCube(new Vector3(drawerPosition.x, drawerPosition.y + _jumpHeight.Value*0.95f, 0.0f), new Vector3(_gizmoHeight, _gizmoThickness, 0.0f));
                 }
                 if(_currentState != null)
                 {
