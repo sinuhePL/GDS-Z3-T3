@@ -44,7 +44,6 @@ namespace GDS3
                 currentScaleX = Mathf.Lerp(startingScale.x, targetScale.x, interpolationPoint);
                 currentScaleY = Mathf.Lerp(startingScale.y, targetScale.y, interpolationPoint);
                 transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
-                Debug.Log(transform.localScale);
                 yield return 0;
             }
             if(myId == _resizeCoroutineId)

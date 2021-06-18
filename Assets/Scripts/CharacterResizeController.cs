@@ -40,10 +40,26 @@ namespace GDS3
             if (transform.localScale.x > 0.0)
             {
                 isFacingRight = true;
+                if(_bigScale.x < 0.0)
+                {
+                    _bigScale.x = -_bigScale.x;
+                }
+                if (_smallScale.x < 0.0)
+                {
+                    _smallScale.x = -_smallScale.x;
+                }
             }
             else
             {
                 isFacingRight = false;
+                if (_bigScale.x > 0.0)
+                {
+                    _bigScale.x = -_bigScale.x;
+                }
+                if (_smallScale.x > 0.0)
+                {
+                    _smallScale.x = -_smallScale.x;
+                }
             }
             startingScaleX = transform.localScale.x;
             startingScaleY = transform.localScale.y;
