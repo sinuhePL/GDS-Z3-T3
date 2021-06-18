@@ -71,6 +71,8 @@ namespace GDS3
                     isFacingRight = !isFacingRight;
                     targetScaleX = -targetScaleX;
                     startingScaleX = -startingScaleX;
+                    _bigScale.x = -_bigScale.x;
+                    _smallScale.x = -_smallScale.x;
                 }
                 currentScaleX = Mathf.Lerp(startingScaleX, targetScaleX, interpolationPoint);
                 currentScaleY = Mathf.Lerp(startingScaleY, targetScaleY, interpolationPoint);
