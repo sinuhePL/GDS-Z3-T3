@@ -11,6 +11,8 @@ namespace GDS3
         LayerMask GetGroundMask();
         Transform GetGroundCheck();
         Transform GetHitCheck();
+        LayerMask GetResizeBlockerMask();
+        Transform GetHeightCheck();
         State GetStartingState();
         void MoveMe(float moveSpeed);
         void Jump(float jumpYVelocity);
