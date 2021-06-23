@@ -8,7 +8,7 @@ namespace GDS3
     public class GameCharacterController : MonoBehaviour, IControllable
     {
         [SerializeField] private CharacterBrain _myBrain;
-        /*[SerializeField] private CharacterAttackController _myAttack;*/
+        [SerializeField] private Attack _myAttack;
         [SerializeField] private Animator _myAnimator;
         [SerializeField] private Rigidbody2D _myBody;
         [SerializeField] private bool _isFacingRight;
@@ -28,6 +28,10 @@ namespace GDS3
             if (_myBrain != null)
             {
                 _myBrain.Initialize(this);
+            }
+            if(_myAttack != null)
+            {
+                _myAttack.Initialize(_hitCheck, gameObject);
             }
         }
 
@@ -79,6 +83,16 @@ namespace GDS3
         public void ApplyForce(Vector2 force)
         {
             _myMovement.ApplyForce(force);
+        }
+
+        public void Attack()
+        {
+            bool isAttackSuccessful;
+            isAttackSuccessful = _myAttack.MakeAttack();
+            if(isAttackSuccessful)
+            {
+                _myBrain._isAttackSuccessful = true;
+            }
         }
 
         public LayerMask GetGroundMask()

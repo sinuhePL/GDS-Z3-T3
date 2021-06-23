@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
-  m_Name: DashingEnemyBrain
+  m_Name: RangedEnemyBrain
   m_EditorClassIdentifier: 
   _bigMovementSpeed:
     _useConstant: 1
@@ -22,11 +22,11 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 16
+    _constantValue: 10
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 15
+    _constantValue: 10
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
@@ -38,15 +38,15 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashForce:
     _useConstant: 1
-    _constantValue: 7
+    _constantValue: 0
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 0
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
-    _constantValue: 2
+    _constantValue: 0
     _variable: {fileID: 0}
   _patrolRange:
     _useConstant: 1
@@ -65,11 +65,11 @@ MonoBehaviour:
     m_Bits: 256
   _teleportDistance:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 0
     _variable: {fileID: 0}
   _teleportCooldownTime:
     _useConstant: 1
-    _constantValue: 0.5
+    _constantValue: 0
     _variable: {fileID: 0}
   _isCharacterSmall:
     _useConstant: 1
@@ -90,12 +90,12 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: {x: 0, y: 0, z: 0}
     _variable: {fileID: 0}
-  _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
-  _startingPosition: {x: 32.45, y: -1.67, z: 0}
+  _currentState: {fileID: 11400000, guid: 8ed313eeb3ef5c74695f7c1e96fd9414, type: 2}
+  _startingPosition: {x: 68.16, y: 0.76, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 29.612911, y: -1.7244495, z: 0}
-  _jumpYVelocity: NaN
-  _stateTimeElapsted: 90.636284
-  _currentCooldownTime: 2
-  _currentMovementSpeed: 0
+  _attackEndPosition: {x: 65.207565, y: 0.6654551, z: 0}
+  _jumpYVelocity: 0
+  _stateTimeElapsted: 6.3822956
+  _currentCooldownTime: 0
+  _currentMovementSpeed: 1
   _isAttackSuccessful: 0

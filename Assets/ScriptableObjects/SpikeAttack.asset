@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3525f918141dea4aa750c3b5f795daf, type: 3}
+  m_Name: SpikeAttack
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 3828181922317979232, guid: acdd4de37451bdd4a96f0e93c915c656,
+    type: 3}
+  _attackRange: 6
+  _targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _targetHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _spikeDistance: 0.2
+  _spikesSpeed: 0.01

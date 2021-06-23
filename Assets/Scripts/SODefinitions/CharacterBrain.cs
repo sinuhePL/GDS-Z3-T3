@@ -16,10 +16,6 @@ namespace GDS3
         [Header("Jump Ability")]
         public FloatReference _jumpTime;
         public FloatReference _jumpHeight;
-        [Header("Attack Ability")]
-        public FloatReference _hitRange;
-        public LayerMask _targetMask;
-        public UnityEvent _playerKilledEvent;
         [Header("Dash Ability")]
         public FloatReference _dashForce;
         public FloatReference _dashDistance;
@@ -28,6 +24,7 @@ namespace GDS3
         public FloatReference _patrolRange;
         public FloatReference _playerDetectionZoneWidth;
         public FloatReference _playerDetectionZoneHeight;
+        public LayerMask _targetMask;
         [Header("Teleport Ability")]
         public FloatReference _teleportDistance;
         public FloatReference _teleportCooldownTime;
@@ -47,6 +44,7 @@ namespace GDS3
         [HideInInspector] public float _stateTimeElapsted;
         [HideInInspector] public float _currentCooldownTime;
         [HideInInspector] public float _currentMovementSpeed;
+        [HideInInspector] public bool _isAttackSuccessful;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
@@ -73,6 +71,7 @@ namespace GDS3
             {
                 _currentMovementSpeed = _bigMovementSpeed.Value;
             }
+            _isAttackSuccessful = false;
         }
 
         public void ThinkAboutAnimation()

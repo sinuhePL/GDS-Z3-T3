@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa969118dcafd4f439fbbf0155a7701b, type: 3}
-  m_Name: PatrolState
+  m_Name: Enemy1TeleportState
   m_EditorClassIdentifier: 
-  _enterAction: {fileID: 11400000, guid: 58afdb3204f0344428173f0562e9b92b, type: 2}
-  _actions:
-  - {fileID: 11400000, guid: 525a1597a0235944fb35f4a267cd76ec, type: 2}
+  _enterAction: {fileID: 11400000, guid: c7a774895e62ce74ab73f30b6024e91b, type: 2}
+  _actions: []
   _transitions:
-  - _decision: {fileID: 11400000, guid: 8a0fbba9abf92ef40ae8fab86a5c4be2, type: 2}
-    _targetState: {fileID: 11400000, guid: f3856dd02774859408673babb70f319a, type: 2}
+  - _decision: {fileID: 11400000, guid: 64ec666b32b77e142befd0363e53add3, type: 2}
+    _targetState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
     _changeStateWhenResult: 0
-  _stateGizmoColor: {r: 0, g: 1, b: 0.018627405, a: 1}
+  _stateGizmoColor: {r: 1, g: 0, b: 0.9258976, a: 1}

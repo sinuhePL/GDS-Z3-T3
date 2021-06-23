@@ -36,16 +36,6 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 3
     _variable: {fileID: 0}
-  _hitRange:
-    _useConstant: 1
-    _constantValue: 0
-    _variable: {fileID: 0}
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 512
-  _playerKilledEvent:
-    m_PersistentCalls:
-      m_Calls: []
   _dashForce:
     _useConstant: 1
     _constantValue: 0
@@ -70,6 +60,9 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
+  _targetMask:
+    serializedVersion: 2
+    m_Bits: 0
   _teleportDistance:
     _useConstant: 1
     _constantValue: 0
@@ -116,3 +109,4 @@ MonoBehaviour:
   _stateTimeElapsted: 40.598297
   _currentCooldownTime: 0
   _currentMovementSpeed: 3
+  _isAttackSuccessful: 0
