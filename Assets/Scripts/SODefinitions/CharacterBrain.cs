@@ -44,7 +44,7 @@ namespace GDS3
         [HideInInspector] public float _stateTimeElapsted;
         [HideInInspector] public float _currentCooldownTime;
         [HideInInspector] public float _currentMovementSpeed;
-        [HideInInspector] public bool _isAttackSuccessful;
+        [HideInInspector] public bool _isAttackFinished;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
@@ -71,7 +71,7 @@ namespace GDS3
             {
                 _currentMovementSpeed = _bigMovementSpeed.Value;
             }
-            _isAttackSuccessful = false;
+            _isAttackFinished = false;
         }
 
         public void ThinkAboutAnimation()

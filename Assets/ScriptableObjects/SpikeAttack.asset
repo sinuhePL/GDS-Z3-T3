@@ -15,6 +15,7 @@ MonoBehaviour:
   _weaponPrefab: {fileID: 3828181922317979232, guid: acdd4de37451bdd4a96f0e93c915c656,
     type: 3}
   _attackRange: 6
+  _attackDelay: 1.2
   _targetMask:
     serializedVersion: 2
     m_Bits: 256
@@ -22,4 +23,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _spikeDistance: 0.2
-  _spikesSpeed: 0.01
+  _spikesSpeed: 500
+  _spikeSlideTime: 0.5
+  _spikeReturnDelay: 0.5
+  _spikeHeight: 10

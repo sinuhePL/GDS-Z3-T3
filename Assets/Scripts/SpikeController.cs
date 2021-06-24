@@ -17,13 +17,14 @@ namespace GDS3
             }
         }
 
-        public void SlideOut()
+        public void SlideOut(float slideTime, float returnDelay, float spikeHeight)
         {
+            float startingYPosition = transform.position.y;
             Sequence spikeSequence = DOTween.Sequence();
-            spikeSequence.Append(transform.DOScaleY(10.0f, 0.5f));
-            spikeSequence.Insert(0.0f, transform.DOMoveY(transform.position.y + 0.5f, 0.5f));
-            spikeSequence.Append(transform.DOScaleY(1.0f, 0.5f));
-            spikeSequence.Insert(0.5f, transform.DOMoveY(transform.position.y - 0.5f, 0.5f));
+            spikeSequence.Append(transform.DOScaleY(spikeHeight*10, slideTime));
+            spikeSequence.Insert(0.0f, transform.DOMoveY(transform.position.y + spikeHeight/2.0f, slideTime));
+            spikeSequence.Append(transform.DOScaleY(0.0f, slideTime).SetDelay(returnDelay));
+            spikeSequence.Insert(slideTime, transform.DOMoveY(startingYPosition, slideTime).SetDelay(returnDelay));
         }
     }
 }

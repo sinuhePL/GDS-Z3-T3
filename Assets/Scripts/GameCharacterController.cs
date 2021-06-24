@@ -59,6 +59,11 @@ namespace GDS3
             }
         }
 
+        public void AttackEnd()
+        {
+            _myBrain._isAttackFinished = true;
+        }
+
         public Rigidbody2D GetRigidbody2D()
         {
             return _myBody;
@@ -87,12 +92,8 @@ namespace GDS3
 
         public void Attack()
         {
-            bool isAttackSuccessful;
-            isAttackSuccessful = _myAttack.MakeAttack();
-            if(isAttackSuccessful)
-            {
-                _myBrain._isAttackSuccessful = true;
-            }
+            _myAnimator.SetTrigger("attack");
+            _myAttack.MakeAttack(AttackEnd);
         }
 
         public LayerMask GetGroundMask()

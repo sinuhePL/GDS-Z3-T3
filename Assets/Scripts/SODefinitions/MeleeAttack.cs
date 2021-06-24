@@ -14,17 +14,13 @@ namespace GDS3
             _myParent = myParent;
         }
 
-        public override bool MakeAttack()
+        public override void MakeAttack(System.Action attackCallback)
         {
             Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _targetMask);
             if (hitPlayers.Length > 0)
             {
                 _targetHitEvent.Invoke();
-                return true;
-            }
-            else
-            {
-                return false;
+                attackCallback();
             }
         }
     }

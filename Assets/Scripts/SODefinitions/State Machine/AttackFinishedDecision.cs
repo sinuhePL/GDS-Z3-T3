@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace GDS3
 {
-    [CreateAssetMenu(fileName = "HitDecision", menuName = "Scriptable Objects/AI/Hit Decision")]
-    public class HitDecision : Decision
+    [CreateAssetMenu(fileName = "AttackFinishedDecision", menuName = "Scriptable Objects/AI/Attack Finished Decision")]
+    public class AttackFinishedDecision : Decision
     {
         public override bool Decide(CharacterBrain brain)
         {
-            if (brain._isAttackSuccessful)
+            if (brain._isAttackFinished)
             {
-                brain._isAttackSuccessful = false;
+                brain._isAttackFinished = false;
                 return true;
             }
             else

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa969118dcafd4f439fbbf0155a7701b, type: 3}
-  m_Name: Enemy2AttackState
+  m_Name: Enemy2JumpOutState
   m_EditorClassIdentifier: 
-  _enterAction: {fileID: 11400000, guid: cddb37fd7bfeb6343a5518770ad80d98, type: 2}
-  _actions: []
+  _enterAction: {fileID: 11400000, guid: 00bda97068367ec40a7abde262f7f05e, type: 2}
+  _actions:
+  - {fileID: 11400000, guid: 1d30a9a227483c248b61aba796d51e68, type: 2}
   _transitions:
-  - _decision: {fileID: 11400000, guid: 345dbbe492e809d4c8a4d62dba92a015, type: 2}
-    _targetState: {fileID: 11400000, guid: c92833759d1aaf04ea49c23ed0a65833, type: 2}
+  - _decision: {fileID: 11400000, guid: d194d86860d48db4bae6e6fe2980ceba, type: 2}
+    _targetState: {fileID: 11400000, guid: 8818a45fb79541945bef3f1c82109ed2, type: 2}
     _changeStateWhenResult: 0
-  _stateGizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  _stateGizmoColor: {r: 1, g: 0.98664254, b: 0, a: 1}
