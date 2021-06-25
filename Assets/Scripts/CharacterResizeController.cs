@@ -8,6 +8,8 @@ namespace GDS3
     public class CharacterResizeController : MonoBehaviour
     {
         [SerializeField] private CharacterBrain _characterBrain;
+        [SerializeField] private LayerMask _deadlyForSmallMask;
+        [SerializeField] private UnityEvent _killedEvent;
         private int _resizeCoroutineId;
         private Vector3 _bigScale;
         private Vector3 _smallScale;
@@ -26,6 +28,14 @@ namespace GDS3
             {
                 _smallScale = transform.localScale / _characterBrain._sizeChangeFactor.Value;
                 _bigScale = transform.localScale;
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(_deadlyForSmallMask == (_deadlyForSmallMask | (1 << collision.gameObject.layer)))
+            {
+                _killedEvent.Invoke();
             }
         }
 

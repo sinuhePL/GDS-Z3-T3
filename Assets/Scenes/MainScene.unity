@@ -214,6 +214,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 580801879}
+        m_MethodName: CreditsPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &18746067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,6 +794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsPrefab: {fileID: 2710414090568346681, guid: 260a54d1cc7a6694c86978d260999ab3,
+    type: 3}
+  _creditsPrefab: {fileID: 2279538378980595502, guid: e8026b9442a9a4040aedfbbae8aab2dd,
     type: 3}
 --- !u!1 &729089981
 GameObject:

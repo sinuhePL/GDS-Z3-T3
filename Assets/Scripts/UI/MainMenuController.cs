@@ -7,6 +7,13 @@ namespace GDS3
     public class MainMenuController : MonoBehaviour
     {
         [SerializeField] private GameObject _settingsPrefab;
+        [SerializeField] private GameObject _creditsPrefab;
+
+        public void CreditsPressed()
+        {
+            GameObject creditsPanel = Instantiate(_creditsPrefab, transform);
+            creditsPanel.transform.localPosition = new Vector3(0, 0, 0);
+        }
 
         public void SettingsPressed()
         {

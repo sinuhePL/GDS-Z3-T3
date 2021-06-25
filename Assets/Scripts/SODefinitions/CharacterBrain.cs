@@ -25,6 +25,7 @@ namespace GDS3
         public FloatReference _playerDetectionZoneWidth;
         public FloatReference _playerDetectionZoneHeight;
         public LayerMask _targetMask;
+        public BoolReference _isPlayerSmall;
         [Header("Teleport Ability")]
         public FloatReference _teleportDistance;
         public FloatReference _teleportCooldownTime;

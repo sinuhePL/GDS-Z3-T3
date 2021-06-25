@@ -22,8 +22,8 @@ MonoBehaviour:
   _targetHitEvent:
     m_PersistentCalls:
       m_Calls: []
-  _spikeDistance: 0.2
+  _spikesGap: 0.2
   _spikesSpeed: 500
   _spikeSlideTime: 0.5
   _spikeReturnDelay: 0.5
-  _spikeHeight: 10
+  _spikeHeight: 1

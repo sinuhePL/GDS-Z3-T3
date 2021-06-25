@@ -63,6 +63,10 @@ MonoBehaviour:
   _targetMask:
     serializedVersion: 2
     m_Bits: 256
+  _isPlayerSmall:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
   _teleportDistance:
     _useConstant: 1
     _constantValue: 3
@@ -98,4 +102,4 @@ MonoBehaviour:
   _stateTimeElapsted: 90.636284
   _currentCooldownTime: 2
   _currentMovementSpeed: 0
-  _isAttackSuccessful: 0
+  _isAttackFinished: 0

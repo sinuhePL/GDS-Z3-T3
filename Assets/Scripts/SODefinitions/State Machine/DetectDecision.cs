@@ -18,7 +18,8 @@ namespace GDS3
             {
                 Transform hitTransform = hitPlayers[0].gameObject.transform;
                 if (hitTransform.position.x < checkTransform.position.x && hitTransform.position.x < brain._startingPosition.x - brain._leftMaxMoveDistance.Value ||
-                    hitTransform.position.x > checkTransform.position.x && hitTransform.position.x > brain._startingPosition.x + brain._rightMaxMoveDistance.Value)
+                    hitTransform.position.x > checkTransform.position.x && hitTransform.position.x > brain._startingPosition.x + brain._rightMaxMoveDistance.Value ||
+                    brain._isPlayerSmall.Value)
                 {
                     return false;
                 }
