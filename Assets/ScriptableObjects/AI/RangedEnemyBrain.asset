@@ -36,6 +36,10 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 1
     _variable: {fileID: 0}
+  _jumpHorizontalSpeed:
+    _useConstant: 1
+    _constantValue: 3
+    _variable: {fileID: 0}
   _dashForce:
     _useConstant: 1
     _constantValue: 0
@@ -103,3 +107,7 @@ MonoBehaviour:
   _currentCooldownTime: 0
   _currentMovementSpeed: 1
   _isAttackFinished: 0
+  _jumpPressed: 0
+  _resizePressed: 0
+  _attackPressed: 0
+  _movementValue: 0

@@ -16,6 +16,9 @@ namespace GDS3
         {
             IControllable controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
+            Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
+            controlledBody.isKinematic = true;
+            controlledBody.velocity = Vector3.zero;
             if (controlledTransform.localScale.x > 0)
             {
                 controlledCharacter.MoveMe(brain._currentMovementSpeed);

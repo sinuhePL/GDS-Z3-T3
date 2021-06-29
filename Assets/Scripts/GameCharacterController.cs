@@ -25,11 +25,15 @@ namespace GDS3
         {
             _myMovement = new CharacterMovementController(_myBody, _isFacingRight);
             _myJump = new CharacterJumpController(_myBody);
+        }
+
+        private void Start()
+        {
             if (_myBrain != null)
             {
                 _myBrain.Initialize(this);
             }
-            if(_myAttack != null)
+            if (_myAttack != null)
             {
                 _myAttack.Initialize(_hitCheck, gameObject);
             }

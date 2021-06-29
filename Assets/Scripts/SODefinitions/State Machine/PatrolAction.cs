@@ -24,6 +24,14 @@ namespace GDS3
             {
                 controlledCharacter.MoveMe(-brain._currentMovementSpeed);
             }
+            else if (characterTransform.localScale.x > 0)
+            {
+                controlledCharacter.MoveMe(brain._currentMovementSpeed);
+            }
+            else
+            {
+                controlledCharacter.MoveMe(-brain._currentMovementSpeed);
+            }
         }
     }
 }

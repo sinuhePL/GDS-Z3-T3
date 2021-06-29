@@ -33,7 +33,8 @@ namespace GDS3
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(_deadlyForSmallMask == (_deadlyForSmallMask | (1 << collision.gameObject.layer)))
+            bool isDeadly = _deadlyForSmallMask == (_deadlyForSmallMask | (1 << collision.gameObject.layer));
+            if (isDeadly && _characterBrain._isCharacterSmall.Value)
             {
                 _killedEvent.Invoke();
             }

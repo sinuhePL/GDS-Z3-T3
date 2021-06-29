@@ -19,7 +19,10 @@ namespace GDS3
             {
                 sizeModifier = 2 / brain._sizeChangeFactor.Value;
             }
-            brain._controlledCharacter.Jump(brain._jumpYVelocity * sizeModifier);
+            IControllable controlledCharacter = brain._controlledCharacter;
+            Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
+            controlledBody.isKinematic = false;
+            controlledCharacter.Jump(brain._jumpYVelocity * sizeModifier);
         }
     }
 }

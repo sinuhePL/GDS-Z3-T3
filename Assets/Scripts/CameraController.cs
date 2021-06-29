@@ -28,7 +28,7 @@ namespace GDS3
         private Vector2 _smallTargetDeadZone;
 
 
-        private void Awake()
+        private void Start()
         {
             _isFollowing = true;
             DOTween.Init();

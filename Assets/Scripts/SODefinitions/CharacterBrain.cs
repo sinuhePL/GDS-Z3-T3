@@ -16,8 +16,9 @@ namespace GDS3
         [Header("Jump Ability")]
         public FloatReference _jumpTime;
         public FloatReference _jumpHeight;
+        public FloatReference _jumpHorizontalSpeed;
         [Header("Dash Ability")]
-        public FloatReference _dashForce;
+        public FloatReference _dashVelocity;
         public FloatReference _dashDistance;
         public FloatReference _dashCooldownTime;
         [Header("Patrol Ability")]

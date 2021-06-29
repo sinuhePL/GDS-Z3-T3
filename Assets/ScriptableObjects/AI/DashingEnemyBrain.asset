@@ -36,9 +36,13 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
-  _dashForce:
+  _jumpHorizontalSpeed:
     _useConstant: 1
-    _constantValue: 7
+    _constantValue: 0
+    _variable: {fileID: 0}
+  _dashVelocity:
+    _useConstant: 1
+    _constantValue: 6
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
@@ -94,12 +98,16 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: {x: 0, y: 0, z: 0}
     _variable: {fileID: 0}
-  _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
+  _currentState: {fileID: 11400000, guid: da5acdc4105a5cd4d94be3a02481b89b, type: 2}
   _startingPosition: {x: 32.45, y: -1.67, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 29.612911, y: -1.7244495, z: 0}
+  _attackEndPosition: {x: 32.84507, y: -1.7245004, z: 0}
   _jumpYVelocity: NaN
-  _stateTimeElapsted: 90.636284
+  _stateTimeElapsted: 1.539967
   _currentCooldownTime: 2
-  _currentMovementSpeed: 0
+  _currentMovementSpeed: 1
   _isAttackFinished: 0
+  _jumpPressed: 0
+  _resizePressed: 0
+  _attackPressed: 0
+  _movementValue: 0
