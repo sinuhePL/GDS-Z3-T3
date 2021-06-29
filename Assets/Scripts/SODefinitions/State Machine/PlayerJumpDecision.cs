@@ -9,8 +9,9 @@ namespace GDS3
     {
         public override bool Decide(CharacterBrain brain)
         {
-            if(Input.GetButtonDown("Fire1"))
+            if(brain._jumpPressed)
             {
+                brain._jumpPressed = false;
                 return true;
             }
             else

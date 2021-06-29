@@ -1841,6 +1841,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &800850232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800850222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c15f7ebf3abcd7439252657dfa9dcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myBrain: {fileID: 11400000, guid: cff7989470f95674db66f0fd3c6fb69b, type: 2}
 --- !u!1001 &908113863
 PrefabInstance:
   m_ObjectHideFlags: 0

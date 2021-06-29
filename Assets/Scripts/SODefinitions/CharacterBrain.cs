@@ -46,6 +46,10 @@ namespace GDS3
         [HideInInspector] public float _currentCooldownTime;
         [HideInInspector] public float _currentMovementSpeed;
         [HideInInspector] public bool _isAttackFinished;
+        [HideInInspector] public bool _jumpPressed;
+        [HideInInspector] public bool _resizePressed;
+        [HideInInspector] public bool _attackPressed;
+        [HideInInspector] public float _movementValue;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
