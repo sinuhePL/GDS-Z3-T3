@@ -74,6 +74,11 @@ namespace GDS3
             {
                 _myBrain.DrawGizmo(transform.position);
             }
+            if (_hitCheck != null)
+            {
+                Gizmos.color = Color.red; ;
+                Gizmos.DrawWireSphere(_hitCheck.position, _myAttack._attackRange);
+            }
         }
 
         public void AttackEnd()

@@ -52,7 +52,7 @@ namespace GDS3
         [HideInInspector] public bool _resizePressed;
         [HideInInspector] public bool _attackPressed;
         [HideInInspector] public float _movementValue;
-         public int _currentHitPoints;
+        [HideInInspector] public int _currentHitPoints;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
