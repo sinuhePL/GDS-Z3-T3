@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53eb651b7604121458227c7e3bae802d, type: 3}
-  m_Name: MeleeAttack
+  m_Script: {fileID: 11500000, guid: 07fd0faba9bc1b745b9e626a1d47d8cb, type: 3}
+  m_Name: CooldownEndDecision
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 0}
-  _attackRange: 0.2
-  _attackDelay: 0
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 256

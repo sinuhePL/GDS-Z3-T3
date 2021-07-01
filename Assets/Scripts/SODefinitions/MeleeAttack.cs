@@ -8,19 +8,50 @@ namespace GDS3
     [CreateAssetMenu(fileName = "MeleeAttack", menuName = "Scriptable Objects/Melee Attack")]
     public class MeleeAttack : Attack
     {
+        private IEnumerator PerformAttack(float duration, System.Action attackCallback)
+        {
+            float elapsedTime = 0.0f;
+            float timeStamp = Time.time;
+            IHitable myHit;
+            Collider2D[] hitColliders;
+            bool isHit = false;
+            yield return new WaitForSeconds(_attackDelay);
+            while (elapsedTime < duration - _attackDelay && !isHit)
+            {
+                hitColliders = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _targetMask);
+                if (hitColliders.Length > 0)
+                {
+                    foreach (Collider2D collider in hitColliders)
+                    {
+                        myHit = collider.gameObject.GetComponent<IHitable>();
+                        if (myHit != null)
+                        {
+                            Debug.Log("trafiłem");
+                            myHit.Hit();
+                            isHit = true;
+                        }
+                    }
+                }
+                elapsedTime += Time.time - timeStamp;
+                timeStamp = Time.time;
+                yield return null;
+            }
+            attackCallback();
+        }
+
         public override void Initialize(Transform attackTransform, GameObject myParent)
         {
             _attackPoint = attackTransform;
             _myParent = myParent;
         }
 
-        public override void MakeAttack(System.Action attackCallback)
+        public override void MakeAttack(float attackDuration, System.Action attackCallback)
         {
-            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _targetMask);
-            if (hitPlayers.Length > 0)
+            MonoBehaviour parentMonoBehaviour = _myParent.GetComponent<MonoBehaviour>();
+            if (parentMonoBehaviour != null)
             {
-                _targetHitEvent.Invoke();
-                attackCallback();
+                Debug.Log("zaczynam atak");
+                parentMonoBehaviour.StartCoroutine(PerformAttack(attackDuration, attackCallback));
             }
         }
     }

@@ -35,8 +35,9 @@ namespace GDS3
         public FloatReference _sizeChangeFactor;
         public FloatReference _sizeChangeTime;
         public UnityEvent _sizeChangeEvent;
-        [Header("Respawn")]
+        [Header("Other")]
         public Vector3Reference _lastSpawPoint;
+        public IntegerReference _hitPoints;
         [HideInInspector] public State _currentState;
         [HideInInspector] public IControllable _controlledCharacter;
         [HideInInspector] public Vector3 _startingPosition;
@@ -51,6 +52,7 @@ namespace GDS3
         [HideInInspector] public bool _resizePressed;
         [HideInInspector] public bool _attackPressed;
         [HideInInspector] public float _movementValue;
+         public int _currentHitPoints;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
@@ -78,6 +80,7 @@ namespace GDS3
                 _currentMovementSpeed = _bigMovementSpeed.Value;
             }
             _isAttackFinished = false;
+            _currentHitPoints = _hitPoints.Value;
         }
 
         public void ThinkAboutAnimation()

@@ -46,7 +46,7 @@ namespace GDS3
             }
         }
 
-        public override void MakeAttack(System.Action attackCallback)
+        public override void MakeAttack(float attackDuration, System.Action attackCallback)
         {
             MonoBehaviour parentMonoBehaviour = _myParent.GetComponent<MonoBehaviour>();
             if(parentMonoBehaviour != null)

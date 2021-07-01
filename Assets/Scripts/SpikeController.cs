@@ -8,12 +8,18 @@ namespace GDS3
 {
     public class SpikeController : MonoBehaviour
     {
-        [SerializeField] private UnityEvent _playerHit;
+        [SerializeField] private LayerMask _hitMask;
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            IHitable myHit;
+            bool isTarget = _hitMask == (_hitMask | (1 << collision.gameObject.layer));
+            if (isTarget)
             {
-                _playerHit.Invoke();
+                myHit = collision.gameObject.GetComponent<IHitable>();
+                if (myHit != null)
+                {
+                    myHit.Hit();
+                }
             }
         }
 

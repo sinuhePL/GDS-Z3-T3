@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53eb651b7604121458227c7e3bae802d, type: 3}
-  m_Name: MeleeAttack
+  m_Script: {fileID: 11500000, guid: f825c0d57cbde1b4e97f453b7e4042d9, type: 3}
+  m_Name: PlayerAttackDecision
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 0}
-  _attackRange: 0.2
-  _attackDelay: 0
-  _targetMask:
-    serializedVersion: 2
-    m_Bits: 256

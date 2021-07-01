@@ -12,6 +12,8 @@ namespace GDS3
             IControllable controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             brain._currentCooldownTime = brain._dashCooldownTime.Value;
+            Debug.Log("Wchodzę w  dash");
+            controlledCharacter.Attack();
             if (controlledTransform.position.x < brain._targetTransform.position.x)
             {
                 brain._attackEndPosition = new Vector3(controlledTransform.position.x + brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);

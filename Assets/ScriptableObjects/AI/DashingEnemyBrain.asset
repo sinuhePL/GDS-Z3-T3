@@ -77,7 +77,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _teleportCooldownTime:
     _useConstant: 1
-    _constantValue: 0.5
+    _constantValue: 1
     _variable: {fileID: 0}
   _isCharacterSmall:
     _useConstant: 1
@@ -98,16 +98,21 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: {x: 0, y: 0, z: 0}
     _variable: {fileID: 0}
-  _currentState: {fileID: 11400000, guid: da5acdc4105a5cd4d94be3a02481b89b, type: 2}
+  _hitPoints:
+    _useConstant: 1
+    _constantValue: 3
+    _variable: {fileID: 0}
+  _currentState: {fileID: 11400000, guid: f3856dd02774859408673babb70f319a, type: 2}
   _startingPosition: {x: 32.45, y: -1.67, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 32.84507, y: -1.7245004, z: 0}
+  _attackEndPosition: {x: 23.558456, y: -1.7244662, z: 0}
   _jumpYVelocity: NaN
-  _stateTimeElapsted: 1.539967
-  _currentCooldownTime: 2
+  _stateTimeElapsted: 0.074252
+  _currentCooldownTime: 1.8333334
   _currentMovementSpeed: 1
   _isAttackFinished: 0
   _jumpPressed: 0
   _resizePressed: 0
   _attackPressed: 0
   _movementValue: 0
+  _currentHitPoints: 0

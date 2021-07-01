@@ -4,12 +4,11 @@ using UnityEngine;
 
 namespace GDS3
 {
-    [CreateAssetMenu(fileName = "EndTeleportDecision", menuName = "Scriptable Objects/AI/End Teleport Decision")]
-    public class EndTeleportDecision : Decision
+    [CreateAssetMenu(fileName = "CooldownEndDecision", menuName = "Scriptable Objects/AI/Cooldown End Decision")]
+    public class CooldownEndDecision : Decision
     {
         public override bool Decide(CharacterBrain brain)
         {
-
             if (brain._stateTimeElapsted > brain._currentCooldownTime)
             {
                 return true;

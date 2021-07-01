@@ -19,6 +19,7 @@ namespace GDS3
             Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
             controlledBody.isKinematic = true;
             controlledBody.velocity = Vector3.zero;
+            Debug.Log("Wchodzę w patrol");
             if (controlledTransform.localScale.x > 0)
             {
                 controlledCharacter.MoveMe(brain._currentMovementSpeed);

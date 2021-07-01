@@ -16,7 +16,6 @@ namespace GDS3
         State GetStartingState();
         void MoveMe(float moveSpeed);
         void Jump(float jumpYVelocity);
-        void ApplyForce(Vector2 force);
         void Attack();
     }
 }

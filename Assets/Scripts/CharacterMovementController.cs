@@ -24,6 +24,7 @@ public class CharacterMovementController
         if(!isStartingFacingRight)
         {
             Flip();
+            _isFacingRight = !_isFacingRight;
         }
     }
 
