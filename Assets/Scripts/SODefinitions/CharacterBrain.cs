@@ -52,6 +52,7 @@ namespace GDS3
         [HideInInspector] public bool _resizePressed;
         [HideInInspector] public bool _attackPressed;
         [HideInInspector] public float _movementValue;
+        [HideInInspector] public float _dashValue;
         [HideInInspector] public int _currentHitPoints;
 
         private const float _gizmoThickness = 0.05f;
@@ -81,6 +82,7 @@ namespace GDS3
             }
             _isAttackFinished = false;
             _currentHitPoints = _hitPoints.Value;
+            _dashValue = 0.0f;
         }
 
         public void ThinkAboutAnimation()

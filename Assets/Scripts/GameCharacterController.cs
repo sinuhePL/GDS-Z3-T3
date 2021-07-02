@@ -116,6 +116,11 @@ namespace GDS3
             _myAttack.MakeAttack(_attackLength, AttackEnd);
         }
 
+        public void Dash()
+        {
+            _myAnimator.SetTrigger("dash");
+        }
+
         public LayerMask GetGroundMask()
         {
             return _whatIsGround;

@@ -11,7 +11,7 @@ namespace GDS3
         {
             IControllable controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
-            if(Mathf.Abs(controlledTransform.position.x - brain._attackEndPosition.x) < 0.1f)
+            if(Mathf.Abs(controlledTransform.position.x - brain._attackEndPosition.x) < 0.2f)
             {
                 return true;
             }

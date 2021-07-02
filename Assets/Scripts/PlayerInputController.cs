@@ -54,5 +54,21 @@ namespace GDS3
                 _myBrain._attackPressed = true;
             }
         }
+
+        public void OnDashLeft(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _myBrain._dashValue = -1.0f;
+            }
+        }
+
+        public void OnDashRight(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _myBrain._dashValue = 1.0f;
+            }
+        }
     }
 }

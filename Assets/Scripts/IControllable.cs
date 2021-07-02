@@ -17,5 +17,6 @@ namespace GDS3
         void MoveMe(float moveSpeed);
         void Jump(float jumpYVelocity);
         void Attack();
+        void Dash();
     }
 }

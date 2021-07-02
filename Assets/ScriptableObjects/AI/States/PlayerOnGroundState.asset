@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa969118dcafd4f439fbbf0155a7701b, type: 3}
   m_Name: PlayerOnGroundState
   m_EditorClassIdentifier: 
-  _enterAction: {fileID: 0}
+  _enterAction: {fileID: 11400000, guid: 4834f1c764f5c484f87bda554ec73587, type: 2}
   _actions:
   - {fileID: 11400000, guid: 00471479e20b4f14d835f949176f9cbb, type: 2}
   _transitions:
@@ -21,5 +21,8 @@ MonoBehaviour:
     _changeStateWhenResult: 0
   - _decision: {fileID: 11400000, guid: 38666cd601e7880428db2ed67413da09, type: 2}
     _targetState: {fileID: 11400000, guid: bd41621533315334db593f242e534f52, type: 2}
+    _changeStateWhenResult: 0
+  - _decision: {fileID: 11400000, guid: 85d36a0af514d8d4ab1d9bb3506b52a7, type: 2}
+    _targetState: {fileID: 11400000, guid: a46d248cebc69f544a4038a93dc31166, type: 2}
     _changeStateWhenResult: 0
   _stateGizmoColor: {r: 0, g: 0.9716981, b: 0.11923104, a: 1}
