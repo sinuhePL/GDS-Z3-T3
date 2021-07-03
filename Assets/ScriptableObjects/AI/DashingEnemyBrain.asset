@@ -52,6 +52,9 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 2
     _variable: {fileID: 0}
+  _dashObstacles:
+    serializedVersion: 2
+    m_Bits: 1024
   _patrolRange:
     _useConstant: 1
     _constantValue: 5
@@ -115,4 +118,5 @@ MonoBehaviour:
   _resizePressed: 0
   _attackPressed: 0
   _movementValue: 0
+  _dashValue: 0
   _currentHitPoints: 0

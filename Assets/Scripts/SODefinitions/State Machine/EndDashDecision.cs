@@ -11,7 +11,9 @@ namespace GDS3
         {
             IControllable controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
-            if(Mathf.Abs(controlledTransform.position.x - brain._attackEndPosition.x) < 0.2f)
+            Collider2D[] hitColliders;
+            hitColliders = Physics2D.OverlapCircleAll(controlledCharacter.GetHitCheck().position, 0.1f, brain._dashObstacles);
+            if (Mathf.Abs(controlledTransform.position.x - brain._attackEndPosition.x) < 0.2f || hitColliders.Length > 0)
             {
                 return true;
             }

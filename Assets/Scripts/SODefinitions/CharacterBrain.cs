@@ -21,6 +21,7 @@ namespace GDS3
         public FloatReference _dashVelocity;
         public FloatReference _dashDistance;
         public FloatReference _dashCooldownTime;
+        public LayerMask _dashObstacles;
         [Header("Patrol Ability")]
         public FloatReference _patrolRange;
         public FloatReference _playerDetectionZoneWidth;

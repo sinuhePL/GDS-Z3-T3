@@ -52,6 +52,9 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 0
     _variable: {fileID: 0}
+  _dashObstacles:
+    serializedVersion: 2
+    m_Bits: 1536
   _patrolRange:
     _useConstant: 1
     _constantValue: 0
@@ -116,12 +119,12 @@ MonoBehaviour:
   _currentState: {fileID: 11400000, guid: 12789eea5e380884084dcad8b8d2ac7f, type: 2}
   _startingPosition: {x: -1.782, y: -4.003, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: -6.941678, y: -4.002996, z: 0}
+  _attackEndPosition: {x: 18.004028, y: -1.706146, z: 0}
   _jumpYVelocity: 12
-  _stateTimeElapsted: 3.1349962
-  _currentCooldownTime: 0
+  _stateTimeElapsted: 4.7392454
+  _currentCooldownTime: 1
   _currentMovementSpeed: 3
-  _isAttackFinished: 0
+  _isAttackFinished: 1
   _jumpPressed: 0
   _resizePressed: 0
   _attackPressed: 0
