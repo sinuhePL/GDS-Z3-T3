@@ -84,6 +84,11 @@ namespace GDS3
             _isAttackFinished = false;
             _currentHitPoints = _hitPoints.Value;
             _dashValue = 0.0f;
+            _jumpPressed = false;
+            _resizePressed = false;
+            _attackPressed = false;
+            _movementValue = 0.0f;
+            _dashValue = 0.0f;
         }
 
         public void ThinkAboutAnimation()
