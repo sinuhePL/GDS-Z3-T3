@@ -108,6 +108,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _interactionRange:
+    _useConstant: 1
+    _constantValue: 1
+    _variable: {fileID: 0}
+  _interactionMask:
+    serializedVersion: 2
+    m_Bits: 2048
   _lastSpawPoint:
     _useConstant: 0
     _constantValue: {x: 0, y: 0, z: 0}
@@ -131,3 +138,4 @@ MonoBehaviour:
   _movementValue: 0
   _dashValue: 0
   _currentHitPoints: 1
+  _interactPressed: 0

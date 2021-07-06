@@ -42,6 +42,20 @@ namespace GDS3
                     brain._sizeChangeEvent.Invoke();
                 }
             }
+            if(brain._interactPressed)
+            {
+                brain._interactPressed = false;
+                Transform interactionTransform = controlledCharacter.GetInteractionCheck();
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(interactionTransform.position, brain._interactionRange.Value, brain._interactionMask);
+                foreach(Collider2D collider in colliders)
+                {
+                    Interactable interactableObject = collider.gameObject.GetComponent<Interactable>();
+                    if(interactableObject != null)
+                    {
+                        interactableObject.Interact(controlledCharacter.GetTransform(), controlledCharacter.GetPocketPosition(), 0.5f, 1.0f);
+                    }
+                }
+            }
         }
 
         public override void ActFixed(CharacterBrain brain)

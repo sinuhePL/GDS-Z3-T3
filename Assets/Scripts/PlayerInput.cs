@@ -67,6 +67,14 @@ namespace GDS3
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""2602a6e6-39c6-4a76-a9b7-2457e1f704f8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -157,6 +165,17 @@ namespace GDS3
                     ""action"": ""DashRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""307a14a6-6e91-43c9-bc0d-5dab2af8124a"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -171,6 +190,7 @@ namespace GDS3
             m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
             m_Gameplay_DashLeft = m_Gameplay.FindAction("DashLeft", throwIfNotFound: true);
             m_Gameplay_DashRight = m_Gameplay.FindAction("DashRight", throwIfNotFound: true);
+            m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -226,6 +246,7 @@ namespace GDS3
         private readonly InputAction m_Gameplay_Attack;
         private readonly InputAction m_Gameplay_DashLeft;
         private readonly InputAction m_Gameplay_DashRight;
+        private readonly InputAction m_Gameplay_Interact;
         public struct GameplayActions
         {
             private @PlayerInput m_Wrapper;
@@ -236,6 +257,7 @@ namespace GDS3
             public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
             public InputAction @DashLeft => m_Wrapper.m_Gameplay_DashLeft;
             public InputAction @DashRight => m_Wrapper.m_Gameplay_DashRight;
+            public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -263,6 +285,9 @@ namespace GDS3
                     @DashRight.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDashRight;
                     @DashRight.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDashRight;
                     @DashRight.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDashRight;
+                    @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                    @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                    @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -285,6 +310,9 @@ namespace GDS3
                     @DashRight.started += instance.OnDashRight;
                     @DashRight.performed += instance.OnDashRight;
                     @DashRight.canceled += instance.OnDashRight;
+                    @Interact.started += instance.OnInteract;
+                    @Interact.performed += instance.OnInteract;
+                    @Interact.canceled += instance.OnInteract;
                 }
             }
         }
@@ -297,6 +325,7 @@ namespace GDS3
             void OnAttack(InputAction.CallbackContext context);
             void OnDashLeft(InputAction.CallbackContext context);
             void OnDashRight(InputAction.CallbackContext context);
+            void OnInteract(InputAction.CallbackContext context);
         }
     }
 }

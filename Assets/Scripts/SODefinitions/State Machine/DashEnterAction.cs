@@ -9,6 +9,7 @@ namespace GDS3
     {
         public override void Act(CharacterBrain brain)
         {
+            Vector3 dashEndPosition;
             IControllable controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             brain._currentCooldownTime = brain._dashCooldownTime.Value;
@@ -16,11 +17,21 @@ namespace GDS3
             controlledCharacter.Attack();
             if (controlledTransform.position.x < brain._targetTransform.position.x)
             {
-                brain._attackEndPosition = new Vector3(controlledTransform.position.x + brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
+                dashEndPosition = new Vector3(controlledTransform.position.x + brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
+                if (dashEndPosition.x > brain._startingPosition.x + brain._rightMaxMoveDistance.Value)
+                {
+                    dashEndPosition.x = brain._startingPosition.x + brain._rightMaxMoveDistance.Value;
+                }
+                brain._attackEndPosition = dashEndPosition;
             }
             else
             {
-                brain._attackEndPosition = new Vector3(controlledTransform.position.x - brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
+                dashEndPosition = new Vector3(controlledTransform.position.x - brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
+                if(dashEndPosition.x < brain._startingPosition.x - brain._leftMaxMoveDistance.Value)
+                {
+                    dashEndPosition.x = brain._startingPosition.x - brain._leftMaxMoveDistance.Value;
+                }
+                brain._attackEndPosition = dashEndPosition;
             }
         }
 
