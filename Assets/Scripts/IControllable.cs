@@ -14,7 +14,7 @@ namespace GDS3
         LayerMask GetResizeBlockerMask();
         Transform GetHeightCheck();
         Transform GetInteractionCheck();
-        Vector3 GetPocketPosition();
+        Transform GetHandTransform();
         State GetStartingState();
         void MoveMe(float moveSpeed);
         void Jump(float jumpYVelocity);

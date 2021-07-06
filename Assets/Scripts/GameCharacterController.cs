@@ -15,7 +15,7 @@ namespace GDS3
         [SerializeField] private LayerMask _whatIsGround;
         [SerializeField] private Transform _groundCheck;
         [SerializeField] private Transform _hitCheck;
-        [SerializeField] private Transform _pocketPosition;
+        [SerializeField] private Transform _handTransform;
         [SerializeField] private Transform _interactionCheck;
         [SerializeField] private LayerMask _resizeBlocker;
         [SerializeField] private Transform _heightCheck;
@@ -158,9 +158,9 @@ namespace GDS3
             return _interactionCheck;
         }
 
-        public Vector3 GetPocketPosition()
+        public Transform GetHandTransform()
         {
-            return _pocketPosition.position;
+            return _handTransform;
         }
 
         public void Hit()
