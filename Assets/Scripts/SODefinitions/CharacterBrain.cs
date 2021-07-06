@@ -36,6 +36,9 @@ namespace GDS3
         public FloatReference _sizeChangeFactor;
         public FloatReference _sizeChangeTime;
         public UnityEvent _sizeChangeEvent;
+        [Header("Interaction Ability")]
+        public FloatReference _interactionRange;
+        public LayerMask _interactionMask;
         [Header("Other")]
         public Vector3Reference _lastSpawPoint;
         public IntegerReference _hitPoints;
@@ -55,6 +58,7 @@ namespace GDS3
         [HideInInspector] public float _movementValue;
         [HideInInspector] public float _dashValue;
         [HideInInspector] public int _currentHitPoints;
+        [HideInInspector] public bool _interactPressed;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
@@ -84,6 +88,12 @@ namespace GDS3
             _isAttackFinished = false;
             _currentHitPoints = _hitPoints.Value;
             _dashValue = 0.0f;
+            _jumpPressed = false;
+            _resizePressed = false;
+            _attackPressed = false;
+            _movementValue = 0.0f;
+            _dashValue = 0.0f;
+            _interactPressed = false;
         }
 
         public void ThinkAboutAnimation()
