@@ -70,5 +70,13 @@ namespace GDS3
                 _myBrain._dashValue = 1.0f;
             }
         }
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _myBrain._interactPressed = true;
+            }
+        }
     }
 }
