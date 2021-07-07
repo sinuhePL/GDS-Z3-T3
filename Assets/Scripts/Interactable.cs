@@ -6,6 +6,7 @@ namespace GDS3
 {
     public abstract class Interactable : MonoBehaviour
     {
+        [SerializeField] protected SpriteRenderer _mySpriteRenderer;
         [SerializeField] protected SpriteRenderer _highlightSpriteRenderer;
         [SerializeField] protected LayerMask _activatingLayerMask;
         [SerializeField] protected float _highlightTransitionTime;
@@ -66,6 +67,6 @@ namespace GDS3
             }
         }
 
-        public abstract void Interact(Transform parentTransform, Vector3 targetPosition, float targetScale, float movementTime);
+        public abstract void Interact(Transform parentTransform, float targetScale, float movementTime);
     }
 }
