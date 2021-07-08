@@ -25,11 +25,19 @@ namespace GDS3
         private CharacterMovementController _myMovement;
         private CharacterJumpController _myJump;
         private float _attackLength;
+        private bool _isGamePaused;
+        private float _prevAnimationSpeed;
+        private Vector3 _prevVelocity;
+        private bool _wasKinematic;
 
         private void Awake()
         {
             _myMovement = new CharacterMovementController(_myBody, _isFacingRight);
             _myJump = new CharacterJumpController(_myBody);
+            _isGamePaused = false;
+            _prevAnimationSpeed = 1.0f;
+            _prevVelocity = Vector3.zero;
+            _wasKinematic = _myBody.isKinematic;
         }
 
         private void Start()
@@ -101,8 +109,15 @@ namespace GDS3
 
         public void MoveMe(float moveSpeed)
         {
-            _myMovement.Move(moveSpeed);
-            _myAnimator.SetFloat("walk_speed", Mathf.Abs(moveSpeed));
+            if (!_isGamePaused)
+            {
+                _myMovement.Move(moveSpeed);
+                _myAnimator.SetFloat("walk_speed", Mathf.Abs(moveSpeed));
+            }
+            else
+            {
+                _myMovement.Move(0.0f);
+            }
         }
 
         public void Jump(float jumpYVelocity)
@@ -161,6 +176,27 @@ namespace GDS3
         public Transform GetHandTransform()
         {
             return _handTransform;
+        }
+
+        public void PauseCharacter()
+        {
+            if(_isGamePaused)
+            {
+                _myAnimator.speed = _prevAnimationSpeed;
+                _myBody.velocity = _prevVelocity;
+                _myBody.isKinematic = _wasKinematic;
+                _isGamePaused = false;
+            }
+            else
+            {
+                _prevAnimationSpeed = _myAnimator.speed;
+                _myAnimator.speed = 0.0f;
+                _prevVelocity = _myBody.velocity;
+                _myBody.velocity = Vector3.zero;
+                _wasKinematic = _myBody.isKinematic;
+                _myBody.isKinematic = true;
+                _isGamePaused = true;
+            }
         }
 
         public void Hit()

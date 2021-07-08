@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace GDS3
 {
@@ -9,13 +10,16 @@ namespace GDS3
     {
         [SerializeField] private CharacterBrain _myBrain;
         [SerializeField] private BoolReference _isInputBlocked;
+        [SerializeField] private UnityEvent _pauseEvent;
         private PlayerInput _playerInput;
+        private bool _isGamePaused;
 
         private void Awake()
         {
             _playerInput = new PlayerInput();
             _playerInput.Gameplay.SetCallbacks(this);
             _isInputBlocked.Value = false;
+            _isGamePaused = false;
         }
 
         private void OnEnable()
@@ -30,10 +34,7 @@ namespace GDS3
 
         public void OnMovement(InputAction.CallbackContext context)
         {
-            if (!_isInputBlocked.Value)
-            {
-                _myBrain._movementValue = context.ReadValue<float>();
-            }
+            _myBrain._movementValue = context.ReadValue<float>();
         }
 
         public void OnJump(InputAction.CallbackContext context)
@@ -80,7 +81,9 @@ namespace GDS3
         {
             if (context.performed)
             {
-
+                _pauseEvent.Invoke();
+                _isGamePaused = !_isGamePaused;
+                _isInputBlocked.Value = _isGamePaused;
             }
         }
     }

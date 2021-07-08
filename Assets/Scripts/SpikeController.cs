@@ -9,6 +9,13 @@ namespace GDS3
     public class SpikeController : MonoBehaviour
     {
         [SerializeField] private LayerMask _hitMask;
+        private bool _isGamePaused;
+
+        private void Awake()
+        {
+            _isGamePaused = false;
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             IHitable myHit;
@@ -20,6 +27,20 @@ namespace GDS3
                 {
                     myHit.Hit();
                 }
+            }
+        }
+
+        public void OnPausePressed()
+        {
+            if (_isGamePaused)
+            {
+                DOTween.PlayAll();
+                _isGamePaused = false;
+            }
+            else
+            {
+                DOTween.PauseAll();
+                _isGamePaused = true;
             }
         }
 

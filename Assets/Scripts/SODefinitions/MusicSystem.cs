@@ -13,6 +13,7 @@ namespace GDS3
         private AudioSource _currentAudioSource;
         private AudioEvent _lastPlayedMusic;
         private int _turnOnCounter;
+        private bool _isGamePaused;
 
         public BoolReference _isOn;
         public FloatReference _musicVolume;
@@ -21,6 +22,7 @@ namespace GDS3
         public GameEvent[] _events;
         public GameEvent _musicStateChangedEvent;
         public GameEvent _musicVolumeChangedEvent;
+        public GameEvent _pauseEvent;
 
         private void Initialize()
         {
@@ -30,6 +32,7 @@ namespace GDS3
             }
             _musicStateChangedEvent.RegisterListener(this);
             _musicVolumeChangedEvent.RegisterListener(this);
+            _pauseEvent.RegisterListener(this);
             _turnOnCounter = 1;
             GameObject musicObject1 = new GameObject("Music Source 1");
             _musicAudioSource1 = musicObject1.AddComponent<AudioSource>();
@@ -39,6 +42,7 @@ namespace GDS3
             _musicAudioSource2.loop = false;
             _currentAudioSource = _musicAudioSource1;
             _currentAudioSource.volume = _musicVolume.Value;
+            _isGamePaused = false;
         }
 
         private void OnDisable()
@@ -52,6 +56,7 @@ namespace GDS3
             }
             _musicStateChangedEvent.UnregisterListener(this);
             _musicVolumeChangedEvent.UnregisterListener(this);
+            _pauseEvent.UnregisterListener(this);
         }
 
         private IEnumerator UpdateMusicWithCrossFade(AudioSource original, AudioSource newSource, float transitionTime)
@@ -124,20 +129,36 @@ namespace GDS3
             }
             else if (_isOn.Value)
             {
-                foreach (AudioEvent music in _musicObjects)
+                if (_pauseEvent == gameEvent)
                 {
-                    if (music._relatedEvent == gameEvent)
+                    if (_isGamePaused)
                     {
-                        if (_currentAudioSource != null)
-
+                        _currentAudioSource.UnPause();
+                        _isGamePaused = false;
+                    }
+                    else
+                    {
+                        _currentAudioSource.Pause();
+                        _isGamePaused = true;
+                    }
+                }
+                else
+                {
+                    foreach (AudioEvent music in _musicObjects)
+                    {
+                        if (music._relatedEvent == gameEvent)
                         {
-                            AudioSource newAudioSource = (_musicAudioSource1 == _currentAudioSource) ? _musicAudioSource2 : _musicAudioSource1;
-                            newAudioSource.volume = _musicVolume.Value;
-                            seconds = music.Play(newAudioSource, _musicVolume.Value);
-                            GameAssets._instance.StartCoroutine(UpdateMusicWithCrossFade(_currentAudioSource, newAudioSource, _transitionTime));
-                            _currentAudioSource = newAudioSource;
-                            GameAssets._instance.StartCoroutine(ResumeMusic(music, seconds, _currentAudioSource, _turnOnCounter));
-                            _lastPlayedMusic = music;
+                            if (_currentAudioSource != null)
+
+                            {
+                                AudioSource newAudioSource = (_musicAudioSource1 == _currentAudioSource) ? _musicAudioSource2 : _musicAudioSource1;
+                                newAudioSource.volume = _musicVolume.Value;
+                                seconds = music.Play(newAudioSource, _musicVolume.Value);
+                                GameAssets._instance.StartCoroutine(UpdateMusicWithCrossFade(_currentAudioSource, newAudioSource, _transitionTime));
+                                _currentAudioSource = newAudioSource;
+                                GameAssets._instance.StartCoroutine(ResumeMusic(music, seconds, _currentAudioSource, _turnOnCounter));
+                                _lastPlayedMusic = music;
+                            }
                         }
                     }
                 }

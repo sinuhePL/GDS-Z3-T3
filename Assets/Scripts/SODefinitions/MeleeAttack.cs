@@ -18,22 +18,25 @@ namespace GDS3
             yield return new WaitForSeconds(_attackDelay);
             while (elapsedTime < duration - _attackDelay && !isHit)
             {
-                hitColliders = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _targetMask);
-                if (hitColliders.Length > 0)
+                if (!_isGamePaused)
                 {
-                    foreach (Collider2D collider in hitColliders)
+                    hitColliders = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _targetMask);
+                    if (hitColliders.Length > 0)
                     {
-                        myHit = collider.gameObject.GetComponent<IHitable>();
-                        if (myHit != null)
+                        foreach (Collider2D collider in hitColliders)
                         {
-                            Debug.Log("trafiłem");
-                            myHit.Hit();
-                            isHit = true;
+                            myHit = collider.gameObject.GetComponent<IHitable>();
+                            if (myHit != null)
+                            {
+                                Debug.Log("trafiłem");
+                                myHit.Hit();
+                                isHit = true;
+                            }
                         }
                     }
+                    elapsedTime += Time.time - timeStamp;
+                    timeStamp = Time.time;
                 }
-                elapsedTime += Time.time - timeStamp;
-                timeStamp = Time.time;
                 yield return null;
             }
             attackCallback();
@@ -41,6 +44,7 @@ namespace GDS3
 
         public override void Initialize(Transform attackTransform, GameObject myParent)
         {
+            base.Initialize(attackTransform, myParent);
             _attackPoint = attackTransform;
             _myParent = myParent;
         }

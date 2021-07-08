@@ -24,11 +24,13 @@ namespace GDS3
 
         private static SoundSystem _instance;
         private MyAudioSource[] _audioPool;
+        private bool _isGamePaused;
         public IntegerReference _poolSize;
         public BoolReference _isOn;
         public FloatReference _soundVolume;
         public AudioEvent[] _soundObjects;
         public GameEvent[] _events;
+        public GameEvent _pauseEvent;
 
         private void Initialize()
         {
@@ -36,6 +38,8 @@ namespace GDS3
             {
                 _event.RegisterListener(this);
             }
+            _pauseEvent.RegisterListener(this);
+            _isGamePaused = false;
         }
 
         private void OnDisable()
@@ -44,6 +48,7 @@ namespace GDS3
             {
                 _event.UnregisterListener(this);
             }
+            _pauseEvent.UnregisterListener(this);
         }
 
         private MyAudioSource GetMyAudioSource()
@@ -60,8 +65,12 @@ namespace GDS3
             return null;
         }
 
-        private static IEnumerator ReleaseAudioSource(MyAudioSource mySource, float seconds)
+        private IEnumerator ReleaseAudioSource(MyAudioSource mySource, float seconds)
         {
+            if(_isGamePaused)
+            {
+                yield return null;
+            }
             yield return new WaitForSeconds(seconds);
             mySource._isAvailable = true;
         }
@@ -97,14 +106,36 @@ namespace GDS3
                         _audioPool[i] = new MyAudioSource(soundsParent.transform);
                     }
                 }
-                foreach (AudioEvent sound in _soundObjects)
+                if (_pauseEvent == gameEvent)
                 {
-                    if (sound._relatedEvent == gameEvent)
+                    if (_isGamePaused)
                     {
-                        MyAudioSource freeAudioSource = GetMyAudioSource();
-                        freeAudioSource._soundSource.volume = _soundVolume.Value;
-                        float seconds = sound.Play(freeAudioSource._soundSource, _soundVolume.Value);
-                        GameAssets._instance.StartCoroutine(ReleaseAudioSource(freeAudioSource, seconds));
+                        foreach(MyAudioSource audioSource in _audioPool)
+                        {
+                            audioSource._soundSource.UnPause();
+                        }
+                        _isGamePaused = false;
+                    }
+                    else
+                    {
+                        foreach (MyAudioSource audioSource in _audioPool)
+                        {
+                            audioSource._soundSource.Pause();
+                        }
+                        _isGamePaused = true;
+                    }
+                }
+                else
+                {
+                    foreach (AudioEvent sound in _soundObjects)
+                    {
+                        if (sound._relatedEvent == gameEvent)
+                        {
+                            MyAudioSource freeAudioSource = GetMyAudioSource();
+                            freeAudioSource._soundSource.volume = _soundVolume.Value;
+                            float seconds = sound.Play(freeAudioSource._soundSource, _soundVolume.Value);
+                            GameAssets._instance.StartCoroutine(ReleaseAudioSource(freeAudioSource, seconds));
+                        }
                     }
                 }
             }

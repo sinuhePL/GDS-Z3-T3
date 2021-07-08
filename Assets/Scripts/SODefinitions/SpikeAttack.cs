@@ -16,19 +16,40 @@ namespace GDS3
 
         private IEnumerator SlideOutSpikes(float delay, System.Action attackCallback)
         {
+            float elapsedTime = 0.0f;
+            float currentTime;
             float spikeWaitTime = _attackRange / _spikesSpeed;
             yield return new WaitForSeconds(delay);
-            foreach(SpikeController spike in _mySpikes)
+            for(int i = 0; i < _mySpikes.Count; i++)
             {
-                spike.SlideOut(_spikeSlideTime, _spikeReturnDelay, _spikeHeight);
-                yield return new WaitForSeconds(spikeWaitTime);
+                if (_isGamePaused)
+                {
+                    i--;
+                    yield return null;
+                }
+                else
+                {
+                    _mySpikes[i].SlideOut(_spikeSlideTime, _spikeReturnDelay, _spikeHeight);
+                    yield return new WaitForSeconds(spikeWaitTime);
+                }
             }
-            yield return new WaitForSeconds(2*_spikeSlideTime + _spikeReturnDelay);
+            currentTime = Time.time;
+            while(elapsedTime < 2 * _spikeSlideTime + _spikeReturnDelay)
+            {
+                if (!_isGamePaused)
+                {
+                    elapsedTime += Time.time - currentTime;
+                }
+                currentTime = Time.time;
+                yield return null;
+            }
+            yield return new WaitForSeconds(2 * _spikeSlideTime + _spikeReturnDelay);
             attackCallback();
         }
 
         public override void Initialize(Transform attackTransform, GameObject myParent)
         {
+            base.Initialize(attackTransform, myParent);
             Vector3 nextSpikePosition;
             _attackPoint = attackTransform;
             _myParent = myParent;
