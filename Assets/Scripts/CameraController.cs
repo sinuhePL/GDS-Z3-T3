@@ -14,6 +14,7 @@ namespace GDS3
         [SerializeField] private Transform _followTarget;
         [SerializeField] private Vector3Reference _lastSpawnPoint;
         [SerializeField] private FloatReference _moveToSpawnPointTime;
+        [SerializeField] private BoolReference _isInputBlocked;
         [Range(-10.0f, 10.0f)] [SerializeField] private float _xTargetOffset;
         [Range(-10.0f, 10.0f)] [SerializeField] private float _yTargetOffset;
         [Range(0.0f, 5.0f)] [SerializeField] private float _xTargetDeadZone;
@@ -161,7 +162,7 @@ namespace GDS3
         {
             _isFollowing = false;
             Vector3 newPosition = new Vector3(_lastSpawnPoint.Value.x + _xTargetOffset, _lastSpawnPoint.Value.y + _yTargetOffset, _camera.transform.position.z);
-            Tweener t = _camera.transform.DOMove(newPosition, _moveToSpawnPointTime.Value).SetEase(Ease.OutSine).OnComplete(()=> _isFollowing = true);
+            Tweener t = _camera.transform.DOMove(newPosition, _moveToSpawnPointTime.Value).SetEase(Ease.OutSine).OnComplete(()=> { _isFollowing = true; _isInputBlocked.Value = false; });
         }
     }
 }

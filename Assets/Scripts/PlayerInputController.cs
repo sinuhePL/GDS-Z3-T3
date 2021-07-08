@@ -8,12 +8,14 @@ namespace GDS3
     public class PlayerInputController : MonoBehaviour, PlayerInput.IGameplayActions
     {
         [SerializeField] private CharacterBrain _myBrain;
+        [SerializeField] private BoolReference _isInputBlocked;
         private PlayerInput _playerInput;
 
         private void Awake()
         {
             _playerInput = new PlayerInput();
             _playerInput.Gameplay.SetCallbacks(this);
+            _isInputBlocked.Value = false;
         }
 
         private void OnEnable()
@@ -28,12 +30,15 @@ namespace GDS3
 
         public void OnMovement(InputAction.CallbackContext context)
         {
-            _myBrain._movementValue = context.ReadValue<float>();
+            if (!_isInputBlocked.Value)
+            {
+                _myBrain._movementValue = context.ReadValue<float>();
+            }
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            if(context.performed)
+            if(context.performed && !_isInputBlocked.Value)
             {
                 _myBrain._jumpPressed = true;
             }
@@ -41,7 +46,7 @@ namespace GDS3
 
         public void OnResize(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && !_isInputBlocked.Value)
             {
                 _myBrain._resizePressed = true;
             }
@@ -49,7 +54,7 @@ namespace GDS3
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && !_isInputBlocked.Value)
             {
                 _myBrain._attackPressed = true;
             }
@@ -57,7 +62,7 @@ namespace GDS3
 
         public void OnDashLeft(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && !_isInputBlocked.Value)
             {
                 _myBrain._dashValue = -1.0f;
             }
@@ -65,7 +70,7 @@ namespace GDS3
 
         public void OnDashRight(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && !_isInputBlocked.Value)
             {
                 _myBrain._dashValue = 1.0f;
             }
@@ -73,7 +78,7 @@ namespace GDS3
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.performed && !_isInputBlocked.Value)
             {
                 _myBrain._interactPressed = true;
             }

@@ -1540,6 +1540,10 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 3
     _variable: {fileID: 0}
+  _isInputBlocked:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
   _xTargetOffset: 0
   _yTargetOffset: 4.2
   _xTargetDeadZone: 0.5
@@ -11608,6 +11612,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myBrain: {fileID: 11400000, guid: cff7989470f95674db66f0fd3c6fb69b, type: 2}
+  _isInputBlocked:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
 --- !u!114 &2079885619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11682,6 +11690,10 @@ MonoBehaviour:
     _constantValue: {x: 0, y: 0, z: 0}
     _variable: {fileID: 11400000, guid: 0df0207ca9092f044a5b6ad2c46c8b26, type: 2}
   _myBrain: {fileID: 11400000, guid: cff7989470f95674db66f0fd3c6fb69b, type: 2}
+  _isInputBlocked:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
 --- !u!114 &2079885622
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,9 +12,9 @@ namespace GDS3
             Vector3 dashEndPosition;
             IControllable controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
-            brain._currentCooldownTime = brain._dashCooldownTime.Value;
             Debug.Log("Wchodzę w  dash");
             controlledCharacter.Attack();
+            brain._currentCooldownTime = brain._dashCooldownTime.Value;
             if (controlledTransform.position.x < brain._targetTransform.position.x)
             {
                 dashEndPosition = new Vector3(controlledTransform.position.x + brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
