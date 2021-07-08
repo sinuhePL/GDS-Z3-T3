@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bigMovementSpeed:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 8
     _variable: {fileID: 0}
   _smallMovementSpeed:
     _useConstant: 1
-    _constantValue: 2
+    _constantValue: 3.5
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
@@ -30,11 +30,11 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
-    _constantValue: 0.5
+    _constantValue: 0.4
     _variable: {fileID: 0}
   _jumpHeight:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 2.7
     _variable: {fileID: 0}
   _jumpHorizontalSpeed:
     _useConstant: 1
@@ -42,15 +42,15 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
-    _constantValue: 8
+    _constantValue: 25
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 4
+    _constantValue: 4.5
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
-    _constantValue: 0
+    _constantValue: 2
     _variable: {fileID: 0}
   _dashObstacles:
     serializedVersion: 2
@@ -124,18 +124,18 @@ MonoBehaviour:
     _constantValue: 1
     _variable: {fileID: 0}
   _currentState: {fileID: 11400000, guid: 12789eea5e380884084dcad8b8d2ac7f, type: 2}
-  _startingPosition: {x: 38.96, y: -4.2, z: 0}
+  _startingPosition: {x: 49.09, y: -37.65, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 32.722202, y: -4.416808, z: 0}
-  _jumpYVelocity: 12
-  _stateTimeElapsted: 7.0298615
-  _currentCooldownTime: 0
-  _currentMovementSpeed: 0.75
+  _attackEndPosition: {x: 76.8873, y: -33.749516, z: 0}
+  _jumpYVelocity: 13.5
+  _stateTimeElapsted: 4.2369723
+  _currentCooldownTime: 2
+  _currentMovementSpeed: 8
   _isAttackFinished: 0
   _jumpPressed: 0
   _resizePressed: 0
   _attackPressed: 0
   _movementValue: 0
-  _dashValue: 0
+  _dashPressed: 0
   _currentHitPoints: 1
   _interactPressed: 0
