@@ -119,6 +119,14 @@ MonoBehaviour:
     m_Bits: 256
   _highlightTransitionTime: 1
   _detectionDistance: 2
+  _isPlayerSmall:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
+  _isInputBlocked:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
 --- !u!1 &6652492243617390350
 GameObject:
   m_ObjectHideFlags: 0

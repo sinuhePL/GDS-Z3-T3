@@ -16,7 +16,7 @@ namespace GDS3
             controlledBody.velocity = new Vector2(controlledBody.velocity.x, 0.0f);
             brain._currentCooldownTime = brain._dashCooldownTime.Value;
             controlledCharacter.Dash();
-            if (brain._dashValue > 0.1f)
+            if (controlledTransform.localScale.x < 0.0f)
             {
                 brain._attackEndPosition = new Vector3(controlledTransform.position.x + brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
             }
@@ -24,7 +24,6 @@ namespace GDS3
             {
                 brain._attackEndPosition = new Vector3(controlledTransform.position.x - brain._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
             }
-            brain._dashValue = 0.0f;
         }
 
         public override void ActFixed(CharacterBrain brain)

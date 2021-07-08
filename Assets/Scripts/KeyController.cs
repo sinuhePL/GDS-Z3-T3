@@ -7,6 +7,8 @@ namespace GDS3
 {
     public class KeyController : Interactable
     {
+        [SerializeField] private BoolReference _isPlayerSmall;
+        [SerializeField] private BoolReference _isInputBlocked;
         private bool _isTaken;
 
         private new void Awake()
@@ -17,14 +19,15 @@ namespace GDS3
 
         public override void Interact(Transform parentTransform, float targetScale, float movementTime)
         {
-            if (!_isTaken)
+            if (!_isTaken && !_isPlayerSmall.Value)
             {
                 Color highlightColor = _highlightSpriteRenderer.color;
                 highlightColor.a = 0;
                 _highlightSpriteRenderer.color = highlightColor;
+                _isInputBlocked.Value = true;
                 transform.SetParent(parentTransform);
                 transform.DOMove(parentTransform.position, movementTime);
-                transform.DOScale(targetScale, movementTime);
+                transform.DOScale(targetScale, movementTime).OnComplete(() => { _isInputBlocked.Value = false; _highlightSpriteRenderer.color = highlightColor; });
                 _mySpriteRenderer.sortingOrder = 2;
                 _isTaken = true;
             }

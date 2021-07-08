@@ -9,8 +9,9 @@ namespace GDS3
     {
         public override bool Decide(CharacterBrain brain)
         {
-            if (brain._dashValue > 0.1f || brain._dashValue < -0.1f)
+            if (brain._dashPressed)
             {
+                brain._dashPressed = false;
                 return true;
             }
             else

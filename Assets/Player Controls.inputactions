@@ -38,17 +38,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "DashLeft",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "b5fdb586-33ce-4b65-9632-c64e5ccb4ef6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "DashRight",
-                    "type": "Button",
-                    "id": "8d09db8a-0abd-4bfd-82f3-8a392e656e83",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -57,6 +49,14 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "2602a6e6-39c6-4a76-a9b7-2457e1f704f8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "da41a38e-9565-4b79-a33f-a2de0e0c9190",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -110,7 +110,7 @@
                 {
                     "name": "",
                     "id": "f40b8a07-ad26-4273-835f-412d7309cc0c",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -132,22 +132,11 @@
                 {
                     "name": "",
                     "id": "3f22254a-b156-4431-844e-19e68620fd06",
-                    "path": "<Keyboard>/a",
-                    "interactions": "MultiTap",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DashLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9a032532-4b9f-4f8c-a7d5-c897c8659618",
-                    "path": "<Keyboard>/d",
-                    "interactions": "MultiTap",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DashRight",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -159,6 +148,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "357d4f8d-4786-4c75-befd-94f179d0797c",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

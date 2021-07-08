@@ -56,7 +56,7 @@ namespace GDS3
         [HideInInspector] public bool _resizePressed;
         [HideInInspector] public bool _attackPressed;
         [HideInInspector] public float _movementValue;
-        [HideInInspector] public float _dashValue;
+        [HideInInspector] public bool _dashPressed;
         [HideInInspector] public int _currentHitPoints;
         [HideInInspector] public bool _interactPressed;
 
@@ -87,12 +87,11 @@ namespace GDS3
             }
             _isAttackFinished = false;
             _currentHitPoints = _hitPoints.Value;
-            _dashValue = 0.0f;
+            _dashPressed = false;
             _jumpPressed = false;
             _resizePressed = false;
             _attackPressed = false;
             _movementValue = 0.0f;
-            _dashValue = 0.0f;
             _interactPressed = false;
         }
 

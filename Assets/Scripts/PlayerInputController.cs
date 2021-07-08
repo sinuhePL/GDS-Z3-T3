@@ -60,19 +60,11 @@ namespace GDS3
             }
         }
 
-        public void OnDashLeft(InputAction.CallbackContext context)
+        public void OnDash(InputAction.CallbackContext context)
         {
             if (context.performed && !_isInputBlocked.Value)
             {
-                _myBrain._dashValue = -1.0f;
-            }
-        }
-
-        public void OnDashRight(InputAction.CallbackContext context)
-        {
-            if (context.performed && !_isInputBlocked.Value)
-            {
-                _myBrain._dashValue = 1.0f;
+                _myBrain._dashPressed = true;
             }
         }
 
@@ -81,6 +73,14 @@ namespace GDS3
             if (context.performed && !_isInputBlocked.Value)
             {
                 _myBrain._interactPressed = true;
+            }
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+
             }
         }
     }
