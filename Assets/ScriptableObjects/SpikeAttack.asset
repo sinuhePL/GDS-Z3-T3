@@ -19,9 +19,7 @@ MonoBehaviour:
   _targetMask:
     serializedVersion: 2
     m_Bits: 256
-  _targetHitEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  _pauseEvent: {fileID: 11400000, guid: 9e1169ed1b0fe93488b9df2d80d28e8d, type: 2}
   _spikesGap: 0.2
   _spikesSpeed: 500
   _spikeSlideTime: 0.5

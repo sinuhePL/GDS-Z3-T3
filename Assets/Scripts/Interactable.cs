@@ -9,11 +9,14 @@ namespace GDS3
         [SerializeField] protected SpriteRenderer _mySpriteRenderer;
         [SerializeField] protected SpriteRenderer _highlightSpriteRenderer;
         [SerializeField] protected LayerMask _activatingLayerMask;
+        [SerializeField] protected BoolReference _isPlayerSmall;
         [SerializeField] protected float _highlightTransitionTime;
         [SerializeField] protected float _detectionDistance;
+        [SerializeField] protected float _interactionTime;
+        [SerializeField] protected bool _interactWhenSmall;
         protected bool _isActivatorNearby;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             _isActivatorNearby = false;
             Color highlightColor = _highlightSpriteRenderer.color;
@@ -51,7 +54,7 @@ namespace GDS3
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _detectionDistance, _activatingLayerMask);
             if(colliders.Length > 0)
             {
-                if (!_isActivatorNearby)
+                if (!_isActivatorNearby && (_isPlayerSmall.Value && _interactWhenSmall || !_isPlayerSmall.Value && !_interactWhenSmall))
                 {
                     _isActivatorNearby = true;
                     StartCoroutine(ChangeHighlight());
@@ -59,7 +62,7 @@ namespace GDS3
             }
             else
             {
-                if(_isActivatorNearby)
+                if(_isActivatorNearby && (_isPlayerSmall.Value && _interactWhenSmall || !_isPlayerSmall.Value && !_interactWhenSmall))
                 {
                     _isActivatorNearby = false;
                     StartCoroutine(ChangeHighlight());
@@ -67,6 +70,6 @@ namespace GDS3
             }
         }
 
-        public abstract void Interact(Transform parentTransform, float targetScale, float movementTime);
+        public abstract void Interact(Transform parentTransform, float targetScale);
     }
 }

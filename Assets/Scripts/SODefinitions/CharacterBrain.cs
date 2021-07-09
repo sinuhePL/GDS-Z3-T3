@@ -59,6 +59,8 @@ namespace GDS3
         [HideInInspector] public bool _dashPressed;
         [HideInInspector] public int _currentHitPoints;
         [HideInInspector] public bool _interactPressed;
+        [HideInInspector] public float _lastDashTime;
+
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
@@ -93,6 +95,7 @@ namespace GDS3
             _attackPressed = false;
             _movementValue = 0.0f;
             _interactPressed = false;
+            _lastDashTime = -1000.0f;
         }
 
         public void ThinkAboutAnimation()

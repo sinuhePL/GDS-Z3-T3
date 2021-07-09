@@ -12,7 +12,15 @@ namespace GDS3
             if (brain._dashPressed)
             {
                 brain._dashPressed = false;
-                return true;
+                if (Time.time - brain._lastDashTime > brain._dashCooldownTime.Value)
+                {
+                    brain._lastDashTime = Time.time;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
