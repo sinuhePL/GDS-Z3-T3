@@ -17,7 +17,7 @@ namespace GDS3
             _isTaken = false;
         }
 
-        public override void Interact(Transform parentTransform)
+        public override void Interact(Transform parentTransform, ref Transform pocket)
         {
             if (!_isTaken && !_isPlayerSmall.Value)
             {
@@ -30,6 +30,7 @@ namespace GDS3
                 transform.DOScale(_targetScale, _interactionTime).OnComplete(() => { _isInputBlocked.Value = false; _highlightSpriteRenderer.color = highlightColor; });
                 _mySpriteRenderer.sortingOrder = 2;
                 _isTaken = true;
+                pocket = gameObject.transform;
             }
         }
     }

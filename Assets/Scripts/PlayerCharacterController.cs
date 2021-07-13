@@ -45,6 +45,7 @@ namespace GDS3
         public Transform _interactionCheck;
         public LayerMask _interactionMask;
         public Transform _handTransform;
+        [HideInInspector] public Transform _pocket;
         [Header("Other")]
         public Vector3Reference _lastSpawPoint;
         public IntegerReference _hitPoints;
@@ -87,20 +88,13 @@ namespace GDS3
                     _attackLength = clip.length;
                 }
             }
-            if (_isPlayerSmall.Value)
-            {
-                _currentMovementSpeed = _smallMovementSpeed.Value;
-            }
-            else
-            {
-                _currentMovementSpeed = _bigMovementSpeed.Value;
-            }
             _isGamePaused = false;
             _isInputBlocked.Value = false;
             _currentHitPoints = _hitPoints.Value;
             _playerInput = new PlayerInput();
             _playerInput.Gameplay.SetCallbacks(this);
             _myState = new PlayerJumpState(this);
+            _pocket = null;
         }
 
         private void OnEnable()
@@ -111,6 +105,18 @@ namespace GDS3
         private void OnDisable()
         {
             _playerInput.Disable();
+        }
+
+        private void Start()
+        {
+            if (_isPlayerSmall.Value)
+            {
+                _currentMovementSpeed = _smallMovementSpeed.Value;
+            }
+            else
+            {
+                _currentMovementSpeed = _bigMovementSpeed.Value;
+            }
         }
 
         private void FixedUpdate()

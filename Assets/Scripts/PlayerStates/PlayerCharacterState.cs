@@ -99,7 +99,7 @@ namespace GDS3
                 Interactable interactableObject = collider.gameObject.GetComponent<Interactable>();
                 if (interactableObject != null)
                 {
-                    interactableObject.Interact(_myController._handTransform);
+                    interactableObject.Interact(_myController._handTransform, ref _myController._pocket);
                 }
             }
         }

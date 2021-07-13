@@ -70,6 +70,6 @@ namespace GDS3
             }
         }
 
-        public abstract void Interact(Transform parentTransform);
+        public abstract void Interact(Transform parentTransform, ref Transform pocket);
     }
 }
