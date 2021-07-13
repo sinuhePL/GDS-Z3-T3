@@ -117,17 +117,19 @@ MonoBehaviour:
   _activatingLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  _highlightTransitionTime: 1
-  _detectionDistance: 2
-  _interactionTime: 0.5
   _isPlayerSmall:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
+  _highlightTransitionTime: 1
+  _detectionDistance: 2
+  _interactionTime: 0.5
+  _interactWhenSmall: 0
   _isInputBlocked:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
+  _targetScale: 0.5
 --- !u!1 &6652492243617390350
 GameObject:
   m_ObjectHideFlags: 0

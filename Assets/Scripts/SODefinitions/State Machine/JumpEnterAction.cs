@@ -14,15 +14,10 @@ namespace GDS3
 
         public override void ActFixed(CharacterBrain brain)
         {
-            float sizeModifier = 1.0f;
-            if (brain._isCharacterSmall.Value)
-            {
-                sizeModifier = 2 / brain._sizeChangeFactor.Value;
-            }
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
             controlledBody.isKinematic = false;
-            controlledCharacter.Jump(brain._jumpYVelocity * sizeModifier);
+            controlledCharacter.Jump(brain._jumpYVelocity);
         }
     }
 }

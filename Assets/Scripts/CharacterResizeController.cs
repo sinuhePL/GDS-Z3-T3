@@ -7,34 +7,39 @@ namespace GDS3
 {
     public class CharacterResizeController : MonoBehaviour
     {
-        [SerializeField] private CharacterBrain _characterBrain;
+        [SerializeField] private BoolReference _isResizableSmall;
         [SerializeField] private LayerMask _deadlyForSmallMask;
         [SerializeField] private UnityEvent _killedEvent;
         private int _resizeCoroutineId;
         private Vector3 _bigScale;
         private Vector3 _smallScale;
+        private IResizable _myResizable;
 
         private void Awake()
         {
-            _characterBrain._isCharacterSmall.Value = false;
+            _isResizableSmall.Value = false;
+            _myResizable = GetComponent<IResizable>();
             _resizeCoroutineId = 0;
             Random.InitState((int)System.DateTime.Now.Ticks);
-            if(_characterBrain._isCharacterSmall.Value)
+            if (_myResizable != null)
             {
-                _smallScale = transform.localScale;
-                _bigScale = transform.localScale * _characterBrain._sizeChangeFactor.Value;
-            }
-            else
-            {
-                _smallScale = transform.localScale / _characterBrain._sizeChangeFactor.Value;
-                _bigScale = transform.localScale;
+                if (_isResizableSmall.Value)
+                {
+                    _smallScale = transform.localScale;
+                    _bigScale = transform.localScale * _myResizable.GetFactor();
+                }
+                else
+                {
+                    _smallScale = transform.localScale / _myResizable.GetFactor();
+                    _bigScale = transform.localScale;
+                }
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             bool isDeadly = _deadlyForSmallMask == (_deadlyForSmallMask | (1 << collision.gameObject.layer));
-            if (isDeadly && _characterBrain._isCharacterSmall.Value)
+            if (isDeadly && _isResizableSmall.Value)
             {
                 _killedEvent.Invoke();
             }
@@ -74,19 +79,19 @@ namespace GDS3
             }
             startingScaleX = transform.localScale.x;
             startingScaleY = transform.localScale.y;
-            if (!_characterBrain._isCharacterSmall.Value)
+            if (!_isResizableSmall.Value)
             {
                 targetScaleX = _bigScale.x;
                 targetScaleY = _bigScale.y;
-                currentSpeed = _characterBrain._smallMovementSpeed.Value;
-                targetSpeed = _characterBrain._bigMovementSpeed.Value;
+                currentSpeed = _myResizable.GetSmallSpeed();
+                targetSpeed = _myResizable.GetBigSpeed();
             }
             else
             {
                 targetScaleX = _smallScale.x;
                 targetScaleY = _smallScale.y;
-                currentSpeed = _characterBrain._bigMovementSpeed.Value;
-                targetSpeed = _characterBrain._smallMovementSpeed.Value;
+                currentSpeed = _myResizable.GetBigSpeed();
+                targetSpeed = _myResizable.GetSmallSpeed();
             }
             float newResizeTime = proportion * Mathf.Abs(startingScaleY - targetScaleY);
             for (float t = 0; t < newResizeTime && myId == _resizeCoroutineId; t += Time.deltaTime)
@@ -104,25 +109,25 @@ namespace GDS3
                 currentScaleX = Mathf.Lerp(startingScaleX, targetScaleX, interpolationPoint);
                 currentScaleY = Mathf.Lerp(startingScaleY, targetScaleY, interpolationPoint);
                 transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
-                _characterBrain._currentMovementSpeed = Mathf.Lerp(currentSpeed, targetSpeed, interpolationPoint);
+                _myResizable.SetCurrentSpeed(Mathf.Lerp(currentSpeed, targetSpeed, interpolationPoint));
                 yield return 0;
             }
             if (myId == _resizeCoroutineId)
             {
                 transform.localScale = new Vector3(targetScaleX, targetScaleY, 0.0f);
-                _characterBrain._currentMovementSpeed = targetSpeed;
+                _myResizable.SetCurrentSpeed(targetSpeed);
             }
         }
 
         public void ChangeSize()
         {
-            if (_characterBrain._isCharacterSmall.Value)
+            if (_isResizableSmall.Value)
             {
-                StartCoroutine(Resize(_characterBrain._sizeChangeFactor.Value, _characterBrain._sizeChangeTime.Value));
+                StartCoroutine(Resize(_myResizable.GetFactor(), _myResizable.GetChangetime()));
             }
             else 
             {
-                StartCoroutine(Resize(1 / _characterBrain._sizeChangeFactor.Value, _characterBrain._sizeChangeTime.Value));
+                StartCoroutine(Resize(1 / _myResizable.GetFactor(), _myResizable.GetChangetime()));
             }
         }
     }

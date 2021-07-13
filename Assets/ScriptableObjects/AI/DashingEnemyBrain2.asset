@@ -12,13 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
   m_Name: DashingEnemyBrain2
   m_EditorClassIdentifier: 
-  _bigMovementSpeed:
+  _movementSpeed:
     _useConstant: 1
     _constantValue: 1
-    _variable: {fileID: 0}
-  _smallMovementSpeed:
-    _useConstant: 1
-    _constantValue: 0
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
@@ -82,49 +78,17 @@ MonoBehaviour:
     _useConstant: 1
     _constantValue: 1
     _variable: {fileID: 0}
-  _isCharacterSmall:
-    _useConstant: 1
-    _constantValue: 0
-    _variable: {fileID: 0}
-  _sizeChangeFactor:
-    _useConstant: 1
-    _constantValue: 0
-    _variable: {fileID: 0}
-  _sizeChangeTime:
-    _useConstant: 1
-    _constantValue: 0
-    _variable: {fileID: 0}
-  _sizeChangeEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  _interactionRange:
-    _useConstant: 1
-    _constantValue: 0
-    _variable: {fileID: 0}
-  _interactionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  _lastSpawPoint:
-    _useConstant: 1
-    _constantValue: {x: 0, y: 0, z: 0}
-    _variable: {fileID: 0}
   _hitPoints:
     _useConstant: 1
     _constantValue: 3
     _variable: {fileID: 0}
   _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
+  _controlledCharacter: {fileID: 0}
   _startingPosition: {x: 30.64, y: 0.7, z: 0}
   _targetTransform: {fileID: 0}
   _attackEndPosition: {x: 0, y: 0, z: 0}
   _jumpYVelocity: 0
   _stateTimeElapsted: 124.118225
   _currentCooldownTime: 0
-  _currentMovementSpeed: 1
   _isAttackFinished: 0
-  _jumpPressed: 0
-  _resizePressed: 0
-  _attackPressed: 0
-  _movementValue: 0
-  _dashValue: 0
   _currentHitPoints: 3
-  _interactPressed: 0

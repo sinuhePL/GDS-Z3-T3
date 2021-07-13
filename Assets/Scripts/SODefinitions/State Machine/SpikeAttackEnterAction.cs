@@ -13,7 +13,7 @@ namespace GDS3
 
         public override void ActFixed(CharacterBrain brain)
         {
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             if(brain._targetTransform.position.x > controlledTransform.position.x)
             {

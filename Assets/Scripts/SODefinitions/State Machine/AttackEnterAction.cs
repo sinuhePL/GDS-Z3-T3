@@ -9,7 +9,7 @@ namespace GDS3
     {
         public override void Act(CharacterBrain brain)
         {
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             controlledCharacter.Attack();
         }
 

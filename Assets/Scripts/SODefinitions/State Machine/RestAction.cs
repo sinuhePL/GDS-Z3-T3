@@ -14,7 +14,7 @@ namespace GDS3
 
         public override void ActFixed(CharacterBrain brain)
         {
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Rigidbody2D characterBody = controlledCharacter.GetRigidbody2D();
             float speed = characterBody.velocity.x;
             speed *= 0.9f;

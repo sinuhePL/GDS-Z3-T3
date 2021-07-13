@@ -9,7 +9,7 @@ namespace GDS3
     {
         public override void Act(CharacterBrain brain)
         {
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
             brain._currentCooldownTime = brain._teleportCooldownTime.Value;

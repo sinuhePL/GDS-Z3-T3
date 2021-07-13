@@ -70,6 +70,6 @@ namespace GDS3
             }
         }
 
-        public abstract void Interact(Transform parentTransform, float targetScale);
+        public abstract void Interact(Transform parentTransform);
     }
 }

@@ -14,7 +14,7 @@ namespace GDS3
 
         public override void ActFixed(CharacterBrain brain)
         {
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
             controlledBody.isKinematic = true;
@@ -22,11 +22,11 @@ namespace GDS3
             Debug.Log("Wchodzę w patrol");
             if (controlledTransform.localScale.x > 0)
             {
-                controlledCharacter.MoveMe(brain._currentMovementSpeed);
+                controlledCharacter.MoveMe(brain._movementSpeed.Value);
             }
             else
             {
-                controlledCharacter.MoveMe(-brain._currentMovementSpeed);
+                controlledCharacter.MoveMe(-brain._movementSpeed.Value);
             }
         }
     }

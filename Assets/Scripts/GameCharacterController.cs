@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace GDS3
 {
-    public class GameCharacterController : MonoBehaviour, IControllable, IHitable
+    public class GameCharacterController : MonoBehaviour, IHitable
     {
         [SerializeField] private CharacterBrain _myBrain;
         [SerializeField] private Attack _myAttack;
@@ -15,10 +15,6 @@ namespace GDS3
         [SerializeField] private LayerMask _whatIsGround;
         [SerializeField] private Transform _groundCheck;
         [SerializeField] private Transform _hitCheck;
-        [SerializeField] private Transform _handTransform;
-        [SerializeField] private Transform _interactionCheck;
-        [SerializeField] private LayerMask _resizeBlocker;
-        [SerializeField] private Transform _heightCheck;
         [SerializeField] private State _startingState;
         [SerializeField] private UnityEvent _hitEvent;
         [SerializeField] private UnityEvent _killedEvent;
@@ -153,29 +149,9 @@ namespace GDS3
             return _hitCheck;
         }
 
-        public LayerMask GetResizeBlockerMask()
-        {
-            return _resizeBlocker; ;
-        }
-
-        public Transform GetHeightCheck()
-        {
-            return _heightCheck;
-        }
-
         public State GetStartingState()
         {
             return _startingState;
-        }
-
-        public Transform GetInteractionCheck()
-        {
-            return _interactionCheck;
-        }
-
-        public Transform GetHandTransform()
-        {
-            return _handTransform;
         }
 
         public void PauseCharacter()

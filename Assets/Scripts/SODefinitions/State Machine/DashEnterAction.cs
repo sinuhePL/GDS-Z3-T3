@@ -10,7 +10,7 @@ namespace GDS3
         public override void Act(CharacterBrain brain)
         {
             Vector3 dashEndPosition;
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             Debug.Log("Wchodzę w  dash");
             controlledCharacter.Attack();

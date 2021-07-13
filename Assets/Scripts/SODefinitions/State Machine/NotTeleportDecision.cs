@@ -9,7 +9,7 @@ namespace GDS3
     {
         public override bool Decide(CharacterBrain brain)
         {
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             float distance = Mathf.Abs(controlledTransform.position.x - brain._targetTransform.position.x) + brain._teleportDistance.Value;
             if (brain._stateTimeElapsted > brain._currentCooldownTime)

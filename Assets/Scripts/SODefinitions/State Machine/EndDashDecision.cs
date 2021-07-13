@@ -9,7 +9,7 @@ namespace GDS3
     {
         public override bool Decide(CharacterBrain brain)
         {
-            IControllable controlledCharacter = brain._controlledCharacter;
+            GameCharacterController controlledCharacter = brain._controlledCharacter;
             Transform controlledTransform = controlledCharacter.GetTransform();
             Collider2D[] hitColliders;
             hitColliders = Physics2D.OverlapCircleAll(controlledCharacter.GetHitCheck().position, 0.1f, brain._dashObstacles);

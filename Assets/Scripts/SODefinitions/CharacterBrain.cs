@@ -9,8 +9,7 @@ namespace GDS3
     public class CharacterBrain : ScriptableObject
     {
         [Header("Movement Ability")]
-        public FloatReference _bigMovementSpeed;
-        public FloatReference _smallMovementSpeed;
+        public FloatReference _movementSpeed;
         public FloatReference _leftMaxMoveDistance;
         public FloatReference _rightMaxMoveDistance;
         [Header("Jump Ability")]
@@ -31,41 +30,23 @@ namespace GDS3
         [Header("Teleport Ability")]
         public FloatReference _teleportDistance;
         public FloatReference _teleportCooldownTime;
-        [Header("Resize Ability")]
-        public BoolReference _isCharacterSmall;
-        public FloatReference _sizeChangeFactor;
-        public FloatReference _sizeChangeTime;
-        public UnityEvent _sizeChangeEvent;
-        [Header("Interaction Ability")]
-        public FloatReference _interactionRange;
-        public LayerMask _interactionMask;
         [Header("Other")]
-        public Vector3Reference _lastSpawPoint;
         public IntegerReference _hitPoints;
         [HideInInspector] public State _currentState;
-        [HideInInspector] public IControllable _controlledCharacter;
+        [HideInInspector] public GameCharacterController _controlledCharacter;
         [HideInInspector] public Vector3 _startingPosition;
         [HideInInspector] public Transform _targetTransform;
         [HideInInspector] public Vector3 _attackEndPosition;
         [HideInInspector] public float _jumpYVelocity;
         [HideInInspector] public float _stateTimeElapsted;
         [HideInInspector] public float _currentCooldownTime;
-        [HideInInspector] public float _currentMovementSpeed;
         [HideInInspector] public bool _isAttackFinished;
-        [HideInInspector] public bool _jumpPressed;
-        [HideInInspector] public bool _resizePressed;
-        [HideInInspector] public bool _attackPressed;
-        [HideInInspector] public float _movementValue;
-        [HideInInspector] public bool _dashPressed;
         [HideInInspector] public int _currentHitPoints;
-        [HideInInspector] public bool _interactPressed;
-        [HideInInspector] public float _lastDashTime;
-
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
 
-        public void Initialize(IControllable character)
+        public void Initialize(GameCharacterController character)
         {
             _controlledCharacter = character;
             Transform characterTransform = character.GetTransform();
@@ -79,23 +60,8 @@ namespace GDS3
             }
             _currentState = _controlledCharacter.GetStartingState();
             _currentState.OnEnterState(this);
-            if (_isCharacterSmall.Value)
-            {
-                _currentMovementSpeed = _smallMovementSpeed.Value;
-            }
-            else
-            {
-                _currentMovementSpeed = _bigMovementSpeed.Value;
-            }
             _isAttackFinished = false;
             _currentHitPoints = _hitPoints.Value;
-            _dashPressed = false;
-            _jumpPressed = false;
-            _resizePressed = false;
-            _attackPressed = false;
-            _movementValue = 0.0f;
-            _interactPressed = false;
-            _lastDashTime = -1000.0f;
         }
 
         public void ThinkAboutAnimation()
@@ -111,38 +77,35 @@ namespace GDS3
 
         public void DrawGizmo(Vector3 drawerPosition)
         {
-            if (_controlledCharacter != null)
+            if(_leftMaxMoveDistance.Value > 0.0f)
             {
-                if(_leftMaxMoveDistance.Value > 0.0f)
-                {
-                    Gizmos.color = Color.yellow;
-                    Gizmos.DrawWireCube(new Vector3(_startingPosition.x - _leftMaxMoveDistance.Value, _startingPosition.y + _gizmoHeight/2, 0.0f), new Vector3(_gizmoThickness, _gizmoHeight, 0.0f));
-                }
-                if(_rightMaxMoveDistance.Value > 0.0f)
-                {
-                    Gizmos.color = Color.yellow;
-                    Gizmos.DrawWireCube(new Vector3(_startingPosition.x + _rightMaxMoveDistance.Value, _startingPosition.y + _gizmoHeight/2, 0.0f), new Vector3(_gizmoThickness, _gizmoHeight, 0.0f));
-                }
-                if (_patrolRange.Value > 0.0f)
-                {
-                    Gizmos.color = Color.green;
-                    Gizmos.DrawWireCube(new Vector3(_startingPosition.x, _startingPosition.y, 0.0f), new Vector3(_patrolRange.Value * 2.0f, _gizmoThickness, 0.0f));
-                }
-                if (_playerDetectionZoneWidth.Value > 0.0f && _playerDetectionZoneHeight.Value > 0.0f)
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawWireCube(new Vector3(drawerPosition.x, drawerPosition.y + _playerDetectionZoneHeight.Value / 2, 0.0f), new Vector3(_playerDetectionZoneWidth.Value, _playerDetectionZoneHeight.Value, 0.0f));
-                }
-                if(_jumpHeight.Value > 0.0f)
-                {
-                    Gizmos.color = Color.yellow;
-                    Gizmos.DrawWireCube(new Vector3(drawerPosition.x, drawerPosition.y + _jumpHeight.Value*0.95f, 0.0f), new Vector3(_gizmoHeight, _gizmoThickness, 0.0f));
-                }
-                if(_currentState != null)
-                {
-                    Gizmos.color = _currentState._stateGizmoColor;
-                    Gizmos.DrawWireSphere(drawerPosition, 0.5f);
-                }
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireCube(new Vector3(_startingPosition.x - _leftMaxMoveDistance.Value, _startingPosition.y + _gizmoHeight/2, 0.0f), new Vector3(_gizmoThickness, _gizmoHeight, 0.0f));
+            }
+            if(_rightMaxMoveDistance.Value > 0.0f)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireCube(new Vector3(_startingPosition.x + _rightMaxMoveDistance.Value, _startingPosition.y + _gizmoHeight/2, 0.0f), new Vector3(_gizmoThickness, _gizmoHeight, 0.0f));
+            }
+            if (_patrolRange.Value > 0.0f)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireCube(new Vector3(_startingPosition.x, _startingPosition.y, 0.0f), new Vector3(_patrolRange.Value * 2.0f, _gizmoThickness, 0.0f));
+            }
+            if (_playerDetectionZoneWidth.Value > 0.0f && _playerDetectionZoneHeight.Value > 0.0f)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireCube(new Vector3(drawerPosition.x, drawerPosition.y + _playerDetectionZoneHeight.Value / 2, 0.0f), new Vector3(_playerDetectionZoneWidth.Value, _playerDetectionZoneHeight.Value, 0.0f));
+            }
+            if(_jumpHeight.Value > 0.0f)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireCube(new Vector3(drawerPosition.x, drawerPosition.y + _jumpHeight.Value*0.95f, 0.0f), new Vector3(_gizmoHeight, _gizmoThickness, 0.0f));
+            }
+            if(_currentState != null)
+            {
+                Gizmos.color = _currentState._stateGizmoColor;
+                Gizmos.DrawWireSphere(drawerPosition, 0.5f);
             }
         }
 

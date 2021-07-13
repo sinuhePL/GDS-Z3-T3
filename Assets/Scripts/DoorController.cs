@@ -16,7 +16,7 @@ namespace GDS3
             _closedPosition = transform.position;
         }
 
-        public override void Interact(Transform parentTransform, float targetScale)
+        public override void Interact(Transform parentTransform)
         {
             if (_isPlayerSmall.Value)
             {
