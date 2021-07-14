@@ -15,6 +15,7 @@ namespace GDS3
         [SerializeField] private Vector3Reference _lastSpawnPoint;
         [SerializeField] private FloatReference _moveToSpawnPointTime;
         [SerializeField] private BoolReference _isInputBlocked;
+        [SerializeField] private Vector3Reference _cameraSpeed;
         [Range(-10.0f, 10.0f)] [SerializeField] private float _xTargetOffset;
         [Range(-10.0f, 10.0f)] [SerializeField] private float _yTargetOffset;
         [Range(0.0f, 5.0f)] [SerializeField] private float _xTargetDeadZone;
@@ -27,6 +28,7 @@ namespace GDS3
         private Vector2 _smallTargetOffset;
         private Vector2 _bigTargetDeadZone;
         private Vector2 _smallTargetDeadZone;
+        private Vector3 _prevCameraPosition;
 
 
         private void Start()
@@ -53,6 +55,7 @@ namespace GDS3
                 _bigTargetDeadZone = new Vector2(_xTargetDeadZone, _yTargetDeadZone);
                 _smallTargetDeadZone = new Vector2(_xTargetDeadZone, _yTargetDeadZone) / _sizeChangeFactor.Value;
             }
+            _prevCameraPosition = transform.position;
         }
 
         private IEnumerator Zoom(float factor)
@@ -139,6 +142,8 @@ namespace GDS3
                 }
                 transform.position = new Vector3(newXCameraPosition, newYCameraPosition, -10.0f);
             }
+            _cameraSpeed.Value = new Vector3(transform.position.x - _prevCameraPosition.x, transform.position.y - _prevCameraPosition.y, 0.0f) / Time.deltaTime;
+            _prevCameraPosition = transform.position;
         }
 
         private void OnDrawGizmosSelected()
