@@ -75,6 +75,14 @@ namespace GDS3
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab2c7b44-31d5-446a-8e3c-a9697f7dce98"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -176,6 +184,17 @@ namespace GDS3
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""569ced8c-3163-4955-8768-c64c94ebe17f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -191,6 +210,7 @@ namespace GDS3
             m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+            m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -247,6 +267,7 @@ namespace GDS3
         private readonly InputAction m_Gameplay_Dash;
         private readonly InputAction m_Gameplay_Interact;
         private readonly InputAction m_Gameplay_Pause;
+        private readonly InputAction m_Gameplay_Menu;
         public struct GameplayActions
         {
             private @PlayerInput m_Wrapper;
@@ -258,6 +279,7 @@ namespace GDS3
             public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
             public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
             public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+            public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -288,6 +310,9 @@ namespace GDS3
                     @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                     @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                     @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                    @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                    @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                    @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -313,6 +338,9 @@ namespace GDS3
                     @Pause.started += instance.OnPause;
                     @Pause.performed += instance.OnPause;
                     @Pause.canceled += instance.OnPause;
+                    @Menu.started += instance.OnMenu;
+                    @Menu.performed += instance.OnMenu;
+                    @Menu.canceled += instance.OnMenu;
                 }
             }
         }
@@ -326,6 +354,7 @@ namespace GDS3
             void OnDash(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+            void OnMenu(InputAction.CallbackContext context);
         }
     }
 }
