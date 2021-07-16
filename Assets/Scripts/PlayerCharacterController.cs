@@ -53,6 +53,7 @@ namespace GDS3
         public UnityEvent _hitEvent;
         public UnityEvent _killedEvent;
         public UnityEvent _pauseEvent;
+        public UnityEvent _menuEvent;
         public Animator _myAnimator;
         public Rigidbody2D _myBody;
         public bool _isFacingRight;
@@ -185,6 +186,7 @@ namespace GDS3
                 _myBody.isKinematic = true;
                 _isGamePaused = true;
             }
+            _isInputBlocked.Value = _isGamePaused;
         }
 
         public void Hit()
@@ -270,7 +272,15 @@ namespace GDS3
         {
             if (context.performed)
             {
-                _isInputBlocked.Value = !_isGamePaused;
+                _pauseEvent.Invoke();
+            }
+        }
+
+        public void OnMenu(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _menuEvent.Invoke();
                 _pauseEvent.Invoke();
             }
         }

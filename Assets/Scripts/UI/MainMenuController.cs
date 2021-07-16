@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GDS3
 {
@@ -8,6 +9,11 @@ namespace GDS3
     {
         [SerializeField] private GameObject _settingsPrefab;
         [SerializeField] private GameObject _creditsPrefab;
+
+        public void StartGamePressed()
+        {
+            SceneManager.LoadScene("TestScene");
+        }
 
         public void CreditsPressed()
         {
