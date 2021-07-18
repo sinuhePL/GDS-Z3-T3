@@ -15,6 +15,7 @@ namespace GDS3
         [SerializeField] protected float _interactionTime;
         [SerializeField] protected bool _interactWhenSmall;
         protected bool _isActivatorNearby;
+        protected bool _isActivationEnabled;
 
         protected virtual void Awake()
         {
@@ -22,6 +23,7 @@ namespace GDS3
             Color highlightColor = _highlightSpriteRenderer.color;
             highlightColor.a = 0;
             _highlightSpriteRenderer.color = highlightColor;
+            _isActivationEnabled = true;
         }
 
         protected IEnumerator ChangeHighlight()
@@ -51,21 +53,24 @@ namespace GDS3
 
         private void Update()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _detectionDistance, _activatingLayerMask);
-            if(colliders.Length > 0)
+            if (_isActivationEnabled)
             {
-                if (!_isActivatorNearby && (_isPlayerSmall.Value && _interactWhenSmall || !_isPlayerSmall.Value && !_interactWhenSmall))
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _detectionDistance, _activatingLayerMask);
+                if (colliders.Length > 0)
                 {
-                    _isActivatorNearby = true;
-                    StartCoroutine(ChangeHighlight());
+                    if (!_isActivatorNearby && (_isPlayerSmall.Value && _interactWhenSmall || !_isPlayerSmall.Value && !_interactWhenSmall))
+                    {
+                        _isActivatorNearby = true;
+                        StartCoroutine(ChangeHighlight());
+                    }
                 }
-            }
-            else
-            {
-                if(_isActivatorNearby && (_isPlayerSmall.Value && _interactWhenSmall || !_isPlayerSmall.Value && !_interactWhenSmall))
+                else
                 {
-                    _isActivatorNearby = false;
-                    StartCoroutine(ChangeHighlight());
+                    if (_isActivatorNearby && (_isPlayerSmall.Value && _interactWhenSmall || !_isPlayerSmall.Value && !_interactWhenSmall))
+                    {
+                        _isActivatorNearby = false;
+                        StartCoroutine(ChangeHighlight());
+                    }
                 }
             }
         }
