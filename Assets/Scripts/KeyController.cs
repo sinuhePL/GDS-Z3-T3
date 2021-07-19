@@ -17,7 +17,7 @@ namespace GDS3
             _isTaken = false;
         }
 
-        public override void Interact(Transform parentTransform, ref Transform pocket)
+        public override void Interact(PlayerCharacterController player)
         {
             if (!_isTaken && !_isPlayerSmall.Value)
             {
@@ -25,12 +25,12 @@ namespace GDS3
                 highlightColor.a = 0;
                 _highlightSpriteRenderer.color = highlightColor;
                 _isInputBlocked.Value = true;
-                transform.SetParent(parentTransform);
-                transform.DOMove(parentTransform.position, _interactionTime);
+                transform.SetParent(player._handTransform);
+                transform.DOMove(player._handTransform.position, _interactionTime);
                 transform.DOScale(_targetScale, _interactionTime).OnComplete(() => { _isInputBlocked.Value = false; _highlightSpriteRenderer.color = highlightColor; });
                 _mySpriteRenderer.sortingOrder = 2;
                 _isTaken = true;
-                pocket = gameObject.transform;
+                player._pocket = gameObject.transform;
             }
         }
     }

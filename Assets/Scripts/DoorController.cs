@@ -19,18 +19,18 @@ namespace GDS3
             _isClosed = true;
         }
 
-        public override void Interact(Transform parentTransform, ref Transform pocket)
+        public override void Interact(PlayerCharacterController player)
         {
-            if (_isPlayerSmall.Value && (_matchingKey == null || pocket == _matchingKey) && _isClosed)
+            if (_isPlayerSmall.Value && (_matchingKey == null || player._pocket == _matchingKey) && _isClosed)
             {
                 Color highlightColor = _highlightSpriteRenderer.color;
                 highlightColor.a = 0;
                 _highlightSpriteRenderer.color = highlightColor;
                 _isClosed = false;
-                if (pocket != null)
+                if (player._pocket != null)
                 {
-                    Destroy(pocket.gameObject);
-                    pocket = null;
+                    Destroy(player._pocket.gameObject);
+                    player._pocket = null;
                 }
                 _isActivationEnabled = false;
                 transform.DOMove(_openPosition.position, _interactionTime).OnComplete(() => _highlightSpriteRenderer.color = highlightColor);

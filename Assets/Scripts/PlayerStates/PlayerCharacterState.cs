@@ -86,7 +86,7 @@ namespace GDS3
             float interactionRange;
             if (_myController._isPlayerSmall.Value)
             {
-                interactionRange = _myController._interactionRange.Value / _myController._sizeChangeFactor.Value;
+                interactionRange = _myController._interactionRange.Value / _myController._sizeChangeFactor.Value*2;
             }
             else
             {
@@ -99,7 +99,7 @@ namespace GDS3
                 Interactable interactableObject = collider.gameObject.GetComponent<Interactable>();
                 if (interactableObject != null)
                 {
-                    interactableObject.Interact(_myController._handTransform, ref _myController._pocket);
+                    interactableObject.Interact(_myController);
                 }
             }
         }

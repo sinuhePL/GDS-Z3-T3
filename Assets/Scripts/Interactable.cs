@@ -75,6 +75,6 @@ namespace GDS3
             }
         }
 
-        public abstract void Interact(Transform parentTransform, ref Transform pocket);
+        public abstract void Interact(PlayerCharacterController player);
     }
 }
