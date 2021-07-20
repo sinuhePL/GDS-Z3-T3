@@ -42,7 +42,7 @@ namespace GDS3
         public UnityEvent _sizeChangeEvent;
         [Header("Interaction Ability")]
         public FloatReference _interactionRange;
-        public Transform _interactionCheck;
+        public Transform[] _interactionChecks;
         public LayerMask _interactionMask;
         public Transform _handTransform;
         [HideInInspector] public Transform _pocket;

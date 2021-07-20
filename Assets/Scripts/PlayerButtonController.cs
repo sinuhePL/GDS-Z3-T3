@@ -35,7 +35,7 @@ namespace GDS3
                 _highlightSpriteRenderer.color = highlightColor;
                 _isPressed = true;
                 _isActivationEnabled = false;
-                transform.DOMove(_pressedPosition.position, _interactionTime);
+                transform.DOMove(_pressedPosition.position, _interactionTime).OnComplete(() => _highlightSpriteRenderer.color = highlightColor);
                 _riddleController.ButtonPressed(this);
             }
         }

@@ -86,20 +86,22 @@ namespace GDS3
             float interactionRange;
             if (_myController._isPlayerSmall.Value)
             {
-                interactionRange = 2*_myController._interactionRange.Value / _myController._sizeChangeFactor.Value;
+                interactionRange = _myController._interactionRange.Value / _myController._sizeChangeFactor.Value;
             }
             else
             {
                 interactionRange = _myController._interactionRange.Value;
             }
-            Transform interactionTransform = _myController._interactionCheck;
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(interactionTransform.position, interactionRange, _myController._interactionMask);
-            foreach (Collider2D collider in colliders)
+            foreach (Transform interactionTransform in _myController._interactionChecks)
             {
-                Interactable interactableObject = collider.gameObject.GetComponent<Interactable>();
-                if (interactableObject != null)
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(interactionTransform.position, interactionRange, _myController._interactionMask);
+                foreach (Collider2D collider in colliders)
                 {
-                    interactableObject.Interact(_myController);
+                    Interactable interactableObject = collider.gameObject.GetComponent<Interactable>();
+                    if (interactableObject != null)
+                    {
+                        interactableObject.Interact(_myController);
+                    }
                 }
             }
         }
