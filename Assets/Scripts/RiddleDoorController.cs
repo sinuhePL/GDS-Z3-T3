@@ -9,6 +9,7 @@ namespace GDS3
     {
         [SerializeField] private Transform _openPosition;
         [SerializeField] private float _openingTime;
+        [SerializeField] private float _delayTime;
         private Vector3 _startingPosition;
 
         private void Awake()
@@ -18,7 +19,9 @@ namespace GDS3
 
         public void OpenDoor()
         {
-            transform.DOMove(_openPosition.position, _openingTime);
+            Sequence doorSequence = DOTween.Sequence();
+            doorSequence.PrependInterval(_delayTime);
+            doorSequence.Append(transform.DOMove(_openPosition.position, _openingTime));
         }
 
         public void CloseDoor()

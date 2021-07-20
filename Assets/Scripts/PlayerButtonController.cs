@@ -27,6 +27,7 @@ namespace GDS3
 
         public override void Interact(PlayerCharacterController player)
         {
+            Debug.Log("Interact distance: " + Vector3.Distance(transform.position, player._groundCheck.position));
             if (!_isPressed && Vector3.Distance(transform.position, player._groundCheck.position) < 0.06f)
             {
                 Color highlightColor = _highlightSpriteRenderer.color;
@@ -41,7 +42,9 @@ namespace GDS3
 
         public void ReleaseButton()
         {
-            transform.DOMove(_startingPosition, _interactionTime).OnComplete(()=>ResetButton());
+            Sequence buttonSequence = DOTween.Sequence();
+            buttonSequence.PrependInterval(_interactionTime*2);
+            buttonSequence.Append(transform.DOMove(_startingPosition, _interactionTime).OnComplete(()=>ResetButton()));
         }
     }
 }

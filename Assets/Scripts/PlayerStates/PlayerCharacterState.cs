@@ -86,7 +86,7 @@ namespace GDS3
             float interactionRange;
             if (_myController._isPlayerSmall.Value)
             {
-                interactionRange = _myController._interactionRange.Value / _myController._sizeChangeFactor.Value*2;
+                interactionRange = 2*_myController._interactionRange.Value / _myController._sizeChangeFactor.Value;
             }
             else
             {
