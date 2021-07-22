@@ -63,6 +63,10 @@ namespace GDS3
                     _myController._isPlayerSmall.Value = false;
                     _myController._sizeChangeEvent.Invoke();
                 }
+                else
+                {
+                    _myController._myMonolog.ShowMonolog(_myController._resizeBlockedStatement);
+                }
             }
             else
             {

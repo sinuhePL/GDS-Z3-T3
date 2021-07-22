@@ -39,6 +39,7 @@ namespace GDS3
         public FloatReference _sizeChangeTime;
         public LayerMask _resizeBlockerMask;
         public Transform _heightCheck;
+        public string _resizeBlockedStatement;
         public UnityEvent _sizeChangeEvent;
         [Header("Interaction Ability")]
         public FloatReference _interactionRange;
@@ -57,6 +58,7 @@ namespace GDS3
         public Animator _myAnimator;
         public Rigidbody2D _myBody;
         public bool _isFacingRight;
+        public MonologController _myMonolog;
         [HideInInspector] public float _currentCooldownTime;
         [HideInInspector] public bool _isGamePaused;
 
