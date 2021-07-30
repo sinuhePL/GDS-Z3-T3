@@ -144,6 +144,23 @@ namespace GDS3
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.tag == "Monolog")
+            {
+                MonologTriggerController monologTrigger = collision.gameObject.GetComponent<MonologTriggerController>();
+                if(monologTrigger != null)
+                {
+                    string myMonolog = monologTrigger.GetMonolog();
+                    if (myMonolog.Length > 0)
+                    {
+                        _movementValue = 0.0f;
+                        _myMonolog.ShowMonolog(myMonolog);
+                    }
+                }
+            }
+        }
+
         public float GetFactor()
         {
             return _sizeChangeFactor.Value;

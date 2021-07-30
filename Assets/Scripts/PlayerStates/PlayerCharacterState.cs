@@ -65,6 +65,7 @@ namespace GDS3
                 }
                 else
                 {
+
                     _myController._myMonolog.ShowMonolog(_myController._resizeBlockedStatement);
                 }
             }
