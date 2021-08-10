@@ -188,5 +188,10 @@ namespace GDS3
                 _hitEvent.Invoke();
             }
         }
+
+        public bool RightFacing()
+        {
+            return _isFacingRight;
+        }
     }
 }

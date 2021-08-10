@@ -20,7 +20,7 @@ public class CharacterMovementController
     public CharacterMovementController(Rigidbody2D parentBody, bool isStartingFacingRight)
     {
         _controlledBody = parentBody;
-        _controlledTransform = parentBody.gameObject.transform;;
+        _controlledTransform = parentBody.gameObject.transform;
         if(!isStartingFacingRight)
         {
             Flip();

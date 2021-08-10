@@ -20,7 +20,7 @@ namespace GDS3
             controlledBody.isKinematic = true;
             controlledBody.velocity = Vector3.zero;
             Debug.Log("Wchodzę w patrol");
-            if (controlledTransform.localScale.x > 0)
+            if (controlledTransform.localScale.x > 0 && controlledCharacter.RightFacing() || controlledTransform.localScale.x < 0 && !controlledCharacter.RightFacing())
             {
                 controlledCharacter.MoveMe(brain._movementSpeed.Value);
             }
