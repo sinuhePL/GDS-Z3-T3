@@ -16,7 +16,7 @@ namespace GDS3
             controlledBody.velocity = new Vector2(controlledBody.velocity.x, 0.0f);
             _myController._currentCooldownTime = _myController._dashCooldownTime.Value;
             controlledAnimator.SetTrigger("dash");
-            if (controlledTransform.localScale.x < 0.0f)
+            if (controlledTransform.localScale.x > 0 && controller.RightFacing() || controlledTransform.localScale.x < 0 && !controller.RightFacing())
             {
                 _myController._attackEndPosition = new Vector3(controlledTransform.position.x + _myController._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
             }

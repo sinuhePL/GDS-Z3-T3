@@ -303,5 +303,10 @@ namespace GDS3
                 _pauseEvent.Invoke();
             }
         }
+
+        public bool RightFacing()
+        {
+            return _isFacingRight;
+        }
     }
 }
