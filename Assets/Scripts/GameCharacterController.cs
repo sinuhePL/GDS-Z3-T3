@@ -50,7 +50,7 @@ namespace GDS3
             AnimationClip[] clips = _myAnimator.runtimeAnimatorController.animationClips;
             foreach(AnimationClip clip in clips)
             {
-                if(clip.name.EndsWith("attack"))
+                if(clip.name.EndsWith("Attack"))
                 {
                     _attackLength = clip.length;
                 }
