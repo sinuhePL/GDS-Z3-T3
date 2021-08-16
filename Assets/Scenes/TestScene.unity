@@ -8230,6 +8230,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: hero
       objectReference: {fileID: 0}
+    - target: {fileID: 2286229319865697527, guid: 6f46e83c3950ddb488aec9781ff0c367,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.2701398
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286229319865697527, guid: 6f46e83c3950ddb488aec9781ff0c367,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.9628211
+      objectReference: {fileID: 0}
+    - target: {fileID: 4350418303767955137, guid: 6f46e83c3950ddb488aec9781ff0c367,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.85921437
+      objectReference: {fileID: 0}
+    - target: {fileID: 4350418303767955137, guid: 6f46e83c3950ddb488aec9781ff0c367,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.51161593
+      objectReference: {fileID: 0}
     - target: {fileID: 8347957984409549657, guid: 6f46e83c3950ddb488aec9781ff0c367,
         type: 3}
       propertyPath: m_RootOrder
@@ -8243,7 +8263,7 @@ PrefabInstance:
     - target: {fileID: 8347957984409549657, guid: 6f46e83c3950ddb488aec9781ff0c367,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.34
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 8347957984409549657, guid: 6f46e83c3950ddb488aec9781ff0c367,
         type: 3}
