@@ -96,7 +96,7 @@ namespace GDS3
             _currentHitPoints = _hitPoints.Value;
             _playerInput = new PlayerInput();
             _playerInput.Gameplay.SetCallbacks(this);
-            _myState = new PlayerJumpState(this);
+            _myState = new PlayerOnGroundState(this);
             _pocket = null;
         }
 

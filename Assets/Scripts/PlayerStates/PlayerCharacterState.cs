@@ -129,10 +129,12 @@ namespace GDS3
             }
             if (!CheckIfLanded(groundMask, groundCheck.position))
             {
+                controlledAnimator.SetBool("land", false);
                 return new PlayerJumpState(_myController);
             }
             else
             {
+                controlledAnimator.SetBool("land", true);
                 return null;
             }
         }
