@@ -8,10 +8,14 @@ namespace GDS3
     {
         [SerializeField] private Vector3Reference _cameraSpeed;
         [SerializeField] private float _speedMultiplier;
+        public bool _isScrolling;
 
         private void Update()
         {
-            transform.position += new Vector3(_cameraSpeed.Value.x * _speedMultiplier * Time.deltaTime, _cameraSpeed.Value.y * _speedMultiplier * Time.deltaTime, 0.0f);
+            if (_isScrolling)
+            {
+                transform.position += new Vector3(_cameraSpeed.Value.x * _speedMultiplier * Time.deltaTime, _cameraSpeed.Value.y * _speedMultiplier * Time.deltaTime, 0.0f);
+            }
         }
     }
 }
