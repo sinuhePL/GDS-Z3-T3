@@ -7,13 +7,19 @@ namespace GDS3
     [CreateAssetMenu(fileName = "TeleportEnterAction", menuName = "Scriptable Objects/AI/Teleport Enter Action")]
     public class TeleportEnterAction : Action
     {
-        private IEnumerator DelayTeleport(float seconds, Rigidbody2D myBody, Vector3 newPosition, Animator myAnimator)
+        private IEnumerator DelayTeleport(float seconds, CharacterBrain myBrain, Vector3 newPosition)
         {
+            GameCharacterController controlledCharacter = myBrain._controlledCharacter;
+            Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
+            Animator controlledAnimator = controlledCharacter.GetAnimator();
             yield return new WaitForSeconds(seconds);
-            myBody.isKinematic = true;
-            myBody.transform.position = newPosition;
-            myBody.isKinematic = false;
-            myAnimator.SetTrigger("teleportEnd");
+            if (myBrain._currentHitPoints > 0)
+            {
+                controlledBody.isKinematic = true;
+                controlledBody.transform.position = newPosition;
+                controlledBody.isKinematic = false;
+                controlledAnimator.SetTrigger("teleportEnd");
+            }
         }
 
         public override void Act(CharacterBrain brain)
@@ -27,11 +33,11 @@ namespace GDS3
             controlledAnimator.SetTrigger("teleport");
             if (controlledTransform.position.x < brain._targetTransform.position.x && controlledTransform.position.x + distance < brain._startingPosition.x + brain._rightMaxMoveDistance.Value)
             {
-                controlledCharacter.StartCoroutine(DelayTeleport(1.16f, controlledBody, new Vector3(controlledTransform.position.x + distance, controlledTransform.position.y, controlledTransform.position.z), controlledAnimator));
+                controlledCharacter.StartCoroutine(DelayTeleport(1.16f, brain, new Vector3(controlledTransform.position.x + distance, controlledTransform.position.y, controlledTransform.position.z)));
             }
             else if(controlledTransform.position.x > brain._targetTransform.position.x && controlledTransform.position.x - distance > brain._startingPosition.x - brain._leftMaxMoveDistance.Value) 
             {
-                controlledCharacter.StartCoroutine(DelayTeleport(1.16f, controlledBody, new Vector3(controlledTransform.position.x - distance, controlledTransform.position.y, controlledTransform.position.z), controlledAnimator));
+                controlledCharacter.StartCoroutine(DelayTeleport(1.16f, brain, new Vector3(controlledTransform.position.x - distance, controlledTransform.position.y, controlledTransform.position.z)));
             }
         }
 
