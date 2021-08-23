@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa969118dcafd4f439fbbf0155a7701b, type: 3}
   m_Name: Enemy1RestingState
   m_EditorClassIdentifier: 
-  _enterAction: {fileID: 0}
+  _enterAction: {fileID: 11400000, guid: 3be3a9fad06570943a7b7ee887340471, type: 2}
   _actions:
   - {fileID: 11400000, guid: 5876d89d0395b454f86f15cb89263af9, type: 2}
   _transitions:

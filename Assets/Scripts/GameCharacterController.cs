@@ -193,5 +193,10 @@ namespace GDS3
         {
             return _isFacingRight;
         }
+
+        public Animator GetAnimator()
+        {
+            return _myAnimator;
+        }
     }
 }

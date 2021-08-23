@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 1610429449166886035}
   - component: {fileID: 1610429449166886039}
   - component: {fileID: 1610429449166886038}
-  - component: {fileID: 1610429449166886037}
   - component: {fileID: 1610429449166886036}
   m_Layer: 8
   m_Name: hero
@@ -239,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myRigidbody: {fileID: 1610429449166886032}
+  _myAnimator: {fileID: 0}
   _lastSpawnPoint:
     _useConstant: 0
     _constantValue: {x: 0, y: 0, z: 0}
@@ -247,6 +247,20 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
+  _killedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 035519501731536418f077df2d769f7d, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1610429449166886035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,20 +411,6 @@ MonoBehaviour:
   _hitEvent:
     m_PersistentCalls:
       m_Calls: []
-  _killedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 035519501731536418f077df2d769f7d, type: 2}
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _pauseEvent:
     m_PersistentCalls:
       m_Calls:
@@ -464,34 +464,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1610429449166886039}
         m_MethodName: PauseCharacter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1610429449166886037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41576665537151986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a604ac8b207544e952e31244fad3a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _events:
-  - {fileID: 11400000, guid: 035519501731536418f077df2d769f7d, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1610429449166886028}
-        m_MethodName: HandleDeath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

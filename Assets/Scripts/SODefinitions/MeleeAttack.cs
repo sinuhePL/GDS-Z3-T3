@@ -28,7 +28,6 @@ namespace GDS3
                             myHit = collider.gameObject.GetComponent<IHitable>();
                             if (myHit != null)
                             {
-                                Debug.Log("trafiłem");
                                 myHit.Hit();
                                 isHit = true;
                             }

@@ -16,7 +16,9 @@ namespace GDS3
         {
             GameCharacterController controlledCharacter = brain._controlledCharacter;
             Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
+            Animator controlledAnimator = controlledCharacter.GetAnimator();
             controlledBody.isKinematic = false;
+            controlledAnimator.SetTrigger("jump");
             controlledCharacter.Jump(brain._jumpYVelocity);
         }
     }

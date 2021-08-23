@@ -52,7 +52,6 @@ namespace GDS3
         public IntegerReference _hitPoints;
         public BoolReference _isInputBlocked;
         public UnityEvent _hitEvent;
-        public UnityEvent _killedEvent;
         public UnityEvent _pauseEvent;
         public UnityEvent _menuEvent;
         public Animator _myAnimator;
@@ -211,11 +210,11 @@ namespace GDS3
         public void Hit()
         {
             _currentHitPoints--;
-            if (_currentHitPoints < 1)
+            if (_currentHitPoints == 0)
             {
                 _movementValue = 0.0f;
                 _currentHitPoints = _hitPoints.Value;
-                _killedEvent.Invoke();
+                _myAnimator.SetTrigger("death");
             }
             else
             {
