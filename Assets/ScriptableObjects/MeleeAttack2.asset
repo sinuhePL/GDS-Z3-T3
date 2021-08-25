@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53eb651b7604121458227c7e3bae802d, type: 3}
+  m_Name: MeleeAttack2
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 0}
+  _attackRange: 0.2
+  _attackDelay: 0
+  _targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _pauseEvent: {fileID: 11400000, guid: 9e1169ed1b0fe93488b9df2d80d28e8d, type: 2}

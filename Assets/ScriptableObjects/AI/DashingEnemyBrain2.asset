@@ -79,9 +79,13 @@ MonoBehaviour:
     _constantValue: 1
     _variable: {fileID: 0}
   _hitPoints:
-    _useConstant: 1
+    _useConstant: 0
     _constantValue: 3
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: 043807aff462d1a4e8c1abfa4067d76b, type: 2}
+  _currentHitPoints:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: bb684623ca9756c4e9ba25531ea085cd, type: 2}
   _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
   _controlledCharacter: {fileID: 0}
   _startingPosition: {x: 30.64, y: 0.7, z: 0}
@@ -91,4 +95,3 @@ MonoBehaviour:
   _stateTimeElapsted: 124.118225
   _currentCooldownTime: 0
   _isAttackFinished: 0
-  _currentHitPoints: 3

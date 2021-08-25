@@ -32,6 +32,7 @@ namespace GDS3
         public FloatReference _teleportCooldownTime;
         [Header("Other")]
         public IntegerReference _hitPoints;
+        public IntegerReference _currentHitPoints;
         [HideInInspector] public State _currentState;
         [HideInInspector] public GameCharacterController _controlledCharacter;
         [HideInInspector] public Vector3 _startingPosition;
@@ -41,7 +42,6 @@ namespace GDS3
         [HideInInspector] public float _stateTimeElapsted;
         [HideInInspector] public float _currentCooldownTime;
         [HideInInspector] public bool _isAttackFinished;
-        [HideInInspector] public int _currentHitPoints;
 
         private const float _gizmoThickness = 0.05f;
         private const float _gizmoHeight = 3.0f;
@@ -61,7 +61,7 @@ namespace GDS3
             _currentState = _controlledCharacter.GetStartingState();
             _currentState.OnEnterState(this);
             _isAttackFinished = false;
-            _currentHitPoints = _hitPoints.Value;
+            _currentHitPoints.Value = _hitPoints.Value;
         }
 
         public void ThinkAboutAnimation()

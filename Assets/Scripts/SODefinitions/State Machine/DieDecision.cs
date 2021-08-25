@@ -9,7 +9,7 @@ namespace GDS3
     {
         public override bool Decide(CharacterBrain brain)
         {
-            if (brain._currentHitPoints < 1)
+            if (brain._currentHitPoints.Value < 1)
             {
                 return true;
             }

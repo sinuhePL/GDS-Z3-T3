@@ -484,6 +484,8 @@ GameObject:
   - component: {fileID: 5280643876602494365}
   - component: {fileID: 5280643876602494364}
   - component: {fileID: 5280643876602494361}
+  - component: {fileID: 1829566943123236672}
+  - component: {fileID: 3042688578211066454}
   m_Layer: 9
   m_Name: dashingLeszy
   m_TagString: Untagged
@@ -708,12 +710,73 @@ MonoBehaviour:
   _startingState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
   _hitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 3f508428b495c5045b6e74787c353946, type: 2}
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _killedEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 8c4fabe76595ac04fa3169e52c0c5a0c, type: 2}
         m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1829566943123236672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197465179651008509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb7868898ae20e42907d7c9037d7e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialHP:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: a2c752e6f9a5bb047a4724988c478fdd, type: 2}
+  _currentHP:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 2db19c85b14b5ac4d809f8c4cca9f106, type: 2}
+  _hitPointMarkerPrefab: {fileID: 1332746633080693628, guid: 4f17565d581beae4ba968e0b4212ee9f,
+    type: 3}
+--- !u!114 &3042688578211066454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197465179651008509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a604ac8b207544e952e31244fad3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+  - {fileID: 11400000, guid: 3f508428b495c5045b6e74787c353946, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1829566943123236672}
+        m_MethodName: UpdateDisplay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

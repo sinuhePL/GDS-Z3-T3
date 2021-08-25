@@ -13,7 +13,7 @@ namespace GDS3
             Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
             Animator controlledAnimator = controlledCharacter.GetAnimator();
             yield return new WaitForSeconds(seconds);
-            if (myBrain._currentHitPoints > 0)
+            if (myBrain._currentHitPoints.Value > 0)
             {
                 controlledBody.isKinematic = true;
                 controlledBody.transform.position = newPosition;

@@ -177,10 +177,11 @@ namespace GDS3
 
         public void Hit()
         {
-            _myBrain._currentHitPoints--;
-            Debug.Log("Pozostało życia: " + _myBrain._currentHitPoints);
-            if(_myBrain._currentHitPoints < 1)
+            _myBrain._currentHitPoints.Value--;
+            Debug.Log("Pozostało życia: " + _myBrain._currentHitPoints.Value);
+            if(_myBrain._currentHitPoints.Value < 1)
             {
+                _hitEvent.Invoke();
                 _killedEvent.Invoke();
             }
             else

@@ -443,6 +443,10 @@ MonoBehaviour:
   _myBody: {fileID: 1610429449166886032}
   _isFacingRight: 1
   _myMonolog: {fileID: 1610429449453082958}
+  _currentHitPoints:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: a8a3b9e762e11224d9853331ede49c44, type: 2}
   _currentCooldownTime: 0
   _isGamePaused: 0
 --- !u!114 &1610429449166886038
