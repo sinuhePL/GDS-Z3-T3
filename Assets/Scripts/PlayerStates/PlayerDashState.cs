@@ -47,7 +47,7 @@ namespace GDS3
             {
                 _myController._myMovement.Move(-_myController._dashVelocity.Value);
             }
-            hitColliders = Physics2D.OverlapCircleAll(_myController._hitCheck.position, 0.1f, _myController._dashObstacles);
+            hitColliders = Physics2D.OverlapCircleAll(_myController._dashCheck.position, 0.1f, _myController._dashObstacles);
             if (Mathf.Abs(controlledTransform.position.x - _myController._attackEndPosition.x) < 0.2f || hitColliders.Length > 0)
             {
                 controlledBody.isKinematic = false;
