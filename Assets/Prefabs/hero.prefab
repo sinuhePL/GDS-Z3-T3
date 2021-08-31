@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 1610429449166886039}
   - component: {fileID: 1610429449166886038}
   - component: {fileID: 1610429449166886036}
+  - component: {fileID: 1396016400144713124}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Untagged
@@ -503,6 +504,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1396016400144713124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41576665537151986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b993da1c66b264945a8a828f02597c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stepSound: {fileID: 11400000, guid: 3c4e89a4aee50de4c8e9b68d40fcecdc, type: 2}
+  _stepVolume: 1
+  _landSound: {fileID: 11400000, guid: 54f048de91b565549b4f9d757d43e0ca, type: 2}
+  _landVolume: 1
+  _jumpSound: {fileID: 11400000, guid: b9fc1ec4d52d38441ac422a394b6ad33, type: 2}
+  _jumpVolume: 1
+  _deathSound: {fileID: 11400000, guid: 0a100396ba6c62348beb7c49d14a9e51, type: 2}
+  _deathVolume: 1
+  _attackSound: {fileID: 11400000, guid: cf87b89edba000646b4a720929ec152d, type: 2}
+  _attackVolume: 1
+  _dashSound: {fileID: 11400000, guid: 7b19752b623fd854c8ccd08d34b1b81c, type: 2}
+  _dashVolume: 1
 --- !u!1 &388468489038738054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,7 +3334,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5483980324583137911}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 753.937}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 753.938}
 --- !u!1 &6517652261762545322
 GameObject:
   m_ObjectHideFlags: 0

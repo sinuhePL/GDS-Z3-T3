@@ -20,7 +20,6 @@ namespace GDS3
             _myRigidbody.velocity = Vector3.zero;
             _myRigidbody.transform.position = _lastSpawnPoint.Value;
             _myRigidbody.isKinematic = false;
-            _isInputBlocked.Value = true;
         }
     }
 }

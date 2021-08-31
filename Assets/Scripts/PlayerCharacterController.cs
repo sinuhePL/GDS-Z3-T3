@@ -213,6 +213,7 @@ namespace GDS3
             _currentHitPoints--;
             if (_currentHitPoints == 0)
             {
+                _isInputBlocked.Value = true;
                 _movementValue = 0.0f;
                 _currentHitPoints = _hitPoints.Value;
                 _myAnimator.SetTrigger("death");
