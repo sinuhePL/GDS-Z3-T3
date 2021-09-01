@@ -486,8 +486,10 @@ GameObject:
   - component: {fileID: 5280643876602494361}
   - component: {fileID: 1829566943123236672}
   - component: {fileID: 3042688578211066454}
+  - component: {fileID: 2170259843708550307}
+  - component: {fileID: 1295672720221190775}
   m_Layer: 9
-  m_Name: dashingLeszy
+  m_Name: DashingLeszy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -786,6 +788,131 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2170259843708550307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197465179651008509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b993da1c66b264945a8a828f02597c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAudioSource: {fileID: 1295672720221190775}
+  _stepSound: {fileID: 11400000, guid: 484be30c157121f42ba8d9608c224e70, type: 2}
+  _stepVolume: 1
+  _landSound: {fileID: 0}
+  _landVolume: 0
+  _jumpSound: {fileID: 0}
+  _jumpVolume: 0
+  _deathSound: {fileID: 11400000, guid: 1c2fc55b9fc8f5c4e9f0c0e18b22e11f, type: 2}
+  _deathVolume: 1
+  _attackSound: {fileID: 11400000, guid: 79da40dafed0c9b46aca62a3ccba50bd, type: 2}
+  _attackVolume: 1
+  _dashSound: {fileID: 0}
+  _dashVolume: 0
+  _cooldownSound: {fileID: 11400000, guid: c4d4132e87070af46b71d32bf7ed1bb9, type: 2}
+  _cooldownVolume: 1
+  _teleportSound: {fileID: 11400000, guid: 4b09915b016481a4aa3b136c84e37bae, type: 2}
+  _teleportVolume: 1
+--- !u!82 &1295672720221190775
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197465179651008509}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5247651716359460007
 GameObject:
   m_ObjectHideFlags: 0

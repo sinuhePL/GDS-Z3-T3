@@ -21022,12 +21022,12 @@ PrefabInstance:
     - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.91
+      value: -6.06
       objectReference: {fileID: 0}
     - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.25
+      value: -2.53
       objectReference: {fileID: 0}
     - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
         type: 3}
@@ -22209,7 +22209,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2097364203}
   - component: {fileID: 2097364202}
-  - component: {fileID: 2097364201}
   - component: {fileID: 2097364204}
   - component: {fileID: 2097364206}
   - component: {fileID: 2097364205}
@@ -22220,14 +22219,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2097364201
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097364200}
-  m_Enabled: 1
 --- !u!20 &2097364202
 Camera:
   m_ObjectHideFlags: 0

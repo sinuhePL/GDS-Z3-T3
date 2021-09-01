@@ -33,6 +33,8 @@ namespace GDS3
 
         private void Start()
         {
+            MusicSystem.Instance.GetInstanceID();
+            SoundSystem.Instance.GetInstanceID();
             _isFollowing = true;
             DOTween.Init();
             _resizeCoroutineId = 0;

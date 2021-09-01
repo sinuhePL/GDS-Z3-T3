@@ -9,6 +9,9 @@ namespace GDS3
     public class SpikeController : MonoBehaviour
     {
         [SerializeField] private LayerMask _hitMask;
+        [SerializeField] private AudioSource _myAudioSource;
+        [SerializeField] private Sound _spikeSound;
+        [Range(0.0f, 1.0f)] public float _spikeVolume;
         private bool _isGamePaused;
 
         private void Awake()
@@ -48,6 +51,7 @@ namespace GDS3
         {
             float startingYPosition = transform.position.y;
             Sequence spikeSequence = DOTween.Sequence();
+            _spikeSound.Play(_myAudioSource, _spikeVolume);
             spikeSequence.Append(transform.DOScaleY(spikeHeight*10, slideTime));
             spikeSequence.Insert(0.0f, transform.DOMoveY(transform.position.y + spikeHeight/2.0f, slideTime));
             spikeSequence.Append(transform.DOScaleY(0.0f, slideTime).SetDelay(returnDelay));
