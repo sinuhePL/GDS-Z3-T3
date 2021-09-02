@@ -8,6 +8,8 @@ public class CharacterMovementController
     private Transform _controlledTransform;
     private bool _isFacingRight = true;
     private Vector3 _velocity = Vector3.zero;
+    private LayerMask _groundMask;
+    private float _startingDistanceToGround;
 
     private void Flip()
     {
@@ -17,21 +19,44 @@ public class CharacterMovementController
         _controlledTransform.localScale = theScale;
     }
 
-    public CharacterMovementController(Rigidbody2D parentBody, bool isStartingFacingRight)
+    private float CheckDistanctToGround()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(_controlledTransform.position, _controlledTransform.TransformDirection(Vector3.down), Mathf.Infinity, _groundMask);
+        if (hit.collider != null)
+        {
+            return hit.distance;
+        }
+        else
+        {
+            return -1.0f;
+        }
+    }
+
+    public CharacterMovementController(Rigidbody2D parentBody, bool isStartingFacingRight, LayerMask groundMask)
     {
         _controlledBody = parentBody;
+        _groundMask = groundMask;
         _controlledTransform = parentBody.gameObject.transform;
         if(!isStartingFacingRight)
         {
             Flip();
             _isFacingRight = !_isFacingRight;
         }
+        _startingDistanceToGround = CheckDistanctToGround();
     }
 
-    public void Move(float moveSpeed)
+    public void Move(float moveSpeed, bool ignoreGround)
     {
-        _controlledBody.velocity = new Vector3(moveSpeed, _controlledBody.velocity.y); 
-
+        float currentDistanceToGround;
+        if (ignoreGround)
+        {
+            _controlledBody.velocity = new Vector3(moveSpeed, _controlledBody.velocity.y);
+        }
+        else
+        {
+            currentDistanceToGround = CheckDistanctToGround();
+            _controlledBody.velocity = new Vector3(moveSpeed, _controlledBody.velocity.y - (currentDistanceToGround - _startingDistanceToGround) / Time.fixedDeltaTime);
+        }
         if (moveSpeed > 0 && !_isFacingRight)
         {
             Flip();

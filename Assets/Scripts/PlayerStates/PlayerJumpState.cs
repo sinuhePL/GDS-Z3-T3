@@ -29,11 +29,11 @@ namespace GDS3
         {
             if (!_myController._isGamePaused)
             {
-                _myController._myMovement.Move(_myController._movementValue * _myController._currentMovementSpeed);
+                _myController._myMovement.Move(_myController._movementValue * _myController._currentMovementSpeed, true);
             }
             else
             {
-                _myController._myMovement.Move(0.0f);
+                _myController._myMovement.Move(0.0f, true);
             }
             LayerMask groundMask = _myController._whatIsGround;
             Transform groundCheck = _myController._groundCheck;

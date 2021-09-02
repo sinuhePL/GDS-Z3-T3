@@ -41,11 +41,11 @@ namespace GDS3
             Collider2D[] hitColliders;
             if (_myController._attackEndPosition.x > controlledTransform.position.x)
             {
-                _myController._myMovement.Move(_myController._dashVelocity.Value);
+                _myController._myMovement.Move(_myController._dashVelocity.Value, true);
             }
             else if (_myController._attackEndPosition.x < controlledTransform.position.x)
             {
-                _myController._myMovement.Move(-_myController._dashVelocity.Value);
+                _myController._myMovement.Move(-_myController._dashVelocity.Value, true);
             }
             hitColliders = Physics2D.OverlapCircleAll(_myController._dashCheck.position, 0.1f, _myController._dashObstacles);
             if (Mathf.Abs(controlledTransform.position.x - _myController._attackEndPosition.x) < 0.2f || hitColliders.Length > 0)

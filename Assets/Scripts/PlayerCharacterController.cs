@@ -71,7 +71,7 @@ namespace GDS3
 
         private void Awake()
         {
-            _myMovement = new CharacterMovementController(_myBody, _isFacingRight);
+            _myMovement = new CharacterMovementController(_myBody, _isFacingRight, _whatIsGround);
             _myJump = new CharacterJumpController(_myBody);
             if (_jumpHeight.Value > 0.0f && _jumpTime.Value > 0.0f)
             {

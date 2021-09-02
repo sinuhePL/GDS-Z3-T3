@@ -119,13 +119,13 @@ namespace GDS3
             Transform groundCheck = _myController._groundCheck;
             if (!_myController._isGamePaused)
             {
-                _myController._myMovement.Move(_myController._movementValue * _myController._currentMovementSpeed);
+                _myController._myMovement.Move(_myController._movementValue * _myController._currentMovementSpeed, true);
                 controlledAnimator.SetFloat("walk_speed", Mathf.Abs(_myController._movementValue * _myController._currentMovementSpeed));
                 controlledAnimator.SetFloat("jump_speed", controlledBody.velocity.y);
             }
             else
             {
-                _myController._myMovement.Move(0.0f);
+                _myController._myMovement.Move(0.0f, true);
             }
             if (!CheckIfLanded(groundMask, groundCheck.position))
             {

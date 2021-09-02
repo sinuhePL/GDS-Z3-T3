@@ -28,7 +28,7 @@ namespace GDS3
 
         private void Awake()
         {
-            _myMovement = new CharacterMovementController(_myBody, _isFacingRight);
+            _myMovement = new CharacterMovementController(_myBody, _isFacingRight, _whatIsGround);
             _myJump = new CharacterJumpController(_myBody);
             _isGamePaused = false;
             _prevAnimationSpeed = 1.0f;
@@ -107,12 +107,12 @@ namespace GDS3
         {
             if (!_isGamePaused)
             {
-                _myMovement.Move(moveSpeed);
+                _myMovement.Move(moveSpeed, false);
                 _myAnimator.SetFloat("walk_speed", Mathf.Abs(moveSpeed));
             }
             else
             {
-                _myMovement.Move(0.0f);
+                _myMovement.Move(0.0f, true);
             }
         }
 
