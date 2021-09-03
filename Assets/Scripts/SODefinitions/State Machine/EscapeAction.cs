@@ -18,11 +18,11 @@ namespace GDS3
             Transform characterTransform = controlledCharacter.GetTransform();
             if (characterTransform.position.x < brain._targetTransform.position.x)
             {
-                controlledCharacter.MoveMe(-brain._jumpHorizontalSpeed.Value);
+                controlledCharacter.MoveMe(-brain._jumpHorizontalSpeed.Value, true);
             }
             else
             {
-                controlledCharacter.MoveMe(brain._jumpHorizontalSpeed.Value);
+                controlledCharacter.MoveMe(brain._jumpHorizontalSpeed.Value, true);
             }
         }
     }

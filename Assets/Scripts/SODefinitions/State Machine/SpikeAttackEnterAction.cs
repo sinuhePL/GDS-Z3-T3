@@ -17,11 +17,11 @@ namespace GDS3
             Transform controlledTransform = controlledCharacter.GetTransform();
             if(brain._targetTransform.position.x > controlledTransform.position.x)
             {
-                controlledCharacter.MoveMe(0.01f);
+                controlledCharacter.MoveMe(0.01f, false);
             }
             else
             {
-                controlledCharacter.MoveMe(-0.01f);
+                controlledCharacter.MoveMe(-0.01f, false);
             }
             controlledCharacter.Attack();
         }

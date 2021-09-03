@@ -22,11 +22,11 @@ namespace GDS3
             Debug.Log("Wchodzę w patrol");
             if (controlledTransform.localScale.x > 0 && controlledCharacter.RightFacing() || controlledTransform.localScale.x < 0 && !controlledCharacter.RightFacing())
             {
-                controlledCharacter.MoveMe(brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(brain._movementSpeed.Value, false);
             }
             else
             {
-                controlledCharacter.MoveMe(-brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(-brain._movementSpeed.Value, false);
             }
         }
     }

@@ -24,6 +24,7 @@ public class CharacterMovementController
         RaycastHit2D hit = Physics2D.Raycast(_controlledTransform.position, _controlledTransform.TransformDirection(Vector3.down), Mathf.Infinity, _groundMask);
         if (hit.collider != null)
         {
+            Debug.DrawRay(_controlledTransform.position, _controlledTransform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
             return hit.distance;
         }
         else
@@ -55,7 +56,7 @@ public class CharacterMovementController
         else
         {
             currentDistanceToGround = CheckDistanctToGround();
-            _controlledBody.velocity = new Vector3(moveSpeed, _controlledBody.velocity.y - (currentDistanceToGround - _startingDistanceToGround) / Time.fixedDeltaTime);
+            _controlledBody.MovePosition(new Vector2(_controlledBody.position.x + moveSpeed * Time.fixedDeltaTime, _controlledBody.position.y - (currentDistanceToGround - _startingDistanceToGround)));
         }
         if (moveSpeed > 0 && !_isFacingRight)
         {

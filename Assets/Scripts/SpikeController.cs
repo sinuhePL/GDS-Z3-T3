@@ -10,13 +10,16 @@ namespace GDS3
     {
         [SerializeField] private LayerMask _hitMask;
         [SerializeField] private AudioSource _myAudioSource;
+        [SerializeField] private LayerMask _whatIsGround;
         [SerializeField] private Sound _spikeSound;
         [Range(0.0f, 1.0f)] public float _spikeVolume;
         private bool _isGamePaused;
+        private bool _allowFixedUpdate;
 
         private void Awake()
         {
             _isGamePaused = false;
+            _allowFixedUpdate = true;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +32,19 @@ namespace GDS3
                 if (myHit != null)
                 {
                     myHit.Hit();
+                }
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (_allowFixedUpdate)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down), 3.0f, _whatIsGround);
+                if (hit.collider != null && hit.distance > 0.0f)
+                {
+                    Debug.DrawRay(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down) * 3.0f, Color.yellow);
+                    transform.position = new Vector3(transform.position.x, transform.position.y - hit.distance + 2.0f - 0.2f, transform.position.z);
                 }
             }
         }
@@ -47,15 +63,17 @@ namespace GDS3
             }
         }
 
+
         public void SlideOut(float slideTime, float returnDelay, float spikeHeight)
         {
+            _allowFixedUpdate = false;
             float startingYPosition = transform.position.y;
             Sequence spikeSequence = DOTween.Sequence();
             _spikeSound.Play(_myAudioSource, _spikeVolume);
             spikeSequence.Append(transform.DOScaleY(spikeHeight*10, slideTime));
             spikeSequence.Insert(0.0f, transform.DOMoveY(transform.position.y + spikeHeight/2.0f, slideTime));
             spikeSequence.Append(transform.DOScaleY(0.0f, slideTime).SetDelay(returnDelay));
-            spikeSequence.Insert(slideTime, transform.DOMoveY(startingYPosition, slideTime).SetDelay(returnDelay));
+            spikeSequence.Insert(slideTime, transform.DOMoveY(startingYPosition, slideTime).SetDelay(returnDelay).OnComplete(() => _allowFixedUpdate = true));
         }
     }
 }

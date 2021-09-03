@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 3828181922317979232, guid: acdd4de37451bdd4a96f0e93c915c656,
     type: 3}
-  _attackRange: 4
+  _attackRange: 6
   _attackDelay: 1.2
   _targetMask:
     serializedVersion: 2
@@ -24,4 +24,4 @@ MonoBehaviour:
   _spikesSpeed: 20
   _spikeSlideTime: 0.75
   _spikeReturnDelay: 0.75
-  _spikeHeight: 1
+  _spikeHeight: 2

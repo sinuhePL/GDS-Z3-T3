@@ -9,7 +9,7 @@ namespace GDS3
     {
         private bool CheckIfLanded(LayerMask mask, Vector3 checkPosition)
         {
-            const float groundCheckRadius = 0.1f;
+            const float groundCheckRadius = 0.2f;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPosition, groundCheckRadius, mask);
             foreach (Collider2D collider in colliders)
             {
@@ -23,15 +23,15 @@ namespace GDS3
             LayerMask groundMask = brain._controlledCharacter.GetGroundMask();
             Transform groundCheck = brain._controlledCharacter.GetGroundCheck();
             Rigidbody2D controlledBody = brain._controlledCharacter.GetRigidbody2D();
-            if (controlledBody.velocity.y > 0)
+            /*if (controlledBody.velocity.y > 0)
             {
                 return false;
             }
             else
-            {
+            {*/
                 bool isLanded = CheckIfLanded(groundMask, groundCheck.position);
                 return isLanded;
-            }
+            
         }
     }
 }

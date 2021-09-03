@@ -18,19 +18,19 @@ namespace GDS3
             Transform controlledTransform = controlledCharacter.GetTransform();
             if (controlledTransform.position.x < brain._startingPosition.x - brain._patrolRange.Value)
             {
-                controlledCharacter.MoveMe(brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(brain._movementSpeed.Value, false);
             }
             else if (controlledTransform.position.x > brain._startingPosition.x + brain._patrolRange.Value)
             {
-                controlledCharacter.MoveMe(-brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(-brain._movementSpeed.Value, false);
             }
             else if (controlledTransform.localScale.x > 0 && controlledCharacter.RightFacing() || controlledTransform.localScale.x < 0 && !controlledCharacter.RightFacing())
             {
-                controlledCharacter.MoveMe(brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(brain._movementSpeed.Value, false);
             }
             else
             {
-                controlledCharacter.MoveMe(-brain._movementSpeed.Value);
+                controlledCharacter.MoveMe(-brain._movementSpeed.Value, false);
             }
         }
     }

@@ -103,11 +103,11 @@ namespace GDS3
             return transform;
         }
 
-        public void MoveMe(float moveSpeed)
+        public void MoveMe(float moveSpeed, bool ignoreGround)
         {
             if (!_isGamePaused)
             {
-                _myMovement.Move(moveSpeed, false);
+                _myMovement.Move(moveSpeed, ignoreGround);
                 _myAnimator.SetFloat("walk_speed", Mathf.Abs(moveSpeed));
             }
             else

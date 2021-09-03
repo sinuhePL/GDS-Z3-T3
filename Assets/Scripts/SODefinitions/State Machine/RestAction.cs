@@ -22,7 +22,7 @@ namespace GDS3
             {
                 speed = 0.0f;
             }
-            controlledCharacter.MoveMe(speed);
+            controlledCharacter.MoveMe(speed, false);
         }
     }
 }
