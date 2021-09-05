@@ -11,6 +11,7 @@ namespace GDS3
         [SerializeField] private LayerMask _hitMask;
         [SerializeField] private AudioSource _myAudioSource;
         [SerializeField] private LayerMask _whatIsGround;
+        [SerializeField] private ParticleSystem _dirtBurst;
         [SerializeField] private Sound _spikeSound;
         [Range(0.0f, 1.0f)] public float _spikeVolume;
         private bool _isGamePaused;
@@ -68,12 +69,13 @@ namespace GDS3
         {
             _allowFixedUpdate = false;
             float startingYPosition = transform.position.y;
+            _dirtBurst.Play();
             Sequence spikeSequence = DOTween.Sequence();
             _spikeSound.Play(_myAudioSource, _spikeVolume);
             spikeSequence.Append(transform.DOScaleY(spikeHeight*10, slideTime));
             spikeSequence.Insert(0.0f, transform.DOMoveY(transform.position.y + spikeHeight/2.0f, slideTime));
             spikeSequence.Append(transform.DOScaleY(0.0f, slideTime).SetDelay(returnDelay));
-            spikeSequence.Insert(slideTime, transform.DOMoveY(startingYPosition, slideTime).SetDelay(returnDelay).OnComplete(() => _allowFixedUpdate = true));
+            spikeSequence.Insert(slideTime, transform.DOMoveY(startingYPosition, slideTime).SetDelay(returnDelay).OnComplete(() => { _allowFixedUpdate = true; _dirtBurst.Stop(); }));
         }
     }
 }

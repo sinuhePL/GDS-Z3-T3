@@ -51,6 +51,7 @@ namespace GDS3
         {
             base.Initialize(attackTransform, myParent);
             Vector3 nextSpikePosition;
+            bool reverseScale = false;
             _attackPoint = attackTransform;
             _myParent = myParent;
             _mySpikes = new List<SpikeController>();
@@ -58,6 +59,15 @@ namespace GDS3
             while(nextSpikePosition.x < _attackPoint.position.x + _attackRange)
             {
                 GameObject newSpike = Instantiate(_weaponPrefab, nextSpikePosition, Quaternion.identity, myParent.transform);
+                if(reverseScale)
+                {
+                    newSpike.transform.localScale = new Vector3(-newSpike.transform.localScale.x, newSpike.transform.localScale.y, newSpike.transform.localScale.z);
+                    reverseScale = false;
+                }
+                else
+                {
+                    reverseScale = true;
+                }
                 SpikeController newSpikeController = newSpike.GetComponent<SpikeController>();
                 if(newSpikeController != null)
                 {
