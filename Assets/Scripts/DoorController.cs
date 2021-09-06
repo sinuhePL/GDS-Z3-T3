@@ -9,6 +9,8 @@ namespace GDS3
     {
         [SerializeField] private Transform _openPosition;
         [SerializeField] private Transform _matchingKey;
+        [SerializeField] private HiddenController _myHiddenObject;
+        [SerializeField] private AudioSource _myAudioSource;
         private Vector3 _closedPosition;
         private bool _isClosed;
 
@@ -33,6 +35,11 @@ namespace GDS3
                     player._pocket = null;
                 }
                 _isActivationEnabled = false;
+                _myAudioSource.Play();
+                if(_myHiddenObject != null)
+                {
+                    _myHiddenObject.Hide(_interactionTime);
+                }
                 transform.DOMove(_openPosition.position, _interactionTime).OnComplete(() => _highlightSpriteRenderer.color = highlightColor);
             }
         }

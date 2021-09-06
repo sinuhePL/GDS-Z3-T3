@@ -45,7 +45,7 @@ namespace GDS3
                 if (hit.collider != null && hit.distance > 0.0f)
                 {
                     Debug.DrawRay(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down) * 3.0f, Color.yellow);
-                    transform.position = new Vector3(transform.position.x, transform.position.y - hit.distance + 2.0f - 0.2f, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, transform.position.y - hit.distance + 2.0f - 0.3f, transform.position.z);
                 }
             }
         }
