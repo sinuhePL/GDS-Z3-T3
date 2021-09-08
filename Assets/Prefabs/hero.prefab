@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 6216657972016904726}
   - component: {fileID: 438264194698295009}
   m_Layer: 8
-  m_Name: Hero
+  m_Name: hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   - {fileID: 1610429449371093489}
   - {fileID: 1610429449521128649}
   _cloudText: {fileID: 1610429450181446996}
-  _displayTime: 4
+  _displayTime: 5
   _sequenceDelay: 0.1
   _isInputBlocked:
     _useConstant: 0
@@ -1687,8 +1687,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1181582285
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9dad91e1f08b81040a5104d6bb66cd61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

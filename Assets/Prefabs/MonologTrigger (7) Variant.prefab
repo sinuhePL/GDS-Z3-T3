@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5840653703746603805
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.0875258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198293, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198295, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: _monologText
+      value: "\u201CKorzystaj\u0105c ze skradzionej mocy, \u0141otrzyk sk\u0142ada
+        na antycznym O\u0142tarzu ostateczn\u0105 ofiar\u0119 - dokonuje samospalenia,
+        by tym samym sta\u0107 si\u0119 pot\u0119\u017Cniejszym nawet od bog\xF3w.
+        Jego plan si\u0119 zi\u015Bci - zg\u0142adzeni zostan\u0105 okrutni tw\xF3rcy
+        tego \u015Bwiata i zg\u0142adzony zostanie ca\u0142y ten \u015Bwiat przez
+        nich stworzony. Na ko\u0144cu sam \u0141otrzyk zostanie po\u017Carty i tym
+        samym zostanie Pustka. By\u0107 mo\u017Ce kiedy\u015B nowi bogowie oka\u017C\u0105
+        si\u0119 bardziej mi\u0142osierni dla swojego stworzenia. By\u0107 mo\u017Ce.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288698726644198296, guid: 4688d59d9621b004a90a94c0829ddea5,
+        type: 3}
+      propertyPath: m_Name
+      value: MonologTrigger (7) Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4688d59d9621b004a90a94c0829ddea5, type: 3}
