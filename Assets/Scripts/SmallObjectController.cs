@@ -6,55 +6,54 @@ namespace GDS3
 {
     public class SmallObjectController : MonoBehaviour
     {
+        [SerializeField] private SpriteRenderer _mySpriteRenderer;
         [SerializeField] private BoolReference _isSmallSize;
         [SerializeField] private FloatReference _sizeChangeTime;
-        private Vector3 _initialScale;
+        private float _initialAlpha;
         private int _resizeCoroutineId;
 
         private void Awake()
         {
-            _initialScale = transform.localScale;
-            transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            _initialAlpha = _mySpriteRenderer.color.a;
+            _mySpriteRenderer.color = new Color(_mySpriteRenderer.color.r, _mySpriteRenderer.color.g, _mySpriteRenderer.color.b, 0.0f);
             _resizeCoroutineId = 0;
         }
 
-        private IEnumerator ChangeSize()
+        private IEnumerator ChangeAlpha()
         {
-            float currentScaleX, currentScaleY, interpolationPoint;
-            Vector3 startingScale;
-            Vector3 targetScale;
-            float proportion = _sizeChangeTime.Value/ _initialScale.y;
+            float currentAlpha, interpolationPoint;
+            float startingAlpha;
+            float targetAlpha;
+            float proportion = _sizeChangeTime.Value/ _initialAlpha;
             int myId = Random.Range(1, 999999999);
             _resizeCoroutineId = myId;
             if (_isSmallSize.Value)
             {
-                startingScale = transform.localScale;
-                targetScale = _initialScale;
+                startingAlpha = _mySpriteRenderer.color.a;
+                targetAlpha = _initialAlpha;
             }
             else
             {
-                startingScale = transform.localScale;
-                targetScale = new Vector3(0.0f, 0.0f, 0.0f);
+                startingAlpha = _mySpriteRenderer.color.a;
+                targetAlpha = 0.0f;
             }
-            float resizeTime = proportion * Mathf.Abs(startingScale.y - targetScale.y);
+            float resizeTime = proportion * Mathf.Abs(startingAlpha - targetAlpha);
             for (float t = 0; t < resizeTime && myId == _resizeCoroutineId; t += Time.deltaTime)
             {
                 interpolationPoint = t / resizeTime;
-                /*interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);*/
-                currentScaleX = Mathf.Lerp(startingScale.x, targetScale.x, interpolationPoint);
-                currentScaleY = Mathf.Lerp(startingScale.y, targetScale.y, interpolationPoint);
-                transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
+                currentAlpha = Mathf.Lerp(startingAlpha, targetAlpha, interpolationPoint);
+                _mySpriteRenderer.color = new Color(_mySpriteRenderer.color.r, _mySpriteRenderer.color.g, _mySpriteRenderer.color.b, currentAlpha);
                 yield return 0;
             }
             if(myId == _resizeCoroutineId)
             {
-                transform.localScale = targetScale;
+                _mySpriteRenderer.color = new Color(_mySpriteRenderer.color.r, _mySpriteRenderer.color.g, _mySpriteRenderer.color.b, targetAlpha);
             }
         }
 
-        public void Resize()
+        public void ChangeOpacity()
         {
-            StartCoroutine(ChangeSize());
+            StartCoroutine(ChangeAlpha());
         }
     }
 }

@@ -131,6 +131,7 @@ MonoBehaviour:
   _interactWhenSmall: 1
   _openPosition: {fileID: 1919426134816041655}
   _matchingKey: {fileID: 0}
+  _myHiddenObject: {fileID: 0}
   _myAudioSource: {fileID: 6840711269203662053}
 --- !u!114 &3486728096471070981
 MonoBehaviour:
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807f971c31e5f78489c96101ec5817aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mySpriteRenderer: {fileID: 1919426134463067588}
   _isSmallSize:
     _useConstant: 0
     _constantValue: 0
@@ -170,7 +172,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3486728096471070981}
-        m_MethodName: Resize
+        m_MethodName: ChangeOpacity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

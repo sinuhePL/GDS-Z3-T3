@@ -41,10 +41,10 @@ namespace GDS3
         {
             if (_allowFixedUpdate)
             {
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down), 3.0f, _whatIsGround);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down), 4.0f, _whatIsGround);
                 if (hit.collider != null && hit.distance > 0.0f)
                 {
-                    Debug.DrawRay(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down) * 3.0f, Color.yellow);
+                    Debug.DrawRay(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down) * 4.0f, Color.yellow);
                     transform.position = new Vector3(transform.position.x, transform.position.y - hit.distance + 2.0f - 0.3f, transform.position.z);
                 }
             }
