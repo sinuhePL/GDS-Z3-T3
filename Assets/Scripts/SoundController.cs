@@ -14,6 +14,8 @@ namespace GDS3
         [Range(0.0f, 1.0f)] public float _landVolume;
         public Sound _jumpSound;
         [Range(0.0f, 1.0f)] public float _jumpVolume;
+        public Sound _hitSound;
+        [Range(0.0f, 1.0f)] public float _hitVolume;
         public Sound _deathSound;
         [Range(0.0f, 1.0f)] public float _deathVolume;
         public Sound _attackSound;
@@ -41,6 +43,12 @@ namespace GDS3
         {
             Assert.IsNotNull(_jumpSound);
             _jumpSound.Play(_myAudioSource, _jumpVolume);
+        }
+
+        public void PlayHitSound()
+        {
+            Assert.IsNotNull(_hitSound);
+            _hitSound.Play(_myAudioSource, _hitVolume);
         }
 
         public void PlayDeathSound()

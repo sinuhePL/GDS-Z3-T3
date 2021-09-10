@@ -758,7 +758,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 2db19c85b14b5ac4d809f8c4cca9f106, type: 2}
-  _hitPointMarkerPrefab: {fileID: 1332746633080693628, guid: 4f17565d581beae4ba968e0b4212ee9f,
+  _hitPointMarkerPrefab: {fileID: 5683752404797470981, guid: 39fe02145718f064c84fd79dd647eea0,
     type: 3}
 --- !u!114 &3042688578211066454
 MonoBehaviour:
@@ -807,6 +807,8 @@ MonoBehaviour:
   _landVolume: 0
   _jumpSound: {fileID: 0}
   _jumpVolume: 0
+  _hitSound: {fileID: 11400000, guid: 6401121778b97c1409a842991f62dc78, type: 2}
+  _hitVolume: 1
   _deathSound: {fileID: 11400000, guid: 1c2fc55b9fc8f5c4e9f0c0e18b22e11f, type: 2}
   _deathVolume: 1
   _attackSound: {fileID: 11400000, guid: 79da40dafed0c9b46aca62a3ccba50bd, type: 2}

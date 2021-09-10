@@ -186,6 +186,7 @@ namespace GDS3
             }
             else
             {
+                _myAnimator.SetTrigger("hit");
                 _hitEvent.Invoke();
             }
         }
