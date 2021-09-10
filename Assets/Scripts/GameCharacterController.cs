@@ -19,6 +19,7 @@ namespace GDS3
         [SerializeField] private UnityEvent _hitEvent;
         [SerializeField] private UnityEvent _killedEvent;
         [SerializeField] private GameObject _firePrefab;
+        [SerializeField] private Transform _firePosition;
         private CharacterMovementController _myMovement;
         private CharacterJumpController _myJump;
         private float _attackLength;
@@ -184,7 +185,7 @@ namespace GDS3
             {
                 _hitEvent.Invoke();
                 _killedEvent.Invoke();
-                Instantiate(_firePrefab, transform.position, _firePrefab.transform.rotation);
+                Instantiate(_firePrefab, _firePosition.position, _firePrefab.transform.rotation);
             }
             else
             {

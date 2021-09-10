@@ -15,9 +15,9 @@ namespace GDS3
         private void Start()
         {
             _hitPointsMarkers = new List<ParticleSystem>();
-            for(int i = 0; i < _initialHP.Value-1; i++)
+            for(int i = 0; i < _initialHP.Value; i++)
             {
-                _hitPointsMarkers.Add(Instantiate(_hitPointMarkerPrefab, transform.position + new Vector3(Mathf.Cos(2*3.1415f*(i + 1)/(_initialHP.Value - 1)), Mathf.Sin(2*3.1415f*(i + 1)/(_initialHP.Value - 1)) + 3.0f, 0.0f), Quaternion.identity, transform).GetComponent<ParticleSystem>());
+                _hitPointsMarkers.Add(Instantiate(_hitPointMarkerPrefab, transform.position + new Vector3(Mathf.Cos(2*3.1415f*(i + 1)/(_initialHP.Value)), Mathf.Sin(2*3.1415f*(i + 1)/(_initialHP.Value)) + 3.0f, 0.0f), Quaternion.identity, transform).GetComponent<ParticleSystem>());
             }
         }
 
@@ -38,7 +38,7 @@ namespace GDS3
             int i = 0;
             foreach(ParticleSystem hitPoint in _hitPointsMarkers)
             {
-                hitPoint.transform.localPosition = new Vector3(Mathf.Cos(currentTime%(2*3.1415f) + 2*3.1415f*(i + 1)/(_initialHP.Value - 1)), Mathf.Sin(currentTime%(2*3.1415f) + 2*3.1415f*(i + 1)/(_initialHP.Value - 1))*2.0f + 2.0f, 0.0f)*5.0f;
+                hitPoint.transform.localPosition = new Vector3(Mathf.Cos(currentTime%(2*3.1415f) + 2*3.1415f*(i + 1)/(_initialHP.Value)), Mathf.Sin(currentTime%(2*3.1415f) + 2*3.1415f*(i + 1)/(_initialHP.Value))*2.0f + 2.0f, 0.0f)*5.0f;
                 i++;
             }
         }

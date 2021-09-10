@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerMeleeAttack
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 0}
-  _attackRange: 0.3
-  _attackDelay: 0.15
+  _attackRange: 0.7
+  _attackDelay: 0.5
   _targetMask:
     serializedVersion: 2
     m_Bits: 512
