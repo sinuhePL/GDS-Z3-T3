@@ -738,6 +738,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _firePrefab: {fileID: 5943338383863339633, guid: 73e0c7e8767413f48a1438120c0369e3,
+    type: 3}
 --- !u!114 &1829566943123236672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +810,7 @@ MonoBehaviour:
   _jumpSound: {fileID: 0}
   _jumpVolume: 0
   _hitSound: {fileID: 11400000, guid: 6401121778b97c1409a842991f62dc78, type: 2}
-  _hitVolume: 1
+  _hitVolume: 0.671
   _deathSound: {fileID: 11400000, guid: 1c2fc55b9fc8f5c4e9f0c0e18b22e11f, type: 2}
   _deathVolume: 1
   _attackSound: {fileID: 11400000, guid: 79da40dafed0c9b46aca62a3ccba50bd, type: 2}
