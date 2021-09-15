@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4654155628500137501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392240272480692861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807f971c31e5f78489c96101ec5817aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mySpriteRenderer: {fileID: 6503792386411888121}
+  _isSmallSize:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
+  _sizeChangeTime:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+--- !u!114 &4759318661596636534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392240272480692861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a604ac8b207544e952e31244fad3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+  - {fileID: 11400000, guid: 9ee68107d626be6489f95c538f46ab0f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4654155628500137501}
+        m_MethodName: ChangeOpacity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6828177045873789725
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,9 +446,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b01c925e1c228ea478417b996f8803bf, type: 3}
+--- !u!1 &6392240272480692861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1170195008765894, guid: b01c925e1c228ea478417b996f8803bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6391140998180296123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6394717575228370713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4359706673412770, guid: b01c925e1c228ea478417b996f8803bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6391140998180296123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &6503792386411888121 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 212786663401760834, guid: b01c925e1c228ea478417b996f8803bf,
     type: 3}
   m_PrefabInstance: {fileID: 6391140998180296123}
   m_PrefabAsset: {fileID: 0}
