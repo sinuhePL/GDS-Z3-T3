@@ -148,16 +148,7 @@ namespace GDS3
         {
             if(collision.tag == "Monolog")
             {
-                MonologTriggerController monologTrigger = collision.gameObject.GetComponent<MonologTriggerController>();
-                if(monologTrigger != null)
-                {
-                    string myMonolog = monologTrigger.GetMonolog();
-                    if (myMonolog.Length > 0)
-                    {
-                        _movementValue = 0.0f;
-                        _myMonolog.ShowMonolog(myMonolog);
-                    }
-                }
+                _movementValue = 0.0f;
             }
         }
 
