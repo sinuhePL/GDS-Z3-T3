@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myAudioSource: {fileID: 25672048408457184}
   _stepSound: {fileID: 11400000, guid: 3c4e89a4aee50de4c8e9b68d40fcecdc, type: 2}
-  _stepVolume: 1
+  _stepVolume: 0.55
   _landSound: {fileID: 11400000, guid: 54f048de91b565549b4f9d757d43e0ca, type: 2}
   _landVolume: 1
   _jumpSound: {fileID: 11400000, guid: b9fc1ec4d52d38441ac422a394b6ad33, type: 2}
@@ -1856,6 +1856,8 @@ MonoBehaviour:
   _cooldownVolume: 0
   _teleportSound: {fileID: 0}
   _teleportVolume: 0
+  _fallSound: {fileID: 11400000, guid: 24d0bf0f115f64c45a40f9b8c4a6446d, type: 2}
+  _fallVolume: 1
 --- !u!114 &25672048408457186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2061,7 +2063,7 @@ MonoBehaviour:
   _myAnimator: {fileID: 25672048408457195}
   _myBody: {fileID: 25672048408457198}
   _isFacingRight: 1
-  _myMonolog: {fileID: 0}
+  _myMonolog: {fileID: 4284348931671375236}
   _currentCooldownTime: 0
   _isGamePaused: 0
 --- !u!114 &25672048408457189

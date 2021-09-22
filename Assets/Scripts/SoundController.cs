@@ -26,6 +26,8 @@ namespace GDS3
         [Range(0.0f, 1.0f)] public float _cooldownVolume;
         public Sound _teleportSound;
         [Range(0.0f, 1.0f)] public float _teleportVolume;
+        public Sound _fallSound;
+        [Range(0.0f, 1.0f)] public float _fallVolume;
 
         public void PlayStepSound()
         {
@@ -79,6 +81,12 @@ namespace GDS3
         {
             Assert.IsNotNull(_teleportSound);
             _teleportSound.Play(_myAudioSource, _teleportVolume);
+        }
+
+        public void PlayFallSound()
+        {
+            Assert.IsNotNull(_fallSound);
+            _fallSound.Play(_myAudioSource, _fallVolume);
         }
     }
 }
