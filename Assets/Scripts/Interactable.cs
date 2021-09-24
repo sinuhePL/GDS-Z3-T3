@@ -51,7 +51,7 @@ namespace GDS3
             }
         }
 
-        private void Update()
+        protected void Update()
         {
             if (_isActivationEnabled)
             {

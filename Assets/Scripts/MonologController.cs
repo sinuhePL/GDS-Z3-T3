@@ -23,7 +23,7 @@ namespace GDS3
             {
                 cloud.enabled = false;
             }
-            _isAnyKeyPressed = false;
+            _isAnyKeyPressed = true;
         }
 
         private IEnumerator ShowInSequence()
@@ -84,7 +84,7 @@ namespace GDS3
 
         private void Update()
         {
-            if(Keyboard.current.anyKey.wasPressedThisFrame)
+            if(Keyboard.current.anyKey.wasPressedThisFrame && !_isAnyKeyPressed)
             {
                 foreach (SpriteRenderer cloud in _clouds)
                 {
