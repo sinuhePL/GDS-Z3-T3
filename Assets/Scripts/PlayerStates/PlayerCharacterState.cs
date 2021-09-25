@@ -106,6 +106,10 @@ namespace GDS3
                     if (interactableObject != null)
                     {
                         interactableObject.Interact(_myController);
+                        if(collider.gameObject.gameObject.tag == "EndGame")
+                        {
+                            _myController._myAnimator.SetTrigger("sacrifice");
+                        }
                     }
                 }
             }

@@ -47,6 +47,7 @@ namespace GDS3
         public Transform[] _interactionChecks;
         public LayerMask _interactionMask;
         public Transform _handTransform;
+        public ParticleSystem _sacrificeFire;
         [HideInInspector] public Transform _pocket;
         [Header("Other")]
         public Vector3Reference _lastSpawPoint;
@@ -59,6 +60,7 @@ namespace GDS3
         public Rigidbody2D _myBody;
         public bool _isFacingRight;
         public MonologController _myMonolog;
+        public ParticleSystem _lampParticleSystem;
         [HideInInspector] public float _currentCooldownTime;
         [HideInInspector] public bool _isGamePaused;
 
@@ -299,6 +301,12 @@ namespace GDS3
         public bool RightFacing()
         {
             return _isFacingRight;
+        }
+
+        public void StartSacrificeFire()
+        {
+            _sacrificeFire.Play();
+            _lampParticleSystem.Stop();
         }
     }
 }
