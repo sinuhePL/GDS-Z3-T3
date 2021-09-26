@@ -144,7 +144,7 @@ namespace GDS3
                 {
                     ""name"": """",
                     ""id"": ""281bb73d-e963-40be-91d6-e58bab2b6243"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
