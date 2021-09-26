@@ -122,7 +122,7 @@ namespace GDS3
                 {
                     ""name"": """",
                     ""id"": ""4c960d92-1066-4024-9b78-baa196b96663"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -144,7 +144,7 @@ namespace GDS3
                 {
                     ""name"": """",
                     ""id"": ""281bb73d-e963-40be-91d6-e58bab2b6243"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
