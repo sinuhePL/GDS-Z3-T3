@@ -97,7 +97,6 @@ namespace GDS3
             for (float t = 0; t < newResizeTime && myId == _resizeCoroutineId; t += Time.deltaTime)
             {
                 interpolationPoint = t / newResizeTime;
-                /*interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);*/
                 if (isFacingRight && transform.localScale.x < 0.0 || !isFacingRight && transform.localScale.x > 0.0) // used when character orientation flipped during shrinking
                 {
                     isFacingRight = !isFacingRight;
@@ -108,13 +107,13 @@ namespace GDS3
                 }
                 currentScaleX = Mathf.Lerp(startingScaleX, targetScaleX, interpolationPoint);
                 currentScaleY = Mathf.Lerp(startingScaleY, targetScaleY, interpolationPoint);
-                transform.localScale = new Vector3(currentScaleX, currentScaleY, 0.0f);
+                transform.localScale = new Vector3(currentScaleX, currentScaleY, 1.0f);
                 _myResizable.SetCurrentSpeed(Mathf.Lerp(currentSpeed, targetSpeed, interpolationPoint));
                 yield return 0;
             }
             if (myId == _resizeCoroutineId)
             {
-                transform.localScale = new Vector3(targetScaleX, targetScaleY, 0.0f);
+                transform.localScale = new Vector3(targetScaleX, targetScaleY, 1.0f);
                 _myResizable.SetCurrentSpeed(targetSpeed);
             }
         }
