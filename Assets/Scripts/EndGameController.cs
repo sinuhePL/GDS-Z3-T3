@@ -12,6 +12,7 @@ namespace GDS3
         [Range(0.0f, 1.0f)]
         [SerializeField] private float _impactVolume;
         [SerializeField] private BoolReference _isInputBlocked;
+        [SerializeField] private FadeOutController _endFade;
         private int _lastParticleCount;
         private ParticleSystem.Particle[] _lastParticles;
         private List<ParticleSystem> _distantFiresList;
@@ -59,6 +60,7 @@ namespace GDS3
         {
             _isInputBlocked.Value = true;
             _meteorShower.Play();
+            _endFade.EndFade();
         }
     }
 }
