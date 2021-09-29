@@ -150,7 +150,11 @@ namespace GDS3
         {
             if(collision.tag == "Monolog")
             {
-                _movementValue = 0.0f;
+                MonologTriggerController monologTrigger = collision.gameObject.GetComponent<MonologTriggerController>();
+                if (monologTrigger != null && !monologTrigger.CheckIfVisited())
+                {
+                    _movementValue = 0.0f;
+                }
             }
         }
 
@@ -307,6 +311,11 @@ namespace GDS3
         {
             _sacrificeFire.Play();
             _lampParticleSystem.Stop();
+        }
+
+        public void StartAttack()
+        {
+            _myAttack.MakeAttack(0.0f, null);
         }
     }
 }
