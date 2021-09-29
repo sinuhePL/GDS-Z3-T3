@@ -8,9 +8,10 @@ namespace GDS3
     {
         private bool _attackEnd;
 
-        private void AttackEnd()
+        private IEnumerator AttackEnd(float waitTime)
         {
             Animator controlledAnimator = _myController._myAnimator;
+            yield return new WaitForSeconds(waitTime);
             controlledAnimator.ResetTrigger("attack");
             _attackEnd = true;
         }
@@ -20,7 +21,7 @@ namespace GDS3
             _attackEnd = false;
             _myController._myAnimator.SetTrigger("attack");
             _myController._currentCooldownTime = _myController._attackLength;
-            _myController._myAttack.MakeAttack(_myController._attackLength, AttackEnd);
+            _myController.StartCoroutine(AttackEnd(_myController._attackLength));
             _gizmoColor = Color.red;
         }
 

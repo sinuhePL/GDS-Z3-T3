@@ -13,6 +13,7 @@ namespace GDS3
         {
             _wasDisplayed = false;
         }
+
         public string GetMonolog()
         {
             if (!_wasDisplayed)
@@ -24,6 +25,11 @@ namespace GDS3
             {
                 return "";
             }
+        }
+
+        public bool CheckIfVisited()
+        {
+            return _wasDisplayed;
         }
     }
 }

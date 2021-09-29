@@ -53,7 +53,6 @@ namespace GDS3
             MonoBehaviour parentMonoBehaviour = _myParent.GetComponent<MonoBehaviour>();
             if (parentMonoBehaviour != null)
             {
-                Debug.Log("zaczynam atak");
                 parentMonoBehaviour.StartCoroutine(PerformAttack(attackDuration, attackCallback));
             }
         }

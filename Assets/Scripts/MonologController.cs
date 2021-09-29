@@ -59,7 +59,6 @@ namespace GDS3
                     string myMonolog = monologTrigger.GetMonolog();
                     if (myMonolog.Length > 0)
                     {
-                        _myRigidbody.velocity = Vector3.zero;
                         ShowMonolog(myMonolog);
                     }
                 }
