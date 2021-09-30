@@ -83,6 +83,14 @@ namespace GDS3
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""c693af5d-453d-4da8-9736-5f17751cdded"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -195,6 +203,17 @@ namespace GDS3
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1b1c24b-13ee-4a0f-a896-e5458a784836"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -211,6 +230,7 @@ namespace GDS3
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
             m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
+            m_Gameplay_MousePosition = m_Gameplay.FindAction("MousePosition", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -268,6 +288,7 @@ namespace GDS3
         private readonly InputAction m_Gameplay_Interact;
         private readonly InputAction m_Gameplay_Pause;
         private readonly InputAction m_Gameplay_Menu;
+        private readonly InputAction m_Gameplay_MousePosition;
         public struct GameplayActions
         {
             private @PlayerInput m_Wrapper;
@@ -280,6 +301,7 @@ namespace GDS3
             public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
             public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
             public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
+            public InputAction @MousePosition => m_Wrapper.m_Gameplay_MousePosition;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -313,6 +335,9 @@ namespace GDS3
                     @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                     @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                     @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                    @MousePosition.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                    @MousePosition.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                    @MousePosition.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -341,6 +366,9 @@ namespace GDS3
                     @Menu.started += instance.OnMenu;
                     @Menu.performed += instance.OnMenu;
                     @Menu.canceled += instance.OnMenu;
+                    @MousePosition.started += instance.OnMousePosition;
+                    @MousePosition.performed += instance.OnMousePosition;
+                    @MousePosition.canceled += instance.OnMousePosition;
                 }
             }
         }
@@ -355,6 +383,7 @@ namespace GDS3
             void OnInteract(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
             void OnMenu(InputAction.CallbackContext context);
+            void OnMousePosition(InputAction.CallbackContext context);
         }
     }
 }

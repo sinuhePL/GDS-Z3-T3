@@ -12,7 +12,7 @@ namespace GDS3
 
         public void StartGamePressed()
         {
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("LevelScene");
         }
 
         public void CreditsPressed()

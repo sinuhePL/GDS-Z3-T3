@@ -302,6 +302,11 @@ namespace GDS3
             }
         }
 
+        public void OnMousePosition(InputAction.CallbackContext context)
+        {
+
+        }
+
         public bool RightFacing()
         {
             return _isFacingRight;

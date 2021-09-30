@@ -25,7 +25,6 @@ namespace GDS3
         private static SoundSystem _instance;
         private MyAudioSource[] _audioPool;
         private bool _isGamePaused;
-        private Camera _myCamera;
         public IntegerReference _poolSize;
         public BoolReference _isOn;
         public FloatReference _soundVolume;
@@ -41,7 +40,6 @@ namespace GDS3
             }
             _pauseEvent.RegisterListener(this);
             _isGamePaused = false;
-            _myCamera = Camera.main;
         }
 
         private void OnDisable()
@@ -136,7 +134,7 @@ namespace GDS3
                             MyAudioSource freeAudioSource = GetMyAudioSource();
                             freeAudioSource._soundSource.volume = _soundVolume.Value;
                             float seconds = sound.Play(freeAudioSource._soundSource, _soundVolume.Value);
-                            _myCamera.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(ReleaseAudioSource(freeAudioSource, seconds));
+                            GameAssets._instance.StartCoroutine(ReleaseAudioSource(freeAudioSource, seconds));
                         }
                     }
                 }
