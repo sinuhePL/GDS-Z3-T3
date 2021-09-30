@@ -43,7 +43,6 @@ namespace GDS3
                 currentTime = Time.time;
                 yield return null;
             }
-            yield return new WaitForSeconds(2 * _spikeSlideTime + _spikeReturnDelay);
             attackCallback();
         }
 
