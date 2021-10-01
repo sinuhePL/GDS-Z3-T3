@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GDS3
 {
@@ -8,11 +9,9 @@ namespace GDS3
     {
         [SerializeField] private ParticleSystem _meteorShower;
         [SerializeField] private ParticleSystem _distantFirePrefab;
-        [SerializeField] private Sound _meteorImpactSound;
-        [Range(0.0f, 1.0f)]
-        [SerializeField] private float _impactVolume;
         [SerializeField] private BoolReference _isInputBlocked;
         [SerializeField] private FadeOutController _endFade;
+        [SerializeField] private UnityEvent _meteorHitEvent;
         private int _lastParticleCount;
         private ParticleSystem.Particle[] _lastParticles;
         private List<ParticleSystem> _distantFiresList;
@@ -36,6 +35,8 @@ namespace GDS3
         {
             base.Update();
             ParticleSystem.Particle[] currentParticles;
+            float scaleFactor;
+            ParticleSystem newParticleSystem;
             _currentParticlesIdsList.Clear();
             currentParticles = new ParticleSystem.Particle[_meteorShower.main.maxParticles];
             if (_lastParticleCount > _meteorShower.particleCount)
@@ -49,7 +50,11 @@ namespace GDS3
                 {
                     if (!_currentParticlesIdsList.Contains(_lastParticles[i].randomSeed))
                     {
-                        _distantFiresList.Add(Instantiate(_distantFirePrefab, _lastParticles[i].position, _distantFirePrefab.transform.rotation));
+                        scaleFactor = 1.0f - (_lastParticles[i].position.y + 41.0f)/5.0f;
+                        newParticleSystem = Instantiate(_distantFirePrefab, _lastParticles[i].position, _distantFirePrefab.transform.rotation);
+                        newParticleSystem.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+                        _distantFiresList.Add(newParticleSystem);
+                        _meteorHitEvent.Invoke();
                     }
                 }
             }

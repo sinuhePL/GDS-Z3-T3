@@ -132,9 +132,12 @@ namespace GDS3
                         if (sound._relatedEvent == gameEvent)
                         {
                             MyAudioSource freeAudioSource = GetMyAudioSource();
-                            freeAudioSource._soundSource.volume = _soundVolume.Value;
-                            float seconds = sound.Play(freeAudioSource._soundSource, _soundVolume.Value);
-                            GameAssets._instance.StartCoroutine(ReleaseAudioSource(freeAudioSource, seconds));
+                            if (freeAudioSource != null)
+                            {
+                                freeAudioSource._soundSource.volume = _soundVolume.Value;
+                                float seconds = sound.Play(freeAudioSource._soundSource, _soundVolume.Value);
+                                GameAssets._instance.StartCoroutine(ReleaseAudioSource(freeAudioSource, seconds));
+                            }
                         }
                     }
                 }

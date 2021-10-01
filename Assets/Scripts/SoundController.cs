@@ -28,6 +28,8 @@ namespace GDS3
         [Range(0.0f, 1.0f)] public float _teleportVolume;
         public Sound _fallSound;
         [Range(0.0f, 1.0f)] public float _fallVolume;
+        public Sound _sacrificeSound;
+        [Range(0.0f, 1.0f)] public float _sacrificeVolume;
 
         public void PlayStepSound()
         {
@@ -87,6 +89,12 @@ namespace GDS3
         {
             Assert.IsNotNull(_fallSound);
             _fallSound.Play(_myAudioSource, _fallVolume);
+        }
+
+        public void PlaySacrificeSound()
+        {
+            Assert.IsNotNull(_sacrificeSound);
+            _sacrificeSound.Play(_myAudioSource, _sacrificeVolume);
         }
     }
 }

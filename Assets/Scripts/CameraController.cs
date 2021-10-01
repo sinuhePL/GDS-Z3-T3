@@ -20,6 +20,7 @@ namespace GDS3
         [Range(-10.0f, 10.0f)] [SerializeField] private float _yTargetOffset;
         [Range(0.0f, 5.0f)] [SerializeField] private float _xTargetDeadZone;
         [Range(0.0f, 2.0f)] [SerializeField] private float _yTargetDeadZone;
+        [Range(0.0f, 2.0f)] [SerializeField] private float _shakeTime;
         private bool _isFollowing;
         private int _resizeCoroutineId;
         private float _bigOrthographicSize;
@@ -170,6 +171,12 @@ namespace GDS3
             _isFollowing = false;
             Vector3 newPosition = new Vector3(_lastSpawnPoint.Value.x + _xTargetOffset, _lastSpawnPoint.Value.y + _yTargetOffset, _camera.transform.position.z);
             Tweener t = _camera.transform.DOMove(newPosition, _moveToSpawnPointTime.Value).SetEase(Ease.OutSine).OnComplete(()=> { _isFollowing = true; _isInputBlocked.Value = false; });
+        }
+
+        public void Shake()
+        {
+            transform.DOPunchPosition(new Vector3(0.0f, -0.1f, 0.0f), _shakeTime);
+            transform.DOPunchRotation(new Vector3(0.0f, 0.0f, 1.0f), _shakeTime);
         }
     }
 }

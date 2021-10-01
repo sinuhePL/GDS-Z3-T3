@@ -16,6 +16,8 @@ namespace GDS3
         [SerializeField] private float _fadeOutTime;
         [Range(0.0f, 10.0f)]
         [SerializeField] private float _waitTime;
+        [Range(10.0f, 40.0f)]
+        [SerializeField] private float _endDelayTime;
         [SerializeField] private UnityEvent _pauseEvent;
         [SerializeField] private string _startString;
         [SerializeField] private string _endString;
@@ -90,7 +92,7 @@ namespace GDS3
         public void EndFade()
         {
             _myText.text = _endString;
-            StartCoroutine(FadeImage(true, 20.0f));
+            StartCoroutine(FadeImage(true, _endDelayTime));
         }
     }
 }

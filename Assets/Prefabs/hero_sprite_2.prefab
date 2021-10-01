@@ -16108,7 +16108,7 @@ MonoBehaviour:
   _landSound: {fileID: 11400000, guid: 54f048de91b565549b4f9d757d43e0ca, type: 2}
   _landVolume: 1
   _jumpSound: {fileID: 11400000, guid: b9fc1ec4d52d38441ac422a394b6ad33, type: 2}
-  _jumpVolume: 1
+  _jumpVolume: 0.569
   _hitSound: {fileID: 0}
   _hitVolume: 0
   _deathSound: {fileID: 11400000, guid: 0a100396ba6c62348beb7c49d14a9e51, type: 2}
@@ -16123,6 +16123,8 @@ MonoBehaviour:
   _teleportVolume: 0
   _fallSound: {fileID: 11400000, guid: 24d0bf0f115f64c45a40f9b8c4a6446d, type: 2}
   _fallVolume: 1
+  _sacrificeSound: {fileID: 11400000, guid: cc3e3df02de1f8140b780b6ad9a637b1, type: 2}
+  _sacrificeVolume: 1
 --- !u!114 &25672048408457186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17638,7 +17640,7 @@ Transform:
   - {fileID: 2131447653293743936}
   m_Father: {fileID: 6492311142182254777}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21191.799}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21551.799}
 --- !u!1 &5775579978201417785
 GameObject:
   m_ObjectHideFlags: 0
