@@ -94,7 +94,7 @@ namespace GDS3
                 }
             }
             _isGamePaused = false;
-            _isInputBlocked.Value = false;
+            _isInputBlocked.Value = true;
             _currentHitPoints = _hitPoints.Value;
             _playerInput = new PlayerInput();
             _playerInput.Gameplay.SetCallbacks(this);
@@ -321,6 +321,11 @@ namespace GDS3
         public void StartAttack()
         {
             _myAttack.MakeAttack(0.0f, null);
+        }
+
+        public void UnblockInput()
+        {
+            _isInputBlocked.Value = false;
         }
     }
 }
