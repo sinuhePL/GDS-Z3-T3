@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GDS3
 {
@@ -33,16 +34,17 @@ namespace GDS3
             _musicStateChangedEvent.RegisterListener(this);
             _musicVolumeChangedEvent.RegisterListener(this);
             _pauseEvent.RegisterListener(this);
-            _turnOnCounter = 1;
-            GameObject musicObject1 = new GameObject("Music Source 1");
-            _musicAudioSource1 = musicObject1.AddComponent<AudioSource>();
-            GameObject musicObject2 = new GameObject("Music Source 2");
-            _musicAudioSource2 = musicObject2.AddComponent<AudioSource>();
-            _musicAudioSource1.loop = false;
-            _musicAudioSource2.loop = false;
-            _currentAudioSource = _musicAudioSource1;
-            _currentAudioSource.volume = _musicVolume.Value;
             _isGamePaused = false;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            _currentAudioSource = null;
+        }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         private void OnDisable()
@@ -57,6 +59,8 @@ namespace GDS3
             _musicStateChangedEvent.UnregisterListener(this);
             _musicVolumeChangedEvent.UnregisterListener(this);
             _pauseEvent.UnregisterListener(this);
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            _currentAudioSource = null;
         }
 
         private IEnumerator UpdateMusicWithCrossFade(AudioSource original, AudioSource newSource, float transitionTime)
@@ -103,21 +107,30 @@ namespace GDS3
         public void OnEventRaised(GameEvent gameEvent)
         {
             float seconds;
+            if (_currentAudioSource == null)
+            {
+                _turnOnCounter = 1;
+                GameObject musicObject1 = new GameObject("Music Source 1");
+                _musicAudioSource1 = musicObject1.AddComponent<AudioSource>();
+                GameObject musicObject2 = new GameObject("Music Source 2");
+                _musicAudioSource2 = musicObject2.AddComponent<AudioSource>();
+                _musicAudioSource1.loop = false;
+                _musicAudioSource2.loop = false;
+                _currentAudioSource = _musicAudioSource1;
+                _currentAudioSource.volume = _musicVolume.Value;
+            }
             if (_musicStateChangedEvent == gameEvent)
             {
-                if (_currentAudioSource != null)
+                if (_isOn.Value == true)
                 {
-                    if (_isOn.Value == true)
-                    {
-                        _turnOnCounter++;
-                        _currentAudioSource.volume = _musicVolume.Value;
-                        seconds = _lastPlayedMusic.Play(_currentAudioSource, _musicVolume.Value);
-                        GameAssets._instance.StartCoroutine(ResumeMusic(_lastPlayedMusic, seconds, _currentAudioSource, _turnOnCounter));
-                    }
-                    else if (_isOn.Value == false)
-                    {
-                        _currentAudioSource.Stop();
-                    }
+                    _turnOnCounter++;
+                    _currentAudioSource.volume = _musicVolume.Value;
+                    seconds = _lastPlayedMusic.Play(_currentAudioSource, _musicVolume.Value);
+                    GameAssets._instance.StartCoroutine(ResumeMusic(_lastPlayedMusic, seconds, _currentAudioSource, _turnOnCounter));
+                }
+                else if (_isOn.Value == false)
+                {
+                    _currentAudioSource.Stop();
                 }
             }
             else if (_musicVolumeChangedEvent == gameEvent)

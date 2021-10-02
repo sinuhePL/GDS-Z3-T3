@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GDS3
 {
@@ -42,6 +43,16 @@ namespace GDS3
             _isGamePaused = false;
         }
 
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            _audioPool = null;
+        }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
         private void OnDisable()
         {
             foreach (GameEvent _event in _events)
@@ -49,6 +60,7 @@ namespace GDS3
                 _event.UnregisterListener(this);
             }
             _pauseEvent.UnregisterListener(this);
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         private MyAudioSource GetMyAudioSource()

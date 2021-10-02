@@ -11,7 +11,7 @@ namespace GDS3
         public GameEvent _event2;
         public UnityEvent _startScene;
 
-        private void OnEnable()
+        private void Awake()
         {
             Debug.Log(SoundSystem.Instance._isOn.Value);
             Debug.Log(MusicSystem.Instance._isOn.Value);
@@ -19,7 +19,10 @@ namespace GDS3
 
         private void Start()
         {
-            _startScene.Invoke();
+            if (_startScene != null)
+            {
+                _startScene.Invoke();
+            }
         }
     }
 }
