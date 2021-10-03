@@ -10500,6 +10500,27 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 40
     mosaicPosition: {x: 0, y: 0}
+  - name: arm_front
+    spriteName: arm_front
+    isGroup: 0
+    parentIndex: 0
+    spriteID: b62b2144c43ba4b48bae5a4e0a60e502
+    layerID: 27
+    mosaicPosition: {x: 442, y: 641}
+  - name: hand_front
+    spriteName: hand_front
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 46743047657d495438846377eb31ef10
+    layerID: 31
+    mosaicPosition: {x: 1404, y: 928}
+  - name: hand_front_2
+    spriteName: hand_front_2
+    isGroup: 0
+    parentIndex: 0
+    spriteID: d6a8a47be8b7874409cfa57c9b4aa13c
+    layerID: 29
+    mosaicPosition: {x: 1684, y: 903}
   - name: head
     spriteName: head
     isGroup: 0
@@ -10514,6 +10535,13 @@ ScriptedImporter:
     spriteID: 5aadf3a69f79a67438344a4b6333ac9c
     layerID: 45
     mosaicPosition: {x: 817, y: 1017}
+  - name: body
+    spriteName: body
+    isGroup: 0
+    parentIndex: 0
+    spriteID: eb1bbbe3677ddb14b983f6557bb87724
+    layerID: 38
+    mosaicPosition: {x: 4, y: 641}
   - name: lantern_chain_1
     spriteName: lantern_chain_1
     isGroup: 0
@@ -10556,13 +10584,6 @@ ScriptedImporter:
     spriteID: 5e3b6ef9f58d5e34ea9ce9404fde7bef
     layerID: 44
     mosaicPosition: {x: 1073, y: 922}
-  - name: hand_front
-    spriteName: hand_front
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 46743047657d495438846377eb31ef10
-    layerID: 31
-    mosaicPosition: {x: 1404, y: 928}
   - name: hand_back_2
     spriteName: hand_back_2
     isGroup: 0
@@ -10570,13 +10591,6 @@ ScriptedImporter:
     spriteID: 73a2063fa7062e74ca74aed4da93bd45
     layerID: 30
     mosaicPosition: {x: 1853, y: 4}
-  - name: hand_front_2
-    spriteName: hand_front_2
-    isGroup: 0
-    parentIndex: 0
-    spriteID: d6a8a47be8b7874409cfa57c9b4aa13c
-    layerID: 29
-    mosaicPosition: {x: 1684, y: 903}
   - name: arm_back_1
     spriteName: arm_back_1
     isGroup: 0
@@ -10591,13 +10605,6 @@ ScriptedImporter:
     spriteID: b8f089902bc777740a4adfca4a965fe3
     layerID: 28
     mosaicPosition: {x: 1684, y: 641}
-  - name: arm_front
-    spriteName: arm_front
-    isGroup: 0
-    parentIndex: 0
-    spriteID: b62b2144c43ba4b48bae5a4e0a60e502
-    layerID: 27
-    mosaicPosition: {x: 442, y: 641}
   - name: shoe_front
     spriteName: shoe_front
     isGroup: 0
@@ -10605,13 +10612,6 @@ ScriptedImporter:
     spriteID: 8ad22e1459fb37148bb3e0cb75c76cfe
     layerID: 26
     mosaicPosition: {x: 1404, y: 641}
-  - name: body
-    spriteName: body
-    isGroup: 0
-    parentIndex: 0
-    spriteID: eb1bbbe3677ddb14b983f6557bb87724
-    layerID: 38
-    mosaicPosition: {x: 4, y: 641}
   - name: shoe back
     spriteName: shoe back
     isGroup: 0

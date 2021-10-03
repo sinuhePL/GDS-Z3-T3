@@ -1101,7 +1101,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 20
   m_Sprite: {fileID: -4241778388427599489, guid: dab559341eebb304da330b515489c655,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15759,7 +15759,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 7
   m_Sprite: {fileID: 8100098537003775677, guid: dab559341eebb304da330b515489c655,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16222,7 +16222,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 25672049893141317}
   _dashVelocity:
     _useConstant: 1
-    _constantValue: 25
+    _constantValue: 20
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
@@ -16257,7 +16257,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _heightCheck: {fileID: 25672048466574050}
-  _resizeBlockedStatement: Ceiling is too low!
+  _resizeBlockedStatement: Jest za nisko!
   _sizeChangeEvent:
     m_PersistentCalls:
       m_Calls:
@@ -17306,7 +17306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 23
   m_Sprite: {fileID: 2817266918260496033, guid: dab559341eebb304da330b515489c655,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17836,7 +17836,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 24
   m_Sprite: {fileID: -5619727026038497272, guid: dab559341eebb304da330b515489c655,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18451,7 +18451,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: -7693554252039035440, guid: dab559341eebb304da330b515489c655,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

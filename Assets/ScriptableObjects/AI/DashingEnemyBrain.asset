@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 2
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 12.5
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 9
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
@@ -38,30 +38,30 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 9
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 100
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
-    _constantValue: 2
+    _constantValue: 1.5
     _variable: {fileID: 0}
   _dashObstacles:
     serializedVersion: 2
     m_Bits: 1024
   _patrolRange:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 5
     _variable: {fileID: 0}
   _playerDetectionZoneWidth:
     _useConstant: 1
-    _constantValue: 12
+    _constantValue: 14
     _variable: {fileID: 0}
   _playerDetectionZoneHeight:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 6
     _variable: {fileID: 0}
   _targetMask:
     serializedVersion: 2
@@ -72,11 +72,11 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
   _teleportDistance:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 8
     _variable: {fileID: 0}
   _teleportCooldownTime:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 2
     _variable: {fileID: 0}
   _hitPoints:
     _useConstant: 0
@@ -86,12 +86,12 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 2db19c85b14b5ac4d809f8c4cca9f106, type: 2}
-  _currentState: {fileID: 11400000, guid: da5acdc4105a5cd4d94be3a02481b89b, type: 2}
+  _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
   _controlledCharacter: {fileID: 0}
-  _startingPosition: {x: 19.77, y: -4.87, z: 0}
+  _startingPosition: {x: 21.06, y: -5.32, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 19.530035, y: -5.7926254, z: 0}
+  _attackEndPosition: {x: 8.559999, y: -6.1362734, z: 0}
   _jumpYVelocity: NaN
-  _stateTimeElapsted: 1.1619599
-  _currentCooldownTime: 2
+  _stateTimeElapsted: 27.706207
+  _currentCooldownTime: 1.5
   _isAttackFinished: 0
