@@ -71054,6 +71054,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 25672048408457188, guid: 6fc8e01acb134d7488d3e2678538e002,
         type: 3}
+      propertyPath: _dashVelocity._constantValue
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 25672048408457188, guid: 6fc8e01acb134d7488d3e2678538e002,
+        type: 3}
       propertyPath: _dashCooldownTime._constantValue
       value: 0.5
       objectReference: {fileID: 0}
