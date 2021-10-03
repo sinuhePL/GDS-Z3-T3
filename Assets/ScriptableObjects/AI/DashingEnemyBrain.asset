@@ -18,7 +18,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 10
+    _constantValue: 6
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
@@ -46,14 +46,14 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 2
     _variable: {fileID: 0}
   _dashObstacles:
     serializedVersion: 2
     m_Bits: 1024
   _patrolRange:
     _useConstant: 1
-    _constantValue: 5
+    _constantValue: 6
     _variable: {fileID: 0}
   _playerDetectionZoneWidth:
     _useConstant: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _teleportCooldownTime:
     _useConstant: 1
-    _constantValue: 2
+    _constantValue: 1
     _variable: {fileID: 0}
   _hitPoints:
     _useConstant: 0
@@ -88,10 +88,10 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 2db19c85b14b5ac4d809f8c4cca9f106, type: 2}
   _currentState: {fileID: 11400000, guid: da5acdc4105a5cd4d94be3a02481b89b, type: 2}
   _controlledCharacter: {fileID: 0}
-  _startingPosition: {x: 24.49, y: -4.76, z: 0}
+  _startingPosition: {x: 19.77, y: -4.87, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 17.107054, y: -4.9539533, z: 0}
+  _attackEndPosition: {x: 19.530035, y: -5.7926254, z: 0}
   _jumpYVelocity: NaN
-  _stateTimeElapsted: 2.551443
-  _currentCooldownTime: 3
+  _stateTimeElapsted: 1.1619599
+  _currentCooldownTime: 2
   _isAttackFinished: 0
