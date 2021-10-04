@@ -8,6 +8,8 @@ namespace GDS3
     {
         public PlayerDashState(PlayerCharacterController controller) : base(controller)
         {
+            RaycastHit2D hit;
+            float dashDistance;
             _myController._lastDashTime = Time.time;
             Transform controlledTransform = _myController.transform;
             Rigidbody2D controlledBody = _myController._myBody;
@@ -18,11 +20,23 @@ namespace GDS3
             controlledAnimator.SetTrigger("dash");
             if (controlledTransform.localScale.x > 0 && controller.RightFacing() || controlledTransform.localScale.x < 0 && !controller.RightFacing())
             {
-                _myController._attackEndPosition = new Vector3(controlledTransform.position.x + _myController._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
+                hit = Physics2D.Raycast(controlledTransform.position + new Vector3(0.0f, 1.0f, 0.0f), controlledTransform.TransformDirection(Vector3.right), _myController._dashDistance.Value, controller._dashObstacles);
+                dashDistance = _myController._dashDistance.Value;
+                /*if(hit.collider != null)
+                {
+                    dashDistance = hit.distance;
+                }*/
+                _myController._attackEndPosition = new Vector3(controlledTransform.position.x + dashDistance, controlledTransform.position.y, controlledTransform.position.z);
             }
             else
             {
-                _myController._attackEndPosition = new Vector3(controlledTransform.position.x - _myController._dashDistance.Value, controlledTransform.position.y, controlledTransform.position.z);
+                hit = Physics2D.Raycast(controlledTransform.position + new Vector3(0.0f, 1.0f, 0.0f), controlledTransform.TransformDirection(Vector3.left), _myController._dashDistance.Value, controller._dashObstacles);
+                dashDistance = _myController._dashDistance.Value;
+                /*if (hit.collider != null)
+                {
+                    dashDistance = hit.distance;
+                }*/
+                _myController._attackEndPosition = new Vector3(controlledTransform.position.x - dashDistance, controlledTransform.position.y, controlledTransform.position.z);
             }
             _gizmoColor = Color.blue;
         }

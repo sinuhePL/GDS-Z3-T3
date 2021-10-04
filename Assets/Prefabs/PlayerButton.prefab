@@ -349,8 +349,15 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
+  _sizeChangeFactor:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: db5aae758dfdd4248a2e07f04a685902, type: 2}
   _highlightTransitionTime: 1
-  _detectionDistance: 0.06
+  _detectionDistance:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: f8cfdd379a3ca364baa8a781b92186b7, type: 2}
   _interactionTime: 1
   _interactWhenSmall: 1
   _riddleController: {fileID: 0}
@@ -368,7 +375,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006837651, y: -0.06208229}
+  m_Offset: {x: -0.0009512156, y: -0.9097262}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -379,7 +386,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48182222, y: 0.16562176}
+  m_Size: {x: 0.43977645, y: 1.8609096}
   m_EdgeRadius: 0
 --- !u!1001 &6391140998180296123
 PrefabInstance:

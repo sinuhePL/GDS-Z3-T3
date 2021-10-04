@@ -28,7 +28,7 @@ namespace GDS3
         public override void Interact(PlayerCharacterController player)
         {
             Debug.Log("Interact distance: " + Vector3.Distance(transform.position, player._groundCheck.position));
-            if (!_isPressed && Vector3.Distance(transform.position, player._groundCheck.position) < 0.06f)
+            if (!_isPressed && Vector3.Distance(transform.position, player._groundCheck.position) < player._interactionRange.Value)
             {
                 Color highlightColor = _highlightSpriteRenderer.color;
                 highlightColor.a = 0;

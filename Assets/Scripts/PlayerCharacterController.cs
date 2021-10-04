@@ -144,6 +144,18 @@ namespace GDS3
                 Gizmos.color = Color.red; ;
                 Gizmos.DrawWireSphere(_hitCheck.position, _myAttack._attackRange);
             }
+            foreach(Transform check in _interactionChecks)
+            {
+                Gizmos.color = Color.white;
+                if (_isPlayerSmall.Value)
+                {
+                    Gizmos.DrawWireSphere(check.position, _interactionRange.Value/_sizeChangeFactor.Value);
+                }
+                else
+                {
+                    Gizmos.DrawWireSphere(check.position, _interactionRange.Value);
+                }
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

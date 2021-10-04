@@ -10,8 +10,9 @@ namespace GDS3
         [SerializeField] protected SpriteRenderer _highlightSpriteRenderer;
         [SerializeField] protected LayerMask _activatingLayerMask;
         [SerializeField] protected BoolReference _isPlayerSmall;
+        [SerializeField] protected FloatReference _sizeChangeFactor;
         [SerializeField] protected float _highlightTransitionTime;
-        [SerializeField] protected float _detectionDistance;
+        [SerializeField] protected FloatReference _detectionDistance;
         [SerializeField] protected float _interactionTime;
         [SerializeField] protected bool _interactWhenSmall;
         protected bool _isActivatorNearby;
@@ -55,7 +56,12 @@ namespace GDS3
         {
             if (_isActivationEnabled)
             {
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _detectionDistance, _activatingLayerMask);
+                float detectionDistance = _detectionDistance.Value;
+                if(_isPlayerSmall.Value)
+                {
+                    detectionDistance = _detectionDistance.Value / _sizeChangeFactor.Value;
+                }
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionDistance, _activatingLayerMask);
                 if (colliders.Length > 0)
                 {
                     if (!_isActivatorNearby && (_isPlayerSmall.Value && _interactWhenSmall || !_isPlayerSmall.Value && !_interactWhenSmall))

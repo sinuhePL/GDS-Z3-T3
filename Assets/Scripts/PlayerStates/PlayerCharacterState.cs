@@ -117,6 +117,7 @@ namespace GDS3
 
         public virtual PlayerCharacterState StateFixedUpdate()
         {
+            Transform controlledTransform = _myController.transform;
             Rigidbody2D controlledBody = _myController._myBody;
             Animator controlledAnimator = _myController._myAnimator;
             LayerMask groundMask = _myController._whatIsGround;

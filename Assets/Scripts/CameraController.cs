@@ -69,7 +69,7 @@ namespace GDS3
             float startingSize = _camera.orthographicSize;
             float startingXTargetOffset = _xTargetOffset;
             float startingYTargetOffset = _yTargetOffset;
-            /*float startingXTargetDeadZone = _xTargetDeadZone;*/
+            float startingXTargetDeadZone = _xTargetDeadZone;
             int myId = Random.Range(1, 999999999);
             if (_isPlayerSmall.Value)
             {
@@ -88,17 +88,14 @@ namespace GDS3
                 newYTargetDeadZone = _bigTargetDeadZone.y;
             }
             _resizeCoroutineId = myId;
-            _yTargetDeadZone = 0.0f;
-            _xTargetDeadZone = 0.0f;
             float resizeTime = proportion * Mathf.Abs(newSize - startingSize);
             for (float t = 0; t < resizeTime && myId == _resizeCoroutineId; t += Time.deltaTime)
             {
                 float interpolationPoint = t / resizeTime;
-                /*interpolationPoint = interpolationPoint * interpolationPoint * (3f - 2f * interpolationPoint);*/
                 _camera.orthographicSize = Mathf.Lerp(startingSize, newSize, interpolationPoint);
                 _xTargetOffset = Mathf.Lerp(startingXTargetOffset, newXTargetOffset, interpolationPoint);
                 _yTargetOffset = Mathf.Lerp(startingYTargetOffset, newYTargetOffset, interpolationPoint);
-                /*_xTargetDeadZone = Mathf.Lerp(startingXTargetDeadZone, newXTargetDeadZone, interpolationPoint);*/
+                _xTargetDeadZone = Mathf.Lerp(startingXTargetDeadZone, newXTargetDeadZone, interpolationPoint);
                 yield return 0;
             }
             if (myId == _resizeCoroutineId)

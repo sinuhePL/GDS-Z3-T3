@@ -23,15 +23,8 @@ namespace GDS3
             LayerMask groundMask = brain._controlledCharacter.GetGroundMask();
             Transform groundCheck = brain._controlledCharacter.GetGroundCheck();
             Rigidbody2D controlledBody = brain._controlledCharacter.GetRigidbody2D();
-            /*if (controlledBody.velocity.y > 0)
-            {
-                return false;
-            }
-            else
-            {*/
-                bool isLanded = CheckIfLanded(groundMask, groundCheck.position);
-                return isLanded;
-            
+            bool isLanded = CheckIfLanded(groundMask, groundCheck.position);
+            return isLanded;       
         }
     }
 }

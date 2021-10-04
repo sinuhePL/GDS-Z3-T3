@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6652492242892066668}
   - component: {fileID: 6652492242892066669}
   m_Layer: 11
-  m_Name: key
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,15 +121,22 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
+  _sizeChangeFactor:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: db5aae758dfdd4248a2e07f04a685902, type: 2}
   _highlightTransitionTime: 1
-  _detectionDistance: 2
+  _detectionDistance:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: f8cfdd379a3ca364baa8a781b92186b7, type: 2}
   _interactionTime: 0.5
   _interactWhenSmall: 0
   _isInputBlocked:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
-  _targetScale: 0.5
+  _targetScale: 0.3
 --- !u!1 &6652492243617390350
 GameObject:
   m_ObjectHideFlags: 0

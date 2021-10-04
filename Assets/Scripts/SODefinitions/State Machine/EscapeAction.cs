@@ -15,14 +15,18 @@ namespace GDS3
         public override void ActFixed(CharacterBrain brain)
         {
             GameCharacterController controlledCharacter = brain._controlledCharacter;
+            Rigidbody2D controlledBody = controlledCharacter.GetRigidbody2D();
             Transform characterTransform = controlledCharacter.GetTransform();
-            if (characterTransform.position.x < brain._targetTransform.position.x)
+            if (controlledBody.transform.position.x < brain._startingPosition.x + brain._rightMaxMoveDistance.Value && controlledBody.transform.position.x > brain._startingPosition.x - brain._rightMaxMoveDistance.Value)
             {
-                controlledCharacter.MoveMe(-brain._jumpHorizontalSpeed.Value, true);
-            }
-            else
-            {
-                controlledCharacter.MoveMe(brain._jumpHorizontalSpeed.Value, true);
+                if (characterTransform.position.x < brain._targetTransform.position.x)
+                {
+                    controlledCharacter.MoveMe(-brain._jumpHorizontalSpeed.Value, true);
+                }
+                else
+                {
+                    controlledCharacter.MoveMe(brain._jumpHorizontalSpeed.Value, true);
+                }
             }
         }
     }
