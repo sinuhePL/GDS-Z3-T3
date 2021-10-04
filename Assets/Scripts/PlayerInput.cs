@@ -108,7 +108,7 @@ namespace GDS3
                 {
                     ""name"": ""negative"",
                     ""id"": ""3bdccf1a-785c-45e7-9da5-35e535cbff8e"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -119,7 +119,7 @@ namespace GDS3
                 {
                     ""name"": ""positive"",
                     ""id"": ""44576d76-9730-438f-9cfd-8b47d9976e9f"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -130,7 +130,7 @@ namespace GDS3
                 {
                     ""name"": """",
                     ""id"": ""4c960d92-1066-4024-9b78-baa196b96663"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -152,7 +152,7 @@ namespace GDS3
                 {
                     ""name"": """",
                     ""id"": ""281bb73d-e963-40be-91d6-e58bab2b6243"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
