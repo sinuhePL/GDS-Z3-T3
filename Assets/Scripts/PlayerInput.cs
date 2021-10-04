@@ -163,7 +163,7 @@ namespace GDS3
                 {
                     ""name"": """",
                     ""id"": ""3f22254a-b156-4431-844e-19e68620fd06"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
