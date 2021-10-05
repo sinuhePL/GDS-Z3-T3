@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 2
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
@@ -22,7 +22,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 0
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
@@ -88,10 +88,10 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: bb684623ca9756c4e9ba25531ea085cd, type: 2}
   _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
   _controlledCharacter: {fileID: 0}
-  _startingPosition: {x: 30.64, y: 0.7, z: 0}
+  _startingPosition: {x: 96.57, y: -28.37, z: 0}
   _targetTransform: {fileID: 0}
   _attackEndPosition: {x: 0, y: 0, z: 0}
   _jumpYVelocity: 0
-  _stateTimeElapsted: 124.118225
+  _stateTimeElapsted: 316.77347
   _currentCooldownTime: 0
   _isAttackFinished: 0
