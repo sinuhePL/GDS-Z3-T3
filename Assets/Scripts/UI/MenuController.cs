@@ -55,13 +55,13 @@ namespace GDS3
 
         public void SettingsPressed()
         {
-            GameObject settingsPanel = Instantiate(_settingsPrefab, transform);
-            settingsPanel.transform.localPosition = new Vector3(0, 0, 0);
+            GameObject settingsPanel = Instantiate(_settingsPrefab, transform.parent);
+            settingsPanel.transform.localPosition = new Vector3(0, -100, 0);
         }
 
         public void QuitPressed()
         {
-            _yesNoPanel = Instantiate(_yesNoPrefab, transform);
+            _yesNoPanel = Instantiate(_yesNoPrefab, transform.parent);
             YesNoController quitConfirmation = _yesNoPanel.GetComponent<YesNoController>();
             if(quitConfirmation != null)
             {
