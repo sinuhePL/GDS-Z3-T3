@@ -22161,6 +22161,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 94.519005
       objectReference: {fileID: 0}
+    - target: {fileID: 1553381693933784566, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 270acd95957a4ec4c9c59bb051f0bf55,
+        type: 2}
     - target: {fileID: 1620417090940726481, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -22201,6 +22207,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.6720033
       objectReference: {fileID: 0}
+    - target: {fileID: 4013236471082470370, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c9bac2a908591f46b435473949f5c5b,
+        type: 2}
+    - target: {fileID: 4013236471082470370, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 857fb9720171a2f4f90ed19b726b2bc5,
+        type: 2}
     - target: {fileID: 4400168113131767648, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_Name
@@ -22301,6 +22319,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.711385
       objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _myBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: 43a478e1917f053498dc93fbd785aaf9,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: c2916ee2eb143a247a287daf8ba8113f,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 270acd95957a4ec4c9c59bb051f0bf55,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 35af1323923fe6649ae64744025f7710,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369044, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 35af1323923fe6649ae64744025f7710,
+        type: 2}
     - target: {fileID: 4525811537808743679, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37485,6 +37543,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 94.519005
       objectReference: {fileID: 0}
+    - target: {fileID: 1553381693933784566, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 97eb6a7ac7dbb9343963a72f6ad8e512,
+        type: 2}
     - target: {fileID: 1620417090940726481, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -37525,6 +37589,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.6720058
       objectReference: {fileID: 0}
+    - target: {fileID: 4013236471082470370, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 9507fbb426569be43bac962ebbb71b7f,
+        type: 2}
+    - target: {fileID: 4013236471082470370, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b7bc98e5462fe3498eaa61dbf7ac307,
+        type: 2}
     - target: {fileID: 4400168113131767648, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_Name
@@ -37625,6 +37701,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.711385
       objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _myBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: 5910884157669b9409d06f4c0f94db48,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: a0181ec5228e89f40ad546f2a18fc4b5,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 97eb6a7ac7dbb9343963a72f6ad8e512,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: a02216be4d06a8d468e0c8b318d60886,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369044, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a02216be4d06a8d468e0c8b318d60886,
+        type: 2}
     - target: {fileID: 4525811537808743679, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37663,7 +37779,7 @@ PrefabInstance:
     - target: {fileID: 5214316755332672992, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 185.375
+      value: 183.48
       objectReference: {fileID: 0}
     - target: {fileID: 5214316755332672992, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
@@ -44911,6 +45027,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 398.533
       objectReference: {fileID: 0}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: d791874c384f69a44917d016165a4b8a,
+        type: 2}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: e4610c9bf618ed447938d6ce3fdeae8c,
+        type: 2}
     - target: {fileID: 2122044748508801197, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44981,6 +45109,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.9889004
       objectReference: {fileID: 0}
+    - target: {fileID: 3042688578211066454, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 97ab523e37d1ee4459bab311f50dc94d,
+        type: 2}
     - target: {fileID: 4213786046261067596, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -45031,6 +45165,40 @@ PrefabInstance:
       propertyPath: m_Flip
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d94b027070041b4dbf01b590487c85b,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 85b8ee4cb3dbaf3489e3f4b74d9e1069,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 97ab523e37d1ee4459bab311f50dc94d,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 325bd0b1758239f4e8a50753680a1e16,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
     - target: {fileID: 5280643876602494363, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Size.x
@@ -45046,6 +45214,12 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.87381995
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494365, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 325bd0b1758239f4e8a50753680a1e16,
+        type: 2}
     - target: {fileID: 5280643876870408645, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Flip
@@ -52583,6 +52757,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 398.533
       objectReference: {fileID: 0}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: bb684623ca9756c4e9ba25531ea085cd,
+        type: 2}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 043807aff462d1a4e8c1abfa4067d76b,
+        type: 2}
     - target: {fileID: 2122044748508801197, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52653,6 +52839,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.9889033
       objectReference: {fileID: 0}
+    - target: {fileID: 3042688578211066454, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c13469f1223f76479149ad16eae0bc4,
+        type: 2}
     - target: {fileID: 4213786046261067596, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -52709,6 +52901,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 395d33fa7317cda4785b454f6f077807,
         type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 866ed00d55317e14cb25d3e2b467f9ab,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c13469f1223f76479149ad16eae0bc4,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f9ce7eb686bd4446ba10c275ff4f409,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
     - target: {fileID: 5280643876602494363, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Size.x
@@ -52724,6 +52944,12 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.87381995
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494365, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f9ce7eb686bd4446ba10c275ff4f409,
+        type: 2}
     - target: {fileID: 5280643876870408645, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Flip
@@ -61309,6 +61535,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 94.519005
       objectReference: {fileID: 0}
+    - target: {fileID: 1553381693933784566, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a277ffe054ae9f1428e73d5452b7bf76,
+        type: 2}
     - target: {fileID: 1620417090940726481, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -61349,6 +61581,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.6720058
       objectReference: {fileID: 0}
+    - target: {fileID: 4013236471082470370, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 27b1adf39cddaf74c91eb2a347711322,
+        type: 2}
+    - target: {fileID: 4013236471082470370, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 32ac8fcfe0457b942b1fb156e01bddaa,
+        type: 2}
     - target: {fileID: 4400168113131767648, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_Name
@@ -61449,6 +61693,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.711385
       objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _myBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4bcfe5bde356f49bd308926e60c07a,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: dafe2d7eb3e545e4684bb6af37b2b625,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: a277ffe054ae9f1428e73d5452b7bf76,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: f8f8210fb47e6d045abebebc7e3f4c3d,
+        type: 2}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369034, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525811537388369044, guid: c616c307dca874e48a3aea4e58df921b,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f8f8210fb47e6d045abebebc7e3f4c3d,
+        type: 2}
     - target: {fileID: 4525811537808743679, guid: c616c307dca874e48a3aea4e58df921b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -68661,6 +68945,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 398.533
       objectReference: {fileID: 0}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 80c1171cccf518b48acad2e51f11b755,
+        type: 2}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: d118b2267b64d624185ba3838ea675a2,
+        type: 2}
     - target: {fileID: 2122044748508801197, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -68731,6 +69027,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.98890483
       objectReference: {fileID: 0}
+    - target: {fileID: 3042688578211066454, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a43a8743795f1a4e8fdb835dfd4128c,
+        type: 2}
     - target: {fileID: 4213786046261067596, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -68781,6 +69083,40 @@ PrefabInstance:
       propertyPath: m_Flip
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: bf60617e847ed0749b22ef7f7f1f16c5,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: dc5142e716fe54c42ba3e660a530803a,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a43a8743795f1a4e8fdb835dfd4128c,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd59be278a48b046a89382d1c65dc9a,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
     - target: {fileID: 5280643876602494363, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Size.x
@@ -68796,6 +69132,12 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.87381995
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494365, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: dfd59be278a48b046a89382d1c65dc9a,
+        type: 2}
     - target: {fileID: 5280643876870408645, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Flip
@@ -72147,6 +72489,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 398.533
       objectReference: {fileID: 0}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: d6107ef9e5771774da2a4de519fbc90e,
+        type: 2}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 51a1f48ea321dfb4a956f73c951ff05c,
+        type: 2}
     - target: {fileID: 2122044748508801197, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72217,6 +72571,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.98890483
       objectReference: {fileID: 0}
+    - target: {fileID: 3042688578211066454, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b51ff6a0be157d459fd62f4f91f419b,
+        type: 2}
     - target: {fileID: 4213786046261067596, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -72267,6 +72627,40 @@ PrefabInstance:
       propertyPath: m_Flip
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a21a1fa7b088c94097a361bac04be9f,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b647c1055ca7db4ea92f45bd94f7ba3,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b51ff6a0be157d459fd62f4f91f419b,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 14169af3ef7d7fd44ab712ed3371ae0a,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
     - target: {fileID: 5280643876602494363, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Size.x
@@ -72282,6 +72676,12 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.87381995
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494365, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 14169af3ef7d7fd44ab712ed3371ae0a,
+        type: 2}
     - target: {fileID: 5280643876870408645, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Flip
@@ -73330,6 +73730,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 398.533
       objectReference: {fileID: 0}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _currentHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f80411e2bc71a04886fef0e9beb2a3a,
+        type: 2}
+    - target: {fileID: 1829566943123236672, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _initialHP._variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 04a5d15bad6450043bf62959a580624b,
+        type: 2}
     - target: {fileID: 2122044748508801197, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73400,6 +73812,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.9889004
       objectReference: {fileID: 0}
+    - target: {fileID: 3042688578211066454, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 27c29a370b30c1240aeedc92d30009e1,
+        type: 2}
     - target: {fileID: 4213786046261067596, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -73450,6 +73868,40 @@ PrefabInstance:
       propertyPath: m_Flip
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: 96d0982fa35a93e4481d509995bf0181,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _myAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: c484f451fa784664b94d0730c110402d,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 27c29a370b30c1240aeedc92d30009e1,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 23e2392e1188e904da8e0f6dcfa7fe24,
+        type: 2}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _hitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494361, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _killedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
     - target: {fileID: 5280643876602494363, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Size.x
@@ -73465,6 +73917,12 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.87381995
       objectReference: {fileID: 0}
+    - target: {fileID: 5280643876602494365, guid: f80fb5be578cbd14cac22d1a29fc3358,
+        type: 3}
+      propertyPath: _events.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 23e2392e1188e904da8e0f6dcfa7fe24,
+        type: 2}
     - target: {fileID: 5280643876870408645, guid: f80fb5be578cbd14cac22d1a29fc3358,
         type: 3}
       propertyPath: m_Flip

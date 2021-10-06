@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
-  m_Name: DashingEnemyBrain2
+  m_Name: DashingEnemyBrain4
   m_EditorClassIdentifier: 
   _movementSpeed:
     _useConstant: 1
@@ -18,11 +18,11 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 10
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 9
+    _constantValue: 8
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
@@ -80,18 +80,18 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _hitPoints:
     _useConstant: 0
-    _constantValue: 3
-    _variable: {fileID: 11400000, guid: 043807aff462d1a4e8c1abfa4067d76b, type: 2}
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 51a1f48ea321dfb4a956f73c951ff05c, type: 2}
   _currentHitPoints:
     _useConstant: 0
     _constantValue: 0
-    _variable: {fileID: 11400000, guid: bb684623ca9756c4e9ba25531ea085cd, type: 2}
+    _variable: {fileID: 11400000, guid: d6107ef9e5771774da2a4de519fbc90e, type: 2}
   _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
   _controlledCharacter: {fileID: 0}
-  _startingPosition: {x: 101.66, y: -28.42, z: 0}
+  _startingPosition: {x: 209.902, y: -45.667, z: 0}
   _targetTransform: {fileID: 0}
   _attackEndPosition: {x: 0, y: 0, z: 0}
   _jumpYVelocity: 0
-  _stateTimeElapsted: 368.20898
+  _stateTimeElapsted: 2.6543696
   _currentCooldownTime: 0
   _isAttackFinished: 0

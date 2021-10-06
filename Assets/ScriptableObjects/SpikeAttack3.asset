@@ -9,13 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53eb651b7604121458227c7e3bae802d, type: 3}
-  m_Name: MeleeAttack2
+  m_Script: {fileID: 11500000, guid: d3525f918141dea4aa750c3b5f795daf, type: 3}
+  m_Name: SpikeAttack3
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 0}
-  _attackRange: 0.4
-  _attackDelay: 0
+  _attackRange: 6
+  _attackDelay: 0.8
   _targetMask:
     serializedVersion: 2
     m_Bits: 256
   _pauseEvent: {fileID: 11400000, guid: 9e1169ed1b0fe93488b9df2d80d28e8d, type: 2}
+  _spikesGap: 0.5
+  _spikesSpeed: 100
+  _spikeSlideTime: 0.5
+  _spikeReturnDelay: 0.75
+  _spikeHeight: 1

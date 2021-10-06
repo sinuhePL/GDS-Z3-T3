@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7d4cc92994650c4d92d0815ef8e6a50, type: 3}
-  m_Name: DashingEnemyBrain2
+  m_Name: RangedEnemyBrain3
   m_EditorClassIdentifier: 
   _movementSpeed:
     _useConstant: 1
@@ -18,50 +18,50 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 8
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 9
+    _constantValue: 8
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
-    _constantValue: 0
+    _constantValue: 0.5
     _variable: {fileID: 0}
   _jumpHeight:
     _useConstant: 1
-    _constantValue: 0
+    _constantValue: 1
     _variable: {fileID: 0}
   _jumpHorizontalSpeed:
     _useConstant: 1
-    _constantValue: 0
+    _constantValue: 3
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 0
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 0
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
-    _constantValue: 2
+    _constantValue: 0
     _variable: {fileID: 0}
   _dashObstacles:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   _patrolRange:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 8
     _variable: {fileID: 0}
   _playerDetectionZoneWidth:
     _useConstant: 1
-    _constantValue: 12
+    _constantValue: 15
     _variable: {fileID: 0}
   _playerDetectionZoneHeight:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 5
     _variable: {fileID: 0}
   _targetMask:
     serializedVersion: 2
@@ -72,26 +72,26 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
   _teleportDistance:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 0
     _variable: {fileID: 0}
   _teleportCooldownTime:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 0
     _variable: {fileID: 0}
   _hitPoints:
     _useConstant: 0
-    _constantValue: 3
-    _variable: {fileID: 11400000, guid: 043807aff462d1a4e8c1abfa4067d76b, type: 2}
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 32ac8fcfe0457b942b1fb156e01bddaa, type: 2}
   _currentHitPoints:
     _useConstant: 0
     _constantValue: 0
-    _variable: {fileID: 11400000, guid: bb684623ca9756c4e9ba25531ea085cd, type: 2}
-  _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
+    _variable: {fileID: 11400000, guid: 27b1adf39cddaf74c91eb2a347711322, type: 2}
+  _currentState: {fileID: 11400000, guid: 976ba42f4390ed149bd6dc1dee52f402, type: 2}
   _controlledCharacter: {fileID: 0}
-  _startingPosition: {x: 101.66, y: -28.42, z: 0}
+  _startingPosition: {x: 231.68, y: -44.93, z: 0}
   _targetTransform: {fileID: 0}
   _attackEndPosition: {x: 0, y: 0, z: 0}
-  _jumpYVelocity: 0
-  _stateTimeElapsted: 368.20898
+  _jumpYVelocity: 4
+  _stateTimeElapsted: 0.8764044
   _currentCooldownTime: 0
   _isAttackFinished: 0
