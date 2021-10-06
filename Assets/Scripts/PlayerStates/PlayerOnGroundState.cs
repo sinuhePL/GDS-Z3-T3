@@ -11,5 +11,10 @@ namespace GDS3
         {
 
         }
+
+        public override PlayerCharacterState Dash()
+        {
+            return null;
+        }
     }
 }
