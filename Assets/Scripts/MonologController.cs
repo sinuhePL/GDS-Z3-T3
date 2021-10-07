@@ -91,7 +91,10 @@ namespace GDS3
                 }
                 _isInputBlocked.Value = false;
                 _cloudText.enabled = false;
-                _isAnyKeyPressed = true;
+                if(!Keyboard.current.qKey.isPressed)
+                {
+                    _isAnyKeyPressed = true;
+                }
             }
         }
     }
