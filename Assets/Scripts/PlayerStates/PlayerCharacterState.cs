@@ -83,7 +83,14 @@ namespace GDS3
 
         public virtual PlayerCharacterState Dash()
         {
-            return new PlayerDashState(_myController);
+            if (_myController._isPlayerSmall.Value)
+            {
+                return null;
+            }
+            else
+            {
+                return new PlayerDashState(_myController);
+            }
         }
 
         public virtual void Interact()
