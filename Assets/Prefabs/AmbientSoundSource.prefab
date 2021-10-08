@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1946132052169886787}
   - component: {fileID: 837965388892582523}
   - component: {fileID: 5831195655334001479}
+  - component: {fileID: 5973338916703339254}
   m_Layer: 0
   m_Name: AmbientSoundSource
   m_TagString: Untagged
@@ -168,3 +169,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myAudioSource: {fileID: 1946132052169886787}
+--- !u!114 &5973338916703339254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736718334898068258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a604ac8b207544e952e31244fad3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+  - {fileID: 11400000, guid: 9e1169ed1b0fe93488b9df2d80d28e8d, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5831195655334001479}
+        m_MethodName: PausePressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -89,7 +89,7 @@ namespace GDS3
             StartCoroutine(FadeText(false, false));
         }
 
-        public void EndFade()
+        public void EndGameFade()
         {
             _myText.text = _endString;
             StartCoroutine(FadeImage(true, _endDelayTime));

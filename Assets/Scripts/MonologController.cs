@@ -9,7 +9,8 @@ namespace GDS3
     public class MonologController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _myRigidbody;
-        [SerializeField] private SpriteRenderer[] _clouds;
+        /*[SerializeField] private SpriteRenderer[] _clouds;*/
+        [SerializeField] private SpriteRenderer _cloud;
         [SerializeField] private TextMeshPro _cloudText;
         [SerializeField] private float _displayTime;
         [SerializeField] private float _sequenceDelay;
@@ -19,14 +20,15 @@ namespace GDS3
         private void Awake()
         {
             _cloudText.enabled = false;
-            foreach (SpriteRenderer cloud in _clouds)
+            _cloud.enabled = false;
+            /*foreach (SpriteRenderer cloud in _clouds)
             {
                 cloud.enabled = false;
-            }
+            }*/
             _isAnyKeyPressed = true;
         }
 
-        private IEnumerator ShowInSequence()
+        /*private IEnumerator ShowInSequence()
         {
             foreach(SpriteRenderer cloud in _clouds)
             {
@@ -45,6 +47,19 @@ namespace GDS3
             {
                 cloud.enabled = false;
             }
+            _isInputBlocked.Value = false;
+            _cloudText.enabled = false;
+        }*/
+
+        private IEnumerator ShowCloud()
+        {
+            _cloud.enabled = true;
+            _cloudText.enabled = true;
+            for (float t = 0.0f; t < _displayTime && !_isAnyKeyPressed; t += Time.deltaTime)
+            {
+                yield return 0;
+            }
+            _cloud.enabled = false;
             _isInputBlocked.Value = false;
             _cloudText.enabled = false;
         }
@@ -69,6 +84,14 @@ namespace GDS3
         {
             _isInputBlocked.Value = true;
             _cloudText.text = monolog;
+            if(monolog.Length > 70)
+            {
+                _cloud.transform.localScale = new Vector3(6.5f, 6.5f, 6.5f);
+            }
+            else
+            {
+                _cloud.transform.localScale = new Vector3(5.5f, 4.0f, 6.5f);
+            }
             if (transform.localScale.x < 0)
             {
                 _cloudText.transform.localScale = new Vector3(-Mathf.Abs(_cloudText.transform.localScale.x), _cloudText.transform.localScale.y, _cloudText.transform.localScale.z);
@@ -78,23 +101,21 @@ namespace GDS3
                 _cloudText.transform.localScale = new Vector3(Mathf.Abs(_cloudText.transform.localScale.x), _cloudText.transform.localScale.y, _cloudText.transform.localScale.z);
             }
             _isAnyKeyPressed = false;
-            StartCoroutine(ShowInSequence());
+            StartCoroutine(ShowCloud());
         }
 
         private void Update()
         {
-            if(Keyboard.current.anyKey.wasPressedThisFrame && !_isAnyKeyPressed)
+            if(Keyboard.current.anyKey.wasPressedThisFrame && !_isAnyKeyPressed && !Keyboard.current.qKey.isPressed)
             {
-                foreach (SpriteRenderer cloud in _clouds)
+                /*foreach (SpriteRenderer cloud in _clouds)
                 {
                     cloud.enabled = false;
-                }
+                }*/
+                _cloud.enabled = false;
                 _isInputBlocked.Value = false;
                 _cloudText.enabled = false;
-                if(!Keyboard.current.qKey.isPressed)
-                {
-                    _isAnyKeyPressed = true;
-                }
+                _isAnyKeyPressed = true;
             }
         }
     }
