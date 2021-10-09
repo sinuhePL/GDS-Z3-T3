@@ -12,7 +12,7 @@ namespace GDS3
         {
             Animator controlledAnimator = _myController._myAnimator;
             yield return new WaitForSeconds(waitTime);
-            controlledAnimator.ResetTrigger("attack");
+            //controlledAnimator.ResetTrigger("attack");
             _attackEnd = true;
         }
 

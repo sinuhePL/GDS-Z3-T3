@@ -90,7 +90,7 @@ namespace GDS3
             {
                 if (clip.name.EndsWith("attack"))
                 {
-                    _attackLength = clip.length;
+                    _attackLength = clip.length / 1.5f;
                 }
             }
             _isGamePaused = false;
