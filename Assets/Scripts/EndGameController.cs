@@ -54,7 +54,6 @@ namespace GDS3
                         if (!_currentParticlesIdsList.Contains(_lastParticles[i].randomSeed))
                         {
                             scaleFactor = 1.0f - (_lastParticles[i].position.y + 38.0f) / 5.0f;
-                            Debug.Log(_lastParticles[i].position);
                             newParticleSystem = Instantiate(_distantFirePrefab, _lastParticles[i].position, _distantFirePrefab.transform.rotation);
                             newParticleSystem.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
                             _distantFiresList.Add(newParticleSystem);

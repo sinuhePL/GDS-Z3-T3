@@ -162,8 +162,8 @@ namespace GDS3
                         if (music._relatedEvent == gameEvent)
                         {
                             if (_currentAudioSource != null)
-
                             {
+                                _turnOnCounter++;
                                 AudioSource newAudioSource = (_musicAudioSource1 == _currentAudioSource) ? _musicAudioSource2 : _musicAudioSource1;
                                 newAudioSource.volume = _musicVolume.Value;
                                 seconds = music.Play(newAudioSource, _musicVolume.Value);

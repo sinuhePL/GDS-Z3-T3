@@ -21,6 +21,7 @@ namespace GDS3
         [SerializeField] private UnityEvent _pauseEvent;
         [SerializeField] private string _startString;
         [SerializeField] private string _endString;
+        [SerializeField] private UnityEvent _startLevelEvent;
 
         private IEnumerator FadeText(bool isGameEnd, bool isFadeOut)
         {
@@ -87,6 +88,7 @@ namespace GDS3
             _myText.text = _startString;
             _pauseEvent.Invoke();
             StartCoroutine(FadeText(false, false));
+            _startLevelEvent.Invoke();
         }
 
         public void EndGameFade()
