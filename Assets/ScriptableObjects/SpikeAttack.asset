@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 3828181922317979232, guid: acdd4de37451bdd4a96f0e93c915c656,
     type: 3}
-  _attackRange: 6
+  _attackRange: 8
   _attackDelay: 0.8
   _targetMask:
     serializedVersion: 2
     m_Bits: 256
   _pauseEvent: {fileID: 11400000, guid: 9e1169ed1b0fe93488b9df2d80d28e8d, type: 2}
   _spikesGap: 0.5
-  _spikesSpeed: 100
+  _spikesSpeed: 150
   _spikeSlideTime: 0.5
-  _spikeReturnDelay: 0.75
+  _spikeReturnDelay: 0.5
   _spikeHeight: 1

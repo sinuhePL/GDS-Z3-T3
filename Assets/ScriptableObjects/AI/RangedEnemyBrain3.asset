@@ -18,7 +18,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 8
+    _constantValue: 10
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
@@ -26,15 +26,15 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
-    _constantValue: 0.5
+    _constantValue: 0.4
     _variable: {fileID: 0}
   _jumpHeight:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 2
     _variable: {fileID: 0}
   _jumpHorizontalSpeed:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 4
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
@@ -53,15 +53,15 @@ MonoBehaviour:
     m_Bits: 0
   _patrolRange:
     _useConstant: 1
-    _constantValue: 8
+    _constantValue: 5
     _variable: {fileID: 0}
   _playerDetectionZoneWidth:
     _useConstant: 1
-    _constantValue: 15
+    _constantValue: 16
     _variable: {fileID: 0}
   _playerDetectionZoneHeight:
     _useConstant: 1
-    _constantValue: 5
+    _constantValue: 7
     _variable: {fileID: 0}
   _targetMask:
     serializedVersion: 2

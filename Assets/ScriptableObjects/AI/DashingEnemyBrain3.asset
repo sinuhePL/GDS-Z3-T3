@@ -18,7 +18,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 15
+    _constantValue: 14
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
@@ -38,30 +38,30 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 9
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 10
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
-    _constantValue: 2
+    _constantValue: 1.5
     _variable: {fileID: 0}
   _dashObstacles:
     serializedVersion: 2
     m_Bits: 1024
   _patrolRange:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 4
     _variable: {fileID: 0}
   _playerDetectionZoneWidth:
     _useConstant: 1
-    _constantValue: 12
+    _constantValue: 17
     _variable: {fileID: 0}
   _playerDetectionZoneHeight:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 7
     _variable: {fileID: 0}
   _targetMask:
     serializedVersion: 2
@@ -72,11 +72,11 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
   _teleportDistance:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 8
     _variable: {fileID: 0}
   _teleportCooldownTime:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 2
     _variable: {fileID: 0}
   _hitPoints:
     _useConstant: 0
@@ -86,12 +86,12 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 80c1171cccf518b48acad2e51f11b755, type: 2}
-  _currentState: {fileID: 11400000, guid: 2051ef923d3c4864eb808e08b36bc2ad, type: 2}
+  _currentState: {fileID: 11400000, guid: 025480da2810eac48ae6bbd9934c475a, type: 2}
   _controlledCharacter: {fileID: 0}
-  _startingPosition: {x: 130.07, y: -36.81, z: 0}
+  _startingPosition: {x: 130.07, y: -36.27, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 0, y: 0, z: 0}
+  _attackEndPosition: {x: 126.830185, y: -35.773457, z: 0}
   _jumpYVelocity: 0
-  _stateTimeElapsted: 2.6543696
-  _currentCooldownTime: 0
-  _isAttackFinished: 0
+  _stateTimeElapsted: 2.2387602
+  _currentCooldownTime: 1
+  _isAttackFinished: 1

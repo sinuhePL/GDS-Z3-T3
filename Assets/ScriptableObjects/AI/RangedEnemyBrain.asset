@@ -18,23 +18,23 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 12
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 17
+    _constantValue: 11
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
-    _constantValue: 0.5
+    _constantValue: 0.4
     _variable: {fileID: 0}
   _jumpHeight:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 2
     _variable: {fileID: 0}
   _jumpHorizontalSpeed:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 4
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
@@ -53,15 +53,15 @@ MonoBehaviour:
     m_Bits: 0
   _patrolRange:
     _useConstant: 1
-    _constantValue: 8
+    _constantValue: 6
     _variable: {fileID: 0}
   _playerDetectionZoneWidth:
     _useConstant: 1
-    _constantValue: 15
+    _constantValue: 19
     _variable: {fileID: 0}
   _playerDetectionZoneHeight:
     _useConstant: 1
-    _constantValue: 5
+    _constantValue: 7
     _variable: {fileID: 0}
   _targetMask:
     serializedVersion: 2
@@ -86,12 +86,12 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 55f7345fe688c2c458240e28ec1c59ac, type: 2}
-  _currentState: {fileID: 11400000, guid: 8818a45fb79541945bef3f1c82109ed2, type: 2}
+  _currentState: {fileID: 11400000, guid: 8ed313eeb3ef5c74695f7c1e96fd9414, type: 2}
   _controlledCharacter: {fileID: 0}
-  _startingPosition: {x: 75.98, y: -7.52, z: 0}
+  _startingPosition: {x: 81.662, y: -7.441, z: 0}
   _targetTransform: {fileID: 0}
   _attackEndPosition: {x: 65.207565, y: 0.6654551, z: 0}
-  _jumpYVelocity: 4
-  _stateTimeElapsted: 209.87753
-  _currentCooldownTime: 1.8333334
+  _jumpYVelocity: 10
+  _stateTimeElapsted: 2.29222
+  _currentCooldownTime: 0.95
   _isAttackFinished: 0

@@ -18,11 +18,11 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _leftMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 8
+    _constantValue: 11
     _variable: {fileID: 0}
   _rightMaxMoveDistance:
     _useConstant: 1
-    _constantValue: 5
+    _constantValue: 6
     _variable: {fileID: 0}
   _jumpTime:
     _useConstant: 1
@@ -38,30 +38,30 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 9
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 10
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
-    _constantValue: 2
+    _constantValue: 1.5
     _variable: {fileID: 0}
   _dashObstacles:
     serializedVersion: 2
     m_Bits: 1024
   _patrolRange:
     _useConstant: 1
-    _constantValue: 6
+    _constantValue: 4
     _variable: {fileID: 0}
   _playerDetectionZoneWidth:
     _useConstant: 1
-    _constantValue: 12
+    _constantValue: 15
     _variable: {fileID: 0}
   _playerDetectionZoneHeight:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 7
     _variable: {fileID: 0}
   _targetMask:
     serializedVersion: 2
@@ -72,11 +72,11 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
   _teleportDistance:
     _useConstant: 1
-    _constantValue: 3
+    _constantValue: 8
     _variable: {fileID: 0}
   _teleportCooldownTime:
     _useConstant: 1
-    _constantValue: 1
+    _constantValue: 2
     _variable: {fileID: 0}
   _hitPoints:
     _useConstant: 0

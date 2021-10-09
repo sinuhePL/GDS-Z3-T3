@@ -42,7 +42,7 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 100
+    _constantValue: 10
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
@@ -90,8 +90,8 @@ MonoBehaviour:
   _controlledCharacter: {fileID: 0}
   _startingPosition: {x: 21.06, y: -5.32, z: 0}
   _targetTransform: {fileID: 0}
-  _attackEndPosition: {x: 8.559999, y: -6.1362734, z: 0}
+  _attackEndPosition: {x: 8.559999, y: -4.9735713, z: 0}
   _jumpYVelocity: NaN
-  _stateTimeElapsted: 27.706207
+  _stateTimeElapsted: 2.2530327
   _currentCooldownTime: 1.5
   _isAttackFinished: 0
