@@ -27,6 +27,7 @@ namespace GDS3
         private float _prevAnimationSpeed;
         private Vector3 _prevVelocity;
         private bool _wasKinematic;
+        private bool _isInitialized = false;
 
         private void Awake()
         {
@@ -40,7 +41,10 @@ namespace GDS3
 
         private void OnEnable()
         {
-            _myBrain.TransitionToState(_startingState); 
+            if (_isInitialized)
+            {
+                _myBrain.TransitionToState(_startingState);
+            }
         }
 
         private void Start()
@@ -62,6 +66,7 @@ namespace GDS3
                     _attackLength = clip.length;
                 }
             }
+            _isInitialized = true;
         }
 
         private void Update()
