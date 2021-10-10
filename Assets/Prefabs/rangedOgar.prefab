@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 3628119505296772965}
   - component: {fileID: 3446447883742467361}
   m_Layer: 9
-  m_Name: RangedOgar
+  m_Name: rangedOgar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   _jumpSound: {fileID: 11400000, guid: 276d79c2cd2cf53408bf7e3a319fcdd6, type: 2}
   _jumpVolume: 1
   _hitSound: {fileID: 11400000, guid: 0a96ecf9ef28d474a80504450f9f5fe1, type: 2}
-  _hitVolume: 0.686
+  _hitVolume: 1
   _deathSound: {fileID: 11400000, guid: 801d9362724c6724a9ec52dce84f4be2, type: 2}
   _deathVolume: 1
   _attackSound: {fileID: 11400000, guid: 33485f2b090852146af8f2f1bdeb57ea, type: 2}
@@ -1317,6 +1317,10 @@ MonoBehaviour:
   _cooldownVolume: 0
   _teleportSound: {fileID: 0}
   _teleportVolume: 0
+  _fallSound: {fileID: 0}
+  _fallVolume: 0
+  _sacrificeSound: {fileID: 0}
+  _sacrificeVolume: 0
 --- !u!82 &3446447883742467361
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1338,7 +1342,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
