@@ -9,7 +9,6 @@ namespace GDS3
     public class MonologController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _myRigidbody;
-        /*[SerializeField] private SpriteRenderer[] _clouds;*/
         [SerializeField] private SpriteRenderer _cloud;
         [SerializeField] private TextMeshPro _cloudText;
         [SerializeField] private float _displayTime;
@@ -21,35 +20,8 @@ namespace GDS3
         {
             _cloudText.enabled = false;
             _cloud.enabled = false;
-            /*foreach (SpriteRenderer cloud in _clouds)
-            {
-                cloud.enabled = false;
-            }*/
             _isAnyKeyPressed = true;
         }
-
-        /*private IEnumerator ShowInSequence()
-        {
-            foreach(SpriteRenderer cloud in _clouds)
-            {
-                cloud.enabled = true;
-                for (float t = 0.0f; t < _sequenceDelay && !_isAnyKeyPressed; t += Time.deltaTime)
-                {
-                    yield return 0;
-                }
-            }
-            _cloudText.enabled = true;
-            for (float t = 0.0f; t < _displayTime && !_isAnyKeyPressed; t += Time.deltaTime)
-            {
-                yield return 0;
-            }
-            foreach(SpriteRenderer cloud in _clouds)
-            {
-                cloud.enabled = false;
-            }
-            _isInputBlocked.Value = false;
-            _cloudText.enabled = false;
-        }*/
 
         private IEnumerator ShowCloud()
         {
@@ -84,13 +56,13 @@ namespace GDS3
         {
             _isInputBlocked.Value = true;
             _cloudText.text = monolog;
-            if(monolog.Length > 70)
+            if(monolog.Length < 70)
             {
                 _cloud.transform.localScale = new Vector3(6.5f, 6.5f, 6.5f);
             }
             else
             {
-                _cloud.transform.localScale = new Vector3(5.5f, 4.0f, 6.5f);
+                _cloud.transform.localScale = new Vector3(9.0f, 10.0f, 6.5f);
             }
             if (transform.localScale.x < 0)
             {
@@ -108,10 +80,6 @@ namespace GDS3
         {
             if(Keyboard.current.anyKey.wasPressedThisFrame && !_isAnyKeyPressed && !Keyboard.current.qKey.isPressed)
             {
-                /*foreach (SpriteRenderer cloud in _clouds)
-                {
-                    cloud.enabled = false;
-                }*/
                 _cloud.enabled = false;
                 _isInputBlocked.Value = false;
                 _cloudText.enabled = false;

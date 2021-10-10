@@ -71,6 +71,9 @@ namespace GDS3
             _meteorShower.Play();
             _endGameEvent.Invoke();
             _endGameStarted = true;
+            Color highlightColor = _highlightSpriteRenderer.color;
+            highlightColor.a = 0;
+            _highlightSpriteRenderer.color = highlightColor;
         }
     }
 }

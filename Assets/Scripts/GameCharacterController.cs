@@ -38,6 +38,11 @@ namespace GDS3
             _wasKinematic = _myBody.isKinematic;
         }
 
+        private void OnEnable()
+        {
+            _myBrain.TransitionToState(_startingState); 
+        }
+
         private void Start()
         {
             if (_myBrain != null)
@@ -181,7 +186,7 @@ namespace GDS3
         {
             _myBrain._currentHitPoints.Value--;
             Debug.Log("Pozostało życia: " + _myBrain._currentHitPoints.Value);
-            if(_myBrain._currentHitPoints.Value < 1)
+            if(_myBrain._currentHitPoints.Value == 0)
             {
                 _hitEvent.Invoke();
                 _killedEvent.Invoke();
