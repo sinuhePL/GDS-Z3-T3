@@ -91,6 +91,7 @@ namespace GDS3
             for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
             {
                 _currentAudioSource.volume = _musicVolume.Value * (1 - (t / fadeOutTime));
+                Debug.Log(_currentAudioSource.volume);
                 yield return null;
             }
         }
@@ -115,7 +116,7 @@ namespace GDS3
 
         public void StopMusic()
         {
-            GameAssets._instance.StartCoroutine(FadeOutMusic(_transitionTime));
+            GameAssets._instance.StartCoroutine(FadeOutMusic(2.0f));
         }
 
         public void OnEventRaised(GameEvent gameEvent)
