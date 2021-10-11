@@ -78,7 +78,14 @@ namespace GDS3
 
         public virtual PlayerCharacterState Attack()
         {
-            return new PlayerAttackState(_myController);
+            if (_myController._isPlayerSmall.Value)
+            {
+                return null;
+            }
+            else
+            {
+                return new PlayerAttackState(_myController);
+            }
         }
 
         public virtual PlayerCharacterState Dash()

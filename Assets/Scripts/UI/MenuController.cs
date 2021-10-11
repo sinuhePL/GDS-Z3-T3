@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 namespace GDS3
@@ -12,6 +11,7 @@ namespace GDS3
         [SerializeField] private GameObject _yesNoPrefab;
         [SerializeField] private GameObject _menuPanel;
         [SerializeField] private UnityEvent _pausePressedEvent;
+        [SerializeField] private FadeOutController _myFadeOut;
         private bool _isMenuActive;
         private GameObject _yesNoPanel;
 
@@ -24,7 +24,7 @@ namespace GDS3
 
         private void YesClicked()
         {
-            SceneManager.LoadScene("MainScene");
+            _myFadeOut.BackToMainMenu();
         }
 
         private void NoClicked()

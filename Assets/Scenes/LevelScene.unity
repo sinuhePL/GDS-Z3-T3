@@ -74379,6 +74379,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 399449954200263344, guid: 70ec9e24f6f95aa49848ab0294e89fd9,
+        type: 3}
+      propertyPath: _myFadeOut
+      value: 
+      objectReference: {fileID: 1948125241}
     - target: {fileID: 399449954200263350, guid: 70ec9e24f6f95aa49848ab0294e89fd9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -79151,7 +79156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1948125238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -79268,6 +79273,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _sceneChangeDelay: 45
+  _sceneChangeFadeTime: 2
 --- !u!114 &1948125242
 MonoBehaviour:
   m_ObjectHideFlags: 0
