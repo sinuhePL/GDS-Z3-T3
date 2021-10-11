@@ -19496,6 +19496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ledge Tall
       objectReference: {fileID: 0}
+    - target: {fileID: 1644997661255532, guid: c935ccd5d21ea5e4d8e3e34e0f08226a, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1653006225196334, guid: c935ccd5d21ea5e4d8e3e34e0f08226a, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -19552,7 +19556,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.71
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 60577054847150144, guid: c935ccd5d21ea5e4d8e3e34e0f08226a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c935ccd5d21ea5e4d8e3e34e0f08226a, type: 3}
 --- !u!1001 &395978819
 PrefabInstance:
