@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace GDS3
 {
@@ -22,6 +23,8 @@ namespace GDS3
         [SerializeField] private string _startString;
         [SerializeField] private string _endString;
         [SerializeField] private UnityEvent _startLevelEvent;
+        [SerializeField] private float _sceneChangeDelay;
+        [SerializeField] private float _sceneChangeFadeTime;
 
         private IEnumerator FadeText(bool isGameEnd, bool isFadeOut)
         {
@@ -82,6 +85,32 @@ namespace GDS3
             }
         }
 
+        private IEnumerator ChangeScene(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            float interpolationPoint;
+            float currentAlpha;
+            float textInitialAlpha = _myText.color.a;
+            float imageInitialAlpha = _myImage.color.a;
+            MusicSystem.Instance.StopMusic();
+            for (float t = 0; t < _sceneChangeFadeTime; t += Time.deltaTime)
+            {
+                interpolationPoint = t / _sceneChangeFadeTime;
+                if (textInitialAlpha > 0.9f)
+                {
+                    currentAlpha = Mathf.Lerp(1.0f, 0.0f, interpolationPoint);
+                    _myText.color = new Color(_myText.color.r, _myText.color.g, _myText.color.b, currentAlpha);
+                }
+                if(imageInitialAlpha < 0.1f)
+                {
+                    currentAlpha = Mathf.Lerp(0.0f, 1.0f, interpolationPoint);
+                    _myImage.color = new Color(_myImage.color.r, _myImage.color.g, _myImage.color.b, currentAlpha);
+                }
+                yield return 0;
+            }
+            SceneManager.LoadScene("MainScene");
+        }
+
         void Start()
         {
             _myText.color = new Color(_myText.color.r, _myText.color.g, _myText.color.b, 0.0f);
@@ -95,6 +124,12 @@ namespace GDS3
         {
             _myText.text = _endString;
             StartCoroutine(FadeImage(true, _endDelayTime));
+            StartCoroutine(ChangeScene(_sceneChangeDelay));
+        }
+
+        public void BackToMainMenu()
+        {
+            StartCoroutine(ChangeScene(0.0f));
         }
     }
 }
