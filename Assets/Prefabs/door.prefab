@@ -125,14 +125,23 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
+  _sizeChangeFactor:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
   _highlightTransitionTime: 1
-  _detectionDistance: 1
+  _detectionDistance:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
   _interactionTime: 1
   _interactWhenSmall: 1
   _openPosition: {fileID: 1919426134816041655}
   _matchingKey: {fileID: 0}
   _myHiddenObject: {fileID: 0}
   _myAudioSource: {fileID: 6840711269203662053}
+  _doorOpenSound: {fileID: 11400000, guid: 16ad5db792bc4aa4080b3aabfb122387, type: 2}
+  _openDoorSoundVolume: 1
 --- !u!114 &3486728096471070981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +201,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 02802b9453b36ea4383d29144243ac59, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -356,7 +365,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1919426134816041648

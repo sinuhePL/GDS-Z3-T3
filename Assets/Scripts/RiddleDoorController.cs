@@ -11,6 +11,9 @@ namespace GDS3
         [SerializeField] private float _openingTime;
         [SerializeField] private float _delayTime;
         [SerializeField] private AudioSource _myAudioSource;
+        [SerializeField] private Sound _doorOpenSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _openDoorSoundVolume;
         private Vector3 _startingPosition;
 
         private void Awake()
@@ -20,8 +23,9 @@ namespace GDS3
 
         public void OpenDoor()
         {
+            _doorOpenSound.Play(_myAudioSource, _openDoorSoundVolume);
             Sequence doorSequence = DOTween.Sequence();
-            doorSequence.PrependInterval(_delayTime).OnComplete(() => _myAudioSource.Play());
+            doorSequence.PrependInterval(_delayTime);
             doorSequence.Append(transform.DOMove(_openPosition.position, _openingTime));
         }
 

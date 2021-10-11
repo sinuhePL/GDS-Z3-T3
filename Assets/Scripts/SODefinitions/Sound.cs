@@ -14,7 +14,7 @@ namespace GDS3
         {
             if (_clips.Length == 0) return 0.0f;
             source.clip = _clips[Random.Range(0, _clips.Length)];
-            source.volume = volume + _volume;
+            source.volume = (volume + _volume) * SoundSystem.Instance._soundVolume.Value;
             source.Play();
             return source.clip.length;
         }

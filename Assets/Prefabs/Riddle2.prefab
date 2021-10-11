@@ -103,6 +103,8 @@ MonoBehaviour:
   _openingTime: 1
   _delayTime: 3
   _myAudioSource: {fileID: 8217459306838118144}
+  _doorOpenSound: {fileID: 11400000, guid: 16ad5db792bc4aa4080b3aabfb122387, type: 2}
+  _openDoorSoundVolume: 1
 --- !u!61 &8934815009487818634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +190,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 02802b9453b36ea4383d29144243ac59, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -9,6 +9,10 @@ namespace GDS3
     {
         [SerializeField] private Riddle1Controller _riddleController;
         [SerializeField] private Transform _pressedPosition;
+        [SerializeField] private AudioSource _myAudioSource;
+        [SerializeField] private Sound _buttonPressedSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _buttonPressedSoundVolume;
         private Vector3 _startingPosition;
         private bool _isPressed;
 
@@ -36,6 +40,7 @@ namespace GDS3
                 _isPressed = true;
                 _isActivationEnabled = false;
                 transform.DOMove(_pressedPosition.position, _interactionTime).OnComplete(() => _highlightSpriteRenderer.color = highlightColor);
+                _buttonPressedSound.Play(_myAudioSource, _buttonPressedSoundVolume);
                 _riddleController.ButtonPressed(this);
             }
         }

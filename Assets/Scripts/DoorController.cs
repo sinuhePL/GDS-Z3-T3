@@ -11,6 +11,9 @@ namespace GDS3
         [SerializeField] private Transform _matchingKey;
         [SerializeField] private HiddenController _myHiddenObject;
         [SerializeField] private AudioSource _myAudioSource;
+        [SerializeField] private Sound _doorOpenSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _openDoorSoundVolume;
         private Vector3 _closedPosition;
         private bool _isClosed;
 
@@ -35,7 +38,7 @@ namespace GDS3
                     player._pocket = null;
                 }
                 _isActivationEnabled = false;
-                _myAudioSource.Play();
+                _doorOpenSound.Play(_myAudioSource, _openDoorSoundVolume);
                 if(_myHiddenObject != null)
                 {
                     _myHiddenObject.Hide(_interactionTime);

@@ -15607,7 +15607,6 @@ GameObject:
   - component: {fileID: 25672048408456991}
   - component: {fileID: 25672048408457184}
   - component: {fileID: 25672048408457195}
-  - component: {fileID: 25672048408457185}
   - component: {fileID: 25672048408457186}
   - component: {fileID: 25672048408457187}
   - component: {fileID: 25672048408457188}
@@ -15618,6 +15617,7 @@ GameObject:
   - component: {fileID: 25672048408457193}
   - component: {fileID: 25672048408457194}
   - component: {fileID: 4284348931671375236}
+  - component: {fileID: 7327404872373889805}
   m_Layer: 8
   m_Name: hero_sprite_2
   m_TagString: Player
@@ -15840,41 +15840,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &25672048408457185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626332020074256700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b993da1c66b264945a8a828f02597c2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myAudioSource: {fileID: 25672048408457184}
-  _stepSound: {fileID: 11400000, guid: 3c4e89a4aee50de4c8e9b68d40fcecdc, type: 2}
-  _stepVolume: 0.55
-  _landSound: {fileID: 11400000, guid: 54f048de91b565549b4f9d757d43e0ca, type: 2}
-  _landVolume: 1
-  _jumpSound: {fileID: 11400000, guid: b9fc1ec4d52d38441ac422a394b6ad33, type: 2}
-  _jumpVolume: 0.569
-  _hitSound: {fileID: 0}
-  _hitVolume: 0
-  _deathSound: {fileID: 11400000, guid: 0a100396ba6c62348beb7c49d14a9e51, type: 2}
-  _deathVolume: 1
-  _attackSound: {fileID: 11400000, guid: cf87b89edba000646b4a720929ec152d, type: 2}
-  _attackVolume: 1
-  _dashSound: {fileID: 11400000, guid: 7b19752b623fd854c8ccd08d34b1b81c, type: 2}
-  _dashVolume: 1
-  _cooldownSound: {fileID: 0}
-  _cooldownVolume: 0
-  _teleportSound: {fileID: 0}
-  _teleportVolume: 0
-  _fallSound: {fileID: 11400000, guid: 24d0bf0f115f64c45a40f9b8c4a6446d, type: 2}
-  _fallVolume: 1
-  _sacrificeSound: {fileID: 11400000, guid: cc3e3df02de1f8140b780b6ad9a637b1, type: 2}
-  _sacrificeVolume: 1
 --- !u!114 &25672048408457186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16122,6 +16087,7 @@ MonoBehaviour:
   _smokeParticleSystem: {fileID: 11509373115898985}
   _sparksParticleSystem: {fileID: 6524029570082978946}
   _lampLight: {fileID: 1764321087350953568}
+  _mySoundController: {fileID: 7327404872373889805}
 --- !u!114 &25672048408457190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16251,6 +16217,45 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: dc2afb14bc25a6b48870898a137e0106, type: 2}
+--- !u!114 &7327404872373889805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626332020074256700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692545301e53e5b4488de336640a38f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myAudioSource: {fileID: 25672048408457184}
+  _stepSound: {fileID: 11400000, guid: 3c4e89a4aee50de4c8e9b68d40fcecdc, type: 2}
+  _stepVolume: 1
+  _jumpSound: {fileID: 11400000, guid: b9fc1ec4d52d38441ac422a394b6ad33, type: 2}
+  _jumpVolume: 1
+  _hitSound: {fileID: 0}
+  _hitVolume: 0
+  _deathSound: {fileID: 11400000, guid: 0a100396ba6c62348beb7c49d14a9e51, type: 2}
+  _deathVolume: 1
+  _attackSound: {fileID: 11400000, guid: cf87b89edba000646b4a720929ec152d, type: 2}
+  _attackVolume: 1
+  _cooldownSound: {fileID: 0}
+  _cooldownVolume: 0
+  _teleportSound: {fileID: 0}
+  _teleportVolume: 0
+  _landSound: {fileID: 11400000, guid: 54f048de91b565549b4f9d757d43e0ca, type: 2}
+  _landVolume: 1
+  _dashSound: {fileID: 11400000, guid: 7b19752b623fd854c8ccd08d34b1b81c, type: 2}
+  _dashVolume: 1
+  _fallSound: {fileID: 11400000, guid: 24d0bf0f115f64c45a40f9b8c4a6446d, type: 2}
+  _fallVolume: 1
+  _sacrificeSound: {fileID: 11400000, guid: cc3e3df02de1f8140b780b6ad9a637b1, type: 2}
+  _sacrificeVolume: 1
+  _shrinkSound: {fileID: 11400000, guid: 2d5e5fd8fa6c3bf458a22a395ac509f1, type: 2}
+  _shrinkVolume: 1
+  _enlargeSound: {fileID: 11400000, guid: 3d3f43e56f483d24b9390d5e3a8d7261, type: 2}
+  _enlargeVolume: 1
 --- !u!1 &2123979768663703372
 GameObject:
   m_ObjectHideFlags: 0
