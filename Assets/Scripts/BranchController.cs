@@ -6,10 +6,14 @@ namespace GDS3
 {
     public class BranchController : MonoBehaviour
     {
-        public BoolReference _isPlayerSmall;
-        public Animator _myAnimator;
-        public EdgeCollider2D _myCollider;
-        public EdgeCollider2D _myBottomCollider;
+        [SerializeField] private BoolReference _isPlayerSmall;
+        [SerializeField] private Animator _myAnimator;
+        [SerializeField] private EdgeCollider2D _myCollider;
+        [SerializeField] private EdgeCollider2D _myBottomCollider;
+        [SerializeField] private AudioSource _myAudioSource;
+        [SerializeField] private Sound _bendingBranchSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _bendingBranchSoundVolume;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -18,6 +22,7 @@ namespace GDS3
                 if (collision.otherCollider == (_myCollider as Collider2D))
                 {
                     _myAnimator.SetTrigger("down");
+                    _bendingBranchSound.Play(_myAudioSource, _bendingBranchSoundVolume);
                 }
             }
         }
