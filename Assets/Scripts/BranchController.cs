@@ -14,6 +14,9 @@ namespace GDS3
         [SerializeField] private Sound _bendingBranchSound;
         [Range(0.0f, 1.0f)]
         [SerializeField] private float _bendingBranchSoundVolume;
+        [SerializeField] private Sound _bendingBranchBackSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _bendingBranchBackSoundVolume;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -38,6 +41,11 @@ namespace GDS3
         {
             _myCollider.enabled = true;
             _myBottomCollider.enabled = true;
+        }
+
+        public void PlayBendBackSound()
+        {
+            _bendingBranchBackSound.Play(_myAudioSource, _bendingBranchBackSoundVolume);
         }
     }
 }
