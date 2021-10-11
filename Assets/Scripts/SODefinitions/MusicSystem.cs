@@ -86,6 +86,15 @@ namespace GDS3
             }
         }
 
+        private IEnumerator FadeOutMusic(float fadeOutTime)
+        {
+            for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
+            {
+                _currentAudioSource.volume = _musicVolume.Value * (1 - (t / fadeOutTime));
+                yield return null;
+            }
+        }
+
         public static MusicSystem Instance
         {
             get
@@ -104,6 +113,11 @@ namespace GDS3
             }
         }
 
+        public void StopMusic()
+        {
+            GameAssets._instance.StartCoroutine(FadeOutMusic(_transitionTime));
+        }
+
         public void OnEventRaised(GameEvent gameEvent)
         {
             float seconds;
@@ -116,8 +130,9 @@ namespace GDS3
                 _musicAudioSource2 = musicObject2.AddComponent<AudioSource>();
                 _musicAudioSource1.loop = false;
                 _musicAudioSource2.loop = false;
+                _musicAudioSource1.volume = _musicVolume.Value;
+                _musicAudioSource2.volume = _musicVolume.Value;
                 _currentAudioSource = _musicAudioSource1;
-                _currentAudioSource.volume = _musicVolume.Value;
             }
             if (_musicStateChangedEvent == gameEvent)
             {

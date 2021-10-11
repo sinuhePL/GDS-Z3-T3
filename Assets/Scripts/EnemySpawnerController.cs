@@ -23,7 +23,7 @@ namespace GDS3
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Player" && !_isEnemyKilled)
             {
                 _enemy.SetActive(false);
                 _enemyAvoidedEvent.Invoke();

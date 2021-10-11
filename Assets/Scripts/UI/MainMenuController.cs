@@ -12,7 +12,7 @@ namespace GDS3
 
         public void StartGamePressed()
         {
-            SceneManager.LoadScene("LevelScene");
+            MusicSystem.Instance.StopMusic();
         }
 
         public void CreditsPressed()
