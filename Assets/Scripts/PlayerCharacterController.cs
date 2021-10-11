@@ -17,6 +17,7 @@ namespace GDS3
         [Header("Jump Ability")]
         public FloatReference _jumpTime;
         public FloatReference _jumpHeight;
+        public FloatReference _jumpSmallModifier;
         public FloatReference _currentVerticalSpeed;
         public float _groundCheckRadius;
         public LayerMask _whatIsGround;

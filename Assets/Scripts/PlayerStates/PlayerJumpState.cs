@@ -16,7 +16,7 @@ namespace GDS3
                 float sizeModifier = 1.0f;
                 if (_myController._isPlayerSmall.Value)
                 {
-                    sizeModifier = 2 / _myController._sizeChangeFactor.Value;
+                    sizeModifier = controller._jumpSmallModifier.Value;
                 }
                 _myController._myJump.Jump(_jumpYVelocity * sizeModifier);
             }
