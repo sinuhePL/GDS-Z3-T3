@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GDS3
 {
@@ -14,6 +15,8 @@ namespace GDS3
         [SerializeField] private Sound _activationSound;
         [Range(0.0f, 1.0f)]
         [SerializeField] private float _activationSoundVolume;
+        [SerializeField] private UnityEvent _respawnActivatedEvent;
+
         private bool _isActivated = false;
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +27,7 @@ namespace GDS3
                 _respawnParticleSystem.Play();
                 _activationSound.Play(_myAudioSource, _activationSoundVolume);
                 _isActivated = true;
+                _respawnActivatedEvent.Invoke();
             }
         }
     }

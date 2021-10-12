@@ -167,7 +167,7 @@ namespace GDS3
         {
             _isFollowing = false;
             Vector3 newPosition = new Vector3(_lastSpawnPoint.Value.x + _xTargetOffset, _lastSpawnPoint.Value.y + _yTargetOffset, _camera.transform.position.z);
-            Tweener t = _camera.transform.DOMove(newPosition, _moveToSpawnPointTime.Value).SetEase(Ease.OutSine).OnComplete(()=> { _isFollowing = true; _isInputBlocked.Value = false; });
+            _camera.transform.DOMove(newPosition, _moveToSpawnPointTime.Value).SetEase(Ease.OutSine).OnComplete(()=> { _isFollowing = true; _isInputBlocked.Value = false; });
         }
 
         public void Shake()

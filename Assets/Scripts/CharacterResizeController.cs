@@ -14,7 +14,13 @@ namespace GDS3
         [SerializeField] private ParticleSystem _smokeParticleSystem;
         [SerializeField] private ParticleSystem _sparksParticleSystem;
         [SerializeField] private Light _lampLight;
-        [SerializeField] private PlayerSoundController _mySoundController;
+        [SerializeField] private AudioSource _myAudioSource;
+        [SerializeField] private Sound _shrinkSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _shrinkVolume;
+        [SerializeField] private Sound _enlargeSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _enlargeVolume;
         private int _resizeCoroutineId;
         private Vector3 _bigScale;
         private Vector3 _smallScale;
@@ -157,12 +163,12 @@ namespace GDS3
             if (_isResizableSmall.Value)
             {
                 StartCoroutine(Resize(_myResizable.GetFactor(), _myResizable.GetChangetime()));
-                _mySoundController.PlayShrinkSound();
+                _shrinkSound.Play(_myAudioSource, _shrinkVolume);
             }
             else 
             {
                 StartCoroutine(Resize(1 / _myResizable.GetFactor(), _myResizable.GetChangetime()));
-                _mySoundController.PlayEnlargeSound();
+                _enlargeSound.Play(_myAudioSource, _enlargeVolume);
             }
         }
     }

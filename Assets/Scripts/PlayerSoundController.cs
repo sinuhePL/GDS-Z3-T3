@@ -7,18 +7,18 @@ namespace GDS3
 {
     public class PlayerSoundController : SoundController
     {
-        public Sound _landSound;
-        [Range(0.0f, 1.0f)] public float _landVolume;
-        public Sound _dashSound;
-        [Range(0.0f, 1.0f)] public float _dashVolume;
-        public Sound _fallSound;
-        [Range(0.0f, 1.0f)] public float _fallVolume;
-        public Sound _sacrificeSound;
-        [Range(0.0f, 1.0f)] public float _sacrificeVolume;
-        public Sound _shrinkSound;
-        [Range(0.0f, 1.0f)] public float _shrinkVolume;
-        public Sound _enlargeSound;
-        [Range(0.0f, 1.0f)] public float _enlargeVolume;
+        [SerializeField] private Sound _landSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _landVolume;
+        [SerializeField] private Sound _dashSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _dashVolume;
+        [SerializeField] private Sound _fallSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _fallVolume;
+        [SerializeField] private Sound _sacrificeSound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _sacrificeVolume;
 
         public void PlayLandSound()
         {
@@ -42,18 +42,6 @@ namespace GDS3
         {
             Assert.IsNotNull(_sacrificeSound);
             _sacrificeSound.Play(_myAudioSource, _sacrificeVolume);
-        }
-
-        public void PlayShrinkSound()
-        {
-            Assert.IsNotNull(_shrinkSound);
-            _shrinkSound.Play(_myAudioSource, _shrinkVolume);
-        }
-
-        public void PlayEnlargeSound()
-        {
-            Assert.IsNotNull(_enlargeSound);
-            _enlargeSound.Play(_myAudioSource, _enlargeVolume);
         }
     }
 }
