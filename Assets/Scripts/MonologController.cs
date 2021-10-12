@@ -32,7 +32,7 @@ namespace GDS3
                 yield return 0;
             }
             _cloud.enabled = false;
-            _isInputBlocked.Value = false;
+            /*_isInputBlocked.Value = false;*/
             _cloudText.enabled = false;
         }
 
@@ -54,7 +54,7 @@ namespace GDS3
 
         public void ShowMonolog(string monolog)
         {
-            _isInputBlocked.Value = true;
+            /*_isInputBlocked.Value = true;*/
             _cloudText.text = monolog;
             if(monolog.Length < 70)
             {
@@ -81,7 +81,7 @@ namespace GDS3
             if(Keyboard.current.anyKey.wasPressedThisFrame && !_isAnyKeyPressed && !Keyboard.current.qKey.isPressed)
             {
                 _cloud.enabled = false;
-                _isInputBlocked.Value = false;
+                /*_isInputBlocked.Value = false;*/
                 _cloudText.enabled = false;
                 _isAnyKeyPressed = true;
             }
