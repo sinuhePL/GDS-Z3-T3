@@ -18,6 +18,7 @@ namespace GDS3
             controlledBody.velocity = new Vector2(controlledBody.velocity.x, 0.0f);
             _myController._currentCooldownTime = _myController._dashCooldownTime.Value;
             controlledAnimator.SetTrigger("dash");
+            controller._dashParticleSystem.Play();
             if (controlledTransform.localScale.x > 0 && controller.RightFacing() || controlledTransform.localScale.x < 0 && !controller.RightFacing())
             {
                 hit = Physics2D.Raycast(controller._dashCheck.position, controlledTransform.TransformDirection(Vector3.right), _myController._dashDistance.Value, controller._dashObstacles);
@@ -67,10 +68,12 @@ namespace GDS3
                 controlledBody.isKinematic = false;
                 if (CheckIfLanded(groundMask, groundCheck.position))
                 {
+                    _myController._dashParticleSystem.Stop();
                     return new PlayerOnGroundState(_myController);
                 }
                 else
                 {
+                    _myController._dashParticleSystem.Stop();
                     return new PlayerJumpState(_myController);
                 }
             }

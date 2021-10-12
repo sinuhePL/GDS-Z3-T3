@@ -28,6 +28,7 @@ namespace GDS3
         public FloatReference _dashDistance;
         public FloatReference _dashCooldownTime;
         public Transform _dashCheck;
+        public ParticleSystem _dashParticleSystem;
         [HideInInspector] public float _lastDashTime;
         public LayerMask _dashObstacles;
         [Header("Attack Ability")]
