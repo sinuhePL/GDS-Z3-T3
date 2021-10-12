@@ -29,6 +29,12 @@ namespace GDS3
             _isActivationEnabled = true;
         }
 
+        private IEnumerator PlaySoundWithDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            _buttonPressedSound.Play(_myAudioSource, _buttonPressedSoundVolume);
+        }
+
         public override void Interact(PlayerCharacterController player)
         {
             Debug.Log("Interact distance: " + Vector3.Distance(transform.position, player._groundCheck.position));
@@ -48,6 +54,7 @@ namespace GDS3
         public void ReleaseButton()
         {
             Sequence buttonSequence = DOTween.Sequence();
+            StartCoroutine(PlaySoundWithDelay(_interactionTime * 2));
             buttonSequence.PrependInterval(_interactionTime*2);
             buttonSequence.Append(transform.DOMove(_startingPosition, _interactionTime).OnComplete(()=>ResetButton()));
         }
