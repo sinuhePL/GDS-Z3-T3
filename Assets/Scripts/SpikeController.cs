@@ -16,11 +16,13 @@ namespace GDS3
         [Range(0.0f, 1.0f)] public float _spikeVolume;
         private bool _isGamePaused;
         private bool _allowFixedUpdate;
+        private float _initialYPosition;
 
         private void Awake()
         {
             _isGamePaused = false;
             _allowFixedUpdate = true;
+            _initialYPosition = transform.position.y;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -37,16 +39,21 @@ namespace GDS3
             }
         }
 
+        private void FitSpikeToGround()
+        {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.position.x, _initialYPosition + 2.0f, transform.position.z), transform.TransformDirection(Vector3.down), 10.0f, _whatIsGround);
+            if (hit.collider != null && hit.distance > 0.0f)
+            {
+                Debug.DrawRay(new Vector3(transform.position.x, _initialYPosition + 2.0f, transform.position.z), transform.TransformDirection(Vector3.down) * 10.0f, Color.yellow);
+                transform.position = new Vector3(transform.position.x, _initialYPosition - hit.distance + 2.0f - 0.3f, transform.position.z);
+            }
+        }
+
         private void FixedUpdate()
         {
             if (_allowFixedUpdate)
             {
-                RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down), 4.0f, _whatIsGround);
-                if (hit.collider != null && hit.distance > 0.0f)
-                {
-                    Debug.DrawRay(transform.position + new Vector3(0.0f, 2.0f, 0.0f), transform.TransformDirection(Vector3.down) * 4.0f, Color.yellow);
-                    transform.position = new Vector3(transform.position.x, transform.position.y - hit.distance + 2.0f - 0.3f, transform.position.z);
-                }
+                FitSpikeToGround();
             }
         }
 
@@ -68,6 +75,7 @@ namespace GDS3
         public void SlideOut(float slideTime, float returnDelay, float spikeHeight)
         {
             _allowFixedUpdate = false;
+            FitSpikeToGround();
             float startingYPosition = transform.position.y;
             _dirtBurst.Play();
             Sequence spikeSequence = DOTween.Sequence();
