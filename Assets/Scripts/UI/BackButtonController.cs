@@ -8,6 +8,7 @@ namespace GDS3
     {
         public void BackButtonPressed()
         {
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

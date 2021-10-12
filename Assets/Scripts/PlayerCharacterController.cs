@@ -312,7 +312,6 @@ namespace GDS3
             if (context.performed)
             {
                 _menuEvent.Invoke();
-                _pauseEvent.Invoke();
             }
         }
 

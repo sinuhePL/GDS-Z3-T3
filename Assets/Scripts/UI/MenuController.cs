@@ -14,12 +14,14 @@ namespace GDS3
         [SerializeField] private FadeOutController _myFadeOut;
         private bool _isMenuActive;
         private GameObject _yesNoPanel;
+        private GameObject _settingsPanel;
 
         private void Awake()
         {
             _menuPanel.SetActive(false);
             _isMenuActive = false;
             _yesNoPanel = null;
+            _settingsPanel = null;
         }
 
         private void YesClicked()
@@ -36,11 +38,24 @@ namespace GDS3
         {
             if(_isMenuActive)
             {
-                _menuPanel.SetActive(false);
-                _isMenuActive = false;
+                if (_settingsPanel != null && _settingsPanel.activeSelf)
+                {
+                    Destroy(_settingsPanel);
+                    _settingsPanel = null;
+                }
+                else if (_yesNoPanel != null && _yesNoPanel.activeSelf)
+                {
+                    Destroy(_yesNoPanel);
+                    _yesNoPanel = null;
+                }
+                else
+                {
+                    BackPressed();
+                }
             }
             else
             {
+                _pausePressedEvent.Invoke();
                 _menuPanel.SetActive(true);
                 _isMenuActive = true;
             }
@@ -55,8 +70,8 @@ namespace GDS3
 
         public void SettingsPressed()
         {
-            GameObject settingsPanel = Instantiate(_settingsPrefab, transform.parent);
-            settingsPanel.transform.localPosition = new Vector3(0, -100, 0);
+            _settingsPanel = Instantiate(_settingsPrefab, transform.parent);
+            _settingsPanel.transform.localPosition = new Vector3(0, -100, 0);
         }
 
         public void QuitPressed()
