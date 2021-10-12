@@ -66,10 +66,13 @@ namespace GDS3
         private IEnumerator UpdateMusicWithCrossFade(AudioSource original, AudioSource newSource, float transitionTime)
         {
             float t = 0.0f;
+            float interpolationPoint;
+
             for (t = 0; t < transitionTime; t += Time.deltaTime)
             {
-                original.volume = _musicVolume.Value * (1 - (t / transitionTime));
-                newSource.volume = _musicVolume.Value * (t / transitionTime);
+                interpolationPoint = t / transitionTime;
+                original.volume = Mathf.Lerp(1.0f, 0.0f, interpolationPoint);
+                newSource.volume = Mathf.Lerp(0.0f, 1.0f, interpolationPoint);
                 yield return null;
             }
             original.Stop();
@@ -88,10 +91,11 @@ namespace GDS3
 
         private IEnumerator FadeOutMusic(float fadeOutTime)
         {
+            float interpolationPoint;
             for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
             {
-                _currentAudioSource.volume = _musicVolume.Value * (1 - (t / fadeOutTime));
-                Debug.Log(_currentAudioSource.volume);
+                interpolationPoint = t / fadeOutTime;
+                _currentAudioSource.volume = Mathf.Lerp(1.0f, 0.0f, interpolationPoint);
                 yield return null;
             }
         }
