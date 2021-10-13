@@ -119,6 +119,7 @@ namespace GDS3
             _pauseEvent.Invoke();
             StartCoroutine(FadeText(false, false));
             _startLevelEvent.Invoke();
+            Cursor.visible = false;
         }
 
         public void EndGameFade()

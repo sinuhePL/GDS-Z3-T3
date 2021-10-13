@@ -58,11 +58,13 @@ namespace GDS3
                 _pausePressedEvent.Invoke();
                 _menuPanel.SetActive(true);
                 _isMenuActive = true;
+                Cursor.visible = true;
             }
         }
 
         public void BackPressed()
         {
+            Cursor.visible = false;
             _menuPanel.SetActive(false);
             _isMenuActive = false;
             _pausePressedEvent.Invoke();
