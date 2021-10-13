@@ -51,6 +51,7 @@ namespace GDS3
             }
             else if(isFadeOut && !isGameEnd)
             {
+                _myText.color = new Color(_myText.color.r, _myText.color.g, _myText.color.b, 0.0f);
                 StartCoroutine(FadeImage(false));
             }
         }
