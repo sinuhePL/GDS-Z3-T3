@@ -336,6 +336,11 @@ namespace GDS3
             _myAttack.MakeAttack(0.0f, null);
         }
 
+        public void BlockInput()
+        {
+            _isInputBlocked.Value = true;
+        }
+
         public void UnblockInput()
         {
             _isInputBlocked.Value = false;

@@ -117,7 +117,7 @@ namespace GDS3
 
         public void MoveMe(float moveSpeed, bool ignoreGround)
         {
-            if (!_isGamePaused)
+            if (!_isGamePaused && _myBrain._currentHitPoints.Value > 0)
             {
                 _myMovement.Move(moveSpeed, ignoreGround);
                 _myAnimator.SetFloat("walk_speed", Mathf.Abs(moveSpeed));
@@ -130,7 +130,10 @@ namespace GDS3
 
         public void Jump(float jumpYVelocity)
         {
-            _myJump.Jump(jumpYVelocity);
+            if (!_isGamePaused && _myBrain._currentHitPoints.Value > 0)
+            {
+                _myJump.Jump(jumpYVelocity);
+            }
         }
 
         public void Attack()
@@ -193,6 +196,7 @@ namespace GDS3
             Debug.Log("Pozostało życia: " + _myBrain._currentHitPoints.Value);
             if(_myBrain._currentHitPoints.Value == 0)
             {
+                _myBody.isKinematic = true;
                 _hitEvent.Invoke();
                 _killedEvent.Invoke();
                 Instantiate(_firePrefab, _firePosition.position, _firePrefab.transform.rotation);
