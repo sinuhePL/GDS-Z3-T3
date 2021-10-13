@@ -38,11 +38,11 @@ MonoBehaviour:
     _variable: {fileID: 0}
   _dashVelocity:
     _useConstant: 1
-    _constantValue: 9
+    _constantValue: 8
     _variable: {fileID: 0}
   _dashDistance:
     _useConstant: 1
-    _constantValue: 10
+    _constantValue: 9
     _variable: {fileID: 0}
   _dashCooldownTime:
     _useConstant: 1
@@ -92,6 +92,6 @@ MonoBehaviour:
   _targetTransform: {fileID: 0}
   _attackEndPosition: {x: 0, y: 0, z: 0}
   _jumpYVelocity: 0
-  _stateTimeElapsted: 2.6543696
+  _stateTimeElapsted: 10.244425
   _currentCooldownTime: 0
   _isAttackFinished: 0
