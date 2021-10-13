@@ -18,7 +18,6 @@ namespace GDS3
             controlledBody.velocity = new Vector2(controlledBody.velocity.x, 0.0f);
             _myController._currentCooldownTime = _myController._dashCooldownTime.Value;
             controlledAnimator.SetTrigger("dash");
-            controller._dashParticleSystem.Play();
             if (controlledTransform.localScale.x > 0 && controller.RightFacing() || controlledTransform.localScale.x < 0 && !controller.RightFacing())
             {
                 hit = Physics2D.Raycast(controller._dashCheck.position, controlledTransform.TransformDirection(Vector3.right), _myController._dashDistance.Value, controller._dashObstacles);
@@ -27,6 +26,7 @@ namespace GDS3
                 {
                     dashDistance = hit.distance;
                 }
+                Debug.DrawRay(controller._dashCheck.position, controller.transform.TransformDirection(Vector3.forward) * dashDistance, Color.yellow);
                 _myController._attackEndPosition = new Vector3(controlledTransform.position.x + dashDistance, controlledTransform.position.y, controlledTransform.position.z);
             }
             else
@@ -35,10 +35,13 @@ namespace GDS3
                 dashDistance = _myController._dashDistance.Value;
                 if (hit.collider != null)
                 {
-                    dashDistance = hit.distance;
+                    dashDistance = hit.distance - 0.5f;
                 }
+                Debug.DrawRay(controller._dashCheck.position, controller.transform.TransformDirection(Vector3.forward) * dashDistance, Color.yellow);
                 _myController._attackEndPosition = new Vector3(controlledTransform.position.x - dashDistance, controlledTransform.position.y, controlledTransform.position.z);
+                controller._dashParticleSystem.transform.localScale = new Vector3(-controller._dashParticleSystem.transform.localScale.x, controller._dashParticleSystem.transform.localScale.y, controller._dashParticleSystem.transform.localScale.z);
             }
+            controller._dashParticleSystem.Play();
             _gizmoColor = Color.blue;
         }
 
@@ -62,8 +65,8 @@ namespace GDS3
             {
                 _myController._myMovement.Move(-_myController._dashVelocity.Value, true);
             }
-            hitColliders = Physics2D.OverlapCircleAll(_myController._dashCheck.position, 0.1f, _myController._dashObstacles);
-            if (Mathf.Abs(controlledTransform.position.x - _myController._attackEndPosition.x) < 0.2f || hitColliders.Length > 0)
+            hitColliders = Physics2D.OverlapCircleAll(_myController._dashCheck.position, 0.5f, _myController._dashObstacles);
+            if (Mathf.Abs(controlledTransform.position.x - _myController._attackEndPosition.x) < 0.5f || hitColliders.Length > 0)
             {
                 controlledBody.isKinematic = false;
                 if (CheckIfLanded(groundMask, groundCheck.position))
