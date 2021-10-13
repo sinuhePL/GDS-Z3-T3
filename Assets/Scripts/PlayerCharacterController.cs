@@ -41,6 +41,7 @@ namespace GDS3
         public FloatReference _sizeChangeFactor;
         public FloatReference _sizeChangeTime;
         public LayerMask _resizeBlockerMask;
+        public LayerMask _deadlyForSmallMask;
         public Transform _heightCheck;
         public string _resizeBlockedStatement;
         public UnityEvent _sizeChangeEvent;
@@ -169,6 +170,15 @@ namespace GDS3
                 {
                     _movementValue = 0.0f;
                 }
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            bool isDeadly = _deadlyForSmallMask == (_deadlyForSmallMask | (1 << collision.gameObject.layer));
+            if (isDeadly && _isPlayerSmall.Value)
+            {
+                Hit();
             }
         }
 

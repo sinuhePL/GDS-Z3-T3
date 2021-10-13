@@ -15978,6 +15978,9 @@ MonoBehaviour:
   _resizeBlockerMask:
     serializedVersion: 2
     m_Bits: 1024
+  _deadlyForSmallMask:
+    serializedVersion: 2
+    m_Bits: 512
   _heightCheck: {fileID: 25672048466574050}
   _resizeBlockedStatement: Jest za nisko!
   _sizeChangeEvent:
@@ -16073,9 +16076,6 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
-  _deadlyForSmallMask:
-    serializedVersion: 2
-    m_Bits: 512
   _killedEvent:
     m_PersistentCalls:
       m_Calls:

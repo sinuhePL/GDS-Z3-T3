@@ -8,7 +8,6 @@ namespace GDS3
     public class CharacterResizeController : MonoBehaviour
     {
         [SerializeField] private BoolReference _isResizableSmall;
-        [SerializeField] private LayerMask _deadlyForSmallMask;
         [SerializeField] private UnityEvent _killedEvent;
         [SerializeField] private ParticleSystem _fireParticleSystem;
         [SerializeField] private ParticleSystem _smokeParticleSystem;
@@ -56,15 +55,6 @@ namespace GDS3
                     _smallLighIntensity = _lampLight.intensity / _myResizable.GetFactor();
                     _bigLightIntensity = _lampLight.intensity;
                 }
-            }
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            bool isDeadly = _deadlyForSmallMask == (_deadlyForSmallMask | (1 << collision.gameObject.layer));
-            if (isDeadly && _isResizableSmall.Value)
-            {
-                _killedEvent.Invoke();
             }
         }
 
