@@ -27,6 +27,10 @@ namespace GDS3
                     dashDistance = hit.distance;
                 }
                 Debug.DrawRay(controller._dashCheck.position, controller.transform.TransformDirection(Vector3.forward) * dashDistance, Color.yellow);
+                if (controller._dashParticleSystem.transform.localScale.x < 0.0f)
+                {
+                    controller._dashParticleSystem.transform.localScale = new Vector3(-controller._dashParticleSystem.transform.localScale.x, controller._dashParticleSystem.transform.localScale.y, controller._dashParticleSystem.transform.localScale.z);
+                }
                 _myController._attackEndPosition = new Vector3(controlledTransform.position.x + dashDistance, controlledTransform.position.y, controlledTransform.position.z);
             }
             else
@@ -39,7 +43,10 @@ namespace GDS3
                 }
                 Debug.DrawRay(controller._dashCheck.position, controller.transform.TransformDirection(Vector3.forward) * dashDistance, Color.yellow);
                 _myController._attackEndPosition = new Vector3(controlledTransform.position.x - dashDistance, controlledTransform.position.y, controlledTransform.position.z);
-                controller._dashParticleSystem.transform.localScale = new Vector3(-controller._dashParticleSystem.transform.localScale.x, controller._dashParticleSystem.transform.localScale.y, controller._dashParticleSystem.transform.localScale.z);
+                if (controller._dashParticleSystem.transform.localScale.x > 0.0f)
+                {
+                    controller._dashParticleSystem.transform.localScale = new Vector3(-controller._dashParticleSystem.transform.localScale.x, controller._dashParticleSystem.transform.localScale.y, controller._dashParticleSystem.transform.localScale.z);
+                }
             }
             controller._dashParticleSystem.Play();
             _gizmoColor = Color.blue;
