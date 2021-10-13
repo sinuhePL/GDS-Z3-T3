@@ -25489,6 +25489,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+  _myCollider: {fileID: 0}
 --- !u!212 &592901803 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212577691363948486, guid: dc06239c999ee784db363fe9663869e2,
@@ -36877,7 +36878,7 @@ PrefabInstance:
     - target: {fileID: 6005393494116217783, guid: 028a34d5df2e6b640b67dcb654556785,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8958105785009587604, guid: 028a34d5df2e6b640b67dcb654556785,
         type: 3}
@@ -40544,6 +40545,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+  _myCollider: {fileID: 0}
 --- !u!212 &903221489 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212577691363948486, guid: dc06239c999ee784db363fe9663869e2,
@@ -40960,6 +40962,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+  _myCollider: {fileID: 0}
 --- !u!212 &916771504 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212577691363948486, guid: dc06239c999ee784db363fe9663869e2,
@@ -68020,6 +68023,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+  _myCollider: {fileID: 0}
 --- !u!212 &1584119864 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212382961077101606, guid: a06318ddb3815b044be9e4546d0978d0,
@@ -81955,6 +81959,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+  _myCollider: {fileID: 0}
 --- !u!212 &1938297941 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212382961077101606, guid: a06318ddb3815b044be9e4546d0978d0,
@@ -89705,7 +89710,7 @@ PrefabInstance:
     - target: {fileID: 2844626931024861687, guid: 6fc8e01acb134d7488d3e2678538e002,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 3613.817
+      value: 3613.818
       objectReference: {fileID: 0}
     - target: {fileID: 3052767642472766479, guid: 6fc8e01acb134d7488d3e2678538e002,
         type: 3}
@@ -89930,12 +89935,12 @@ PrefabInstance:
     - target: {fileID: 7339660216885764503, guid: 6fc8e01acb134d7488d3e2678538e002,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.56
+      value: -11.78
       objectReference: {fileID: 0}
     - target: {fileID: 7339660216885764503, guid: 6fc8e01acb134d7488d3e2678538e002,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.23
+      value: 10.52
       objectReference: {fileID: 0}
     - target: {fileID: 7339660216885764503, guid: 6fc8e01acb134d7488d3e2678538e002,
         type: 3}

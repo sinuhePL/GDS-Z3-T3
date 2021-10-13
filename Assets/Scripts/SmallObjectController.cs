@@ -9,6 +9,7 @@ namespace GDS3
         [SerializeField] private SpriteRenderer _mySpriteRenderer;
         [SerializeField] private BoolReference _isSmallSize;
         [SerializeField] private FloatReference _sizeChangeTime;
+        [SerializeField] private Collider2D _myCollider;
         private float _initialAlpha;
         private int _resizeCoroutineId;
 
@@ -17,6 +18,10 @@ namespace GDS3
             _initialAlpha = _mySpriteRenderer.color.a;
             _mySpriteRenderer.color = new Color(_mySpriteRenderer.color.r, _mySpriteRenderer.color.g, _mySpriteRenderer.color.b, 0.0f);
             _resizeCoroutineId = 0;
+            if (_myCollider != null)
+            {
+                _myCollider.enabled = false;
+            }
         }
 
         private IEnumerator ChangeAlpha()
@@ -31,11 +36,19 @@ namespace GDS3
             {
                 startingAlpha = _mySpriteRenderer.color.a;
                 targetAlpha = _initialAlpha;
+                if (_myCollider != null)
+                {
+                    _myCollider.enabled = true;
+                }
             }
             else
             {
                 startingAlpha = _mySpriteRenderer.color.a;
                 targetAlpha = 0.0f;
+                if (_myCollider != null)
+                {
+                    _myCollider.enabled = false;
+                }
             }
             float resizeTime = proportion * Mathf.Abs(startingAlpha - targetAlpha);
             for (float t = 0; t < resizeTime && myId == _resizeCoroutineId; t += Time.deltaTime)
