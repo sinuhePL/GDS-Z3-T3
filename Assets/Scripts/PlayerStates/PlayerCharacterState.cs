@@ -119,11 +119,15 @@ namespace GDS3
                     Interactable interactableObject = collider.gameObject.GetComponent<Interactable>();
                     if (interactableObject != null)
                     {
-                        interactableObject.Interact(_myController);
-                        if(collider.gameObject.gameObject.tag == "EndGame")
+                        if(collider.gameObject.tag == "EndGame")
                         {
                             _myController._myAnimator.SetTrigger("sacrifice");
                         }
+                        if(collider.gameObject.tag == "Key")
+                        {
+                            _myController._myAnimator.SetTrigger("take");
+                        }
+                        interactableObject.Interact(_myController);
                     }
                 }
             }

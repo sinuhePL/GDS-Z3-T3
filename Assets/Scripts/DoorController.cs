@@ -14,6 +14,7 @@ namespace GDS3
         [SerializeField] private Sound _doorOpenSound;
         [Range(0.0f, 1.0f)]
         [SerializeField] private float _openDoorSoundVolume;
+        [SerializeField] private float _delay;
         private Vector3 _closedPosition;
         private bool _isClosed;
 
@@ -24,26 +25,32 @@ namespace GDS3
             _isClosed = true;
         }
 
+        private IEnumerator InteractCoroutine(PlayerCharacterController player)
+        {
+            yield return new WaitForSeconds(_delay);
+            Color highlightColor = _highlightSpriteRenderer.color;
+            highlightColor.a = 0;
+            _highlightSpriteRenderer.color = highlightColor;
+            _isClosed = false;
+            if (player._pocket != null)
+            {
+                Destroy(player._pocket.gameObject);
+                player._pocket = null;
+            }
+            _isActivationEnabled = false;
+            _doorOpenSound.Play(_myAudioSource, _openDoorSoundVolume);
+            if (_myHiddenObject != null)
+            {
+                _myHiddenObject.Hide(_interactionTime);
+            }
+            transform.DOMove(_openPosition.position, _interactionTime).OnComplete(() => _highlightSpriteRenderer.color = highlightColor);
+        }
+
         public override void Interact(PlayerCharacterController player)
         {
             if (_isPlayerSmall.Value && (_matchingKey == null || player._pocket == _matchingKey) && _isClosed)
             {
-                Color highlightColor = _highlightSpriteRenderer.color;
-                highlightColor.a = 0;
-                _highlightSpriteRenderer.color = highlightColor;
-                _isClosed = false;
-                if (player._pocket != null)
-                {
-                    Destroy(player._pocket.gameObject);
-                    player._pocket = null;
-                }
-                _isActivationEnabled = false;
-                _doorOpenSound.Play(_myAudioSource, _openDoorSoundVolume);
-                if(_myHiddenObject != null)
-                {
-                    _myHiddenObject.Hide(_interactionTime);
-                }
-                transform.DOMove(_openPosition.position, _interactionTime).OnComplete(() => _highlightSpriteRenderer.color = highlightColor);
+                StartCoroutine(InteractCoroutine(player));
             }
         }
     }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6840711269203662053}
   m_Layer: 11
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,14 +126,14 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 96290029f4a78d6419370238ca651a6d, type: 2}
   _sizeChangeFactor:
-    _useConstant: 1
+    _useConstant: 0
     _constantValue: 0
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: db5aae758dfdd4248a2e07f04a685902, type: 2}
   _highlightTransitionTime: 1
   _detectionDistance:
-    _useConstant: 1
+    _useConstant: 0
     _constantValue: 0
-    _variable: {fileID: 0}
+    _variable: {fileID: 11400000, guid: f8cfdd379a3ca364baa8a781b92186b7, type: 2}
   _interactionTime: 1
   _interactWhenSmall: 1
   _openPosition: {fileID: 1919426134816041655}
@@ -142,6 +142,7 @@ MonoBehaviour:
   _myAudioSource: {fileID: 6840711269203662053}
   _doorOpenSound: {fileID: 11400000, guid: 16ad5db792bc4aa4080b3aabfb122387, type: 2}
   _openDoorSoundVolume: 1
+  _delay: 0.5
 --- !u!114 &3486728096471070981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5f68f203be32df4439c0d927e27d09a9, type: 2}
+  _myCollider: {fileID: 0}
 --- !u!114 &17217576564129780
 MonoBehaviour:
   m_ObjectHideFlags: 0

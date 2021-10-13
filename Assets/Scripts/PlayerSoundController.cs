@@ -19,6 +19,9 @@ namespace GDS3
         [SerializeField] private Sound _sacrificeSound;
         [Range(0.0f, 1.0f)]
         [SerializeField] private float _sacrificeVolume;
+        [SerializeField] private Sound _takeKeySound;
+        [Range(0.0f, 1.0f)]
+        [SerializeField] private float _takeKeyVolume;
 
         public void PlayLandSound()
         {
@@ -42,6 +45,12 @@ namespace GDS3
         {
             Assert.IsNotNull(_sacrificeSound);
             _sacrificeSound.Play(_myAudioSource, _sacrificeVolume);
+        }
+
+        public void PlayTakeKeySound()
+        {
+            Assert.IsNotNull(_takeKeySound);
+            _takeKeySound.Play(_myAudioSource, _takeKeyVolume);
         }
     }
 }

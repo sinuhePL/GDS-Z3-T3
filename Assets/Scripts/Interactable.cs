@@ -17,6 +17,7 @@ namespace GDS3
         [SerializeField] protected bool _interactWhenSmall;
         protected bool _isActivatorNearby;
         protected bool _isActivationEnabled;
+        protected bool _stopHighlight;
 
         protected virtual void Awake()
         {
@@ -25,6 +26,7 @@ namespace GDS3
             highlightColor.a = 0;
             _highlightSpriteRenderer.color = highlightColor;
             _isActivationEnabled = true;
+            _stopHighlight = false;
         }
 
         protected IEnumerator ChangeHighlight()
@@ -42,13 +44,19 @@ namespace GDS3
                 targetAlpha = 0.0f;
             }
             float transitionTime = _highlightTransitionTime * Mathf.Abs(targetAlpha - startingAlpha);
-            for (float t = 0; t < transitionTime && _isActivatorNearby == wasActivatorNearby; t += Time.deltaTime)
+            for (float t = 0; t < transitionTime && _isActivatorNearby == wasActivatorNearby && !_stopHighlight; t += Time.deltaTime)
             {
                 float interpolationPoint = t / transitionTime;
                 highlightColor = _highlightSpriteRenderer.color;
                 highlightColor.a = Mathf.Lerp(startingAlpha, targetAlpha, interpolationPoint);
                 _highlightSpriteRenderer.color = highlightColor;
                 yield return 0;
+            }
+            if (_stopHighlight)
+            {
+                highlightColor = _highlightSpriteRenderer.color;
+                highlightColor.a = 0.0f;
+                _highlightSpriteRenderer.color = highlightColor;
             }
         }
 
