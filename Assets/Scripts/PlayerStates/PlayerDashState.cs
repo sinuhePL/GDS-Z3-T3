@@ -98,6 +98,11 @@ namespace GDS3
             
         }
 
+        public override PlayerCharacterState Jump()
+        {
+            return null;
+        }
+
         public override PlayerCharacterState Attack()
         {
             return null;

@@ -139,6 +139,14 @@ namespace GDS3
             }
             if (myId == _resizeCoroutineId)
             {
+                if (isFacingRight && transform.localScale.x < 0.0 || !isFacingRight && transform.localScale.x > 0.0) // used when character orientation flipped during shrinking
+                {
+                    isFacingRight = !isFacingRight;
+                    targetScaleX = -targetScaleX;
+                    startingScaleX = -startingScaleX;
+                    _bigScale.x = -_bigScale.x;
+                    _smallScale.x = -_smallScale.x;
+                }
                 transform.localScale = new Vector3(targetScaleX, targetScaleY, 1.0f);
                 _myResizable.SetCurrentSpeed(targetSpeed);
                 _fireParticleSystem.transform.localScale = new Vector3(targetPSScale, targetPSScale, targetPSScale);
